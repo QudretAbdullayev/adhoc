@@ -1,8 +1,7 @@
 @use '@/assets/styles/abstracts/' as *;
 
 // ─── HEADER ──────────────────────────────────────────────────────────────────
-// Logo is in normal page flow (scrolls with page).
-// Nav pill is position:fixed top-right — always visible.
+// Logo in normal flow. Nav pill fixed top-right — always visible.
 
 .header {
   position: relative;
@@ -22,7 +21,7 @@
   line-height: 1;
   letter-spacing: -0.5rem;
   text-transform: lowercase;
-  color: $carbon;
+  color: $white;
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
@@ -31,10 +30,9 @@
   &:hover { opacity: 0.65; }
 }
 
-.logoDot { color: $lavender; }
+.logoDot { color: $teal; }
 
 // ── FIXED NAV PILL ────────────────────────────────────────────────────────────
-// Floats fixed in the top-right corner over the page.
 
 .navFixed {
   position: fixed;
@@ -45,21 +43,21 @@
   align-items: center;
   gap: 4rem;
   border-radius: 100rem;
-  backdrop-filter: blur(12rem);
-  border: 1.5rem solid rgba($lavender, 0.3);
-  background: rgba(#111111, 0.8);
+  backdrop-filter: blur(20rem);
+  -webkit-backdrop-filter: blur(20rem);
+  border: 1.5rem solid $glass-border;
+  background: rgba($navy, 0.82);
   padding: 6rem 6rem 6rem 20rem;
   transition: background 0.4s ease, border-color 0.4s ease, padding 0.5s ease;
 
-  // On scroll: compact, no nav links
   &.scrolled {
-    background: rgba(#111111, 0.88);
-    border-color: rgba($lavender, 0.12);
+    background: rgba($navy, 0.92);
+    border-color: $glass-border-s;
     padding: 6rem;
   }
 }
 
-// ── NAV LINKS — collapse on scroll ───────────────────────────────────────────
+// ── NAV LINKS ─────────────────────────────────────────────────────────────────
 
 .navLinks {
   display: flex;
@@ -82,7 +80,7 @@
   font-size: 14rem;
   font-weight: 300;
   line-height: 1;
-  color: rgba($white, 0.75);
+  color: rgba($white, 0.65);
   padding: 8rem 14rem;
   border-radius: 100rem;
   white-space: nowrap;
@@ -90,7 +88,7 @@
 
   &:hover {
     color: $white;
-    background: rgba($white, 0.07);
+    background: rgba($white, 0.06);
   }
 }
 
@@ -101,8 +99,8 @@
   font-size: 14rem;
   font-weight: 500;
   line-height: 1;
-  color: $carbon;
-  background: $lavender;
+  color: $navy;
+  background: $teal;
   padding: 0 20rem;
   height: 40rem;
   border-radius: 100rem;
@@ -110,15 +108,16 @@
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: background 0.25s, transform 0.2s;
+  transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
 
   &:hover {
-    background: darken(#EDE9FE, 7%);
+    background: lighten(#0BC8D8, 8%);
+    box-shadow: 0 0 16rem rgba($teal, 0.35);
     transform: scale(1.03);
   }
 }
 
-// ── MENU BUTTON — slides in on scroll ────────────────────────────────────────
+// ── MENU BUTTON ───────────────────────────────────────────────────────────────
 
 .menuBtn {
   display: inline-flex;
@@ -129,8 +128,8 @@
   font-weight: 500;
   line-height: 1;
   color: rgba($white, 0.85);
-  background: rgba($white, 0.08);
-  border: 1.5rem solid rgba($white, 0.1);
+  background: $glass-bg;
+  border: 1.5rem solid $glass-border-s;
   padding: 0 18rem;
   height: 40rem;
   border-radius: 100rem;
@@ -138,7 +137,6 @@
   white-space: nowrap;
   flex-shrink: 0;
 
-  // Hidden by default (clipped off to the right)
   max-width: 0;
   overflow: hidden;
   opacity: 0;
@@ -154,13 +152,9 @@
     pointer-events: auto;
   }
 
-  &:hover {
-    background: rgba($white, 0.14);
-  }
+  &:hover { background: $glass-bg-hover; }
 
-  &.menuBtnActive {
-    background: rgba($white, 0.14);
-  }
+  &.menuBtnActive { background: $glass-bg-hover; }
 }
 
 .menuIcon {
@@ -196,18 +190,31 @@
 
 .menuLabel { white-space: nowrap; }
 
-// ─── OVERLAY (full-screen menu) ───────────────────────────────────────────────
+// ─── OVERLAY ─────────────────────────────────────────────────────────────────
 
 .overlay {
   position: fixed;
   inset: 0;
   z-index: 199;
-  background: #111111;
+  background: $navy;
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.55s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+
+  // ambient glow inside overlay
+  &::before {
+    content: '';
+    position: fixed;
+    width: 700rem;
+    height: 700rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($teal, 0.08) 0%, transparent 65%);
+    top: -200rem;
+    right: -200rem;
+    pointer-events: none;
+  }
 }
 
 .overlayOpen {
@@ -215,6 +222,7 @@
 }
 
 .overlayContent {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -237,14 +245,14 @@
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -2rem;
-  color: rgba($white, 0.8);
+  color: rgba($white, 0.7);
   text-transform: uppercase;
   padding: 20rem 0;
-  border-bottom: 1rem solid rgba($white, 0.07);
+  border-bottom: 1rem solid rgba($white, 0.06);
   opacity: 0;
   transform: translateY(20rem);
   transition:
-    opacity 0.45s ease calc(var(--i) * 0.06s + 0.08s),
+    opacity  0.45s ease calc(var(--i) * 0.06s + 0.08s),
     transform 0.45s ease calc(var(--i) * 0.06s + 0.08s),
     color 0.2s;
 
@@ -253,14 +261,14 @@
     transform: translateY(0);
   }
 
-  &:hover { color: $lavender; }
+  &:hover { color: $teal; }
 }
 
 .overlayLinkNum {
   font-family: '74Regular';
   font-size: 12rem;
   letter-spacing: 1rem;
-  color: rgba($white, 0.2);
+  color: rgba($white, 0.18);
   flex-shrink: 0;
   padding-top: 6rem;
 }
@@ -271,7 +279,7 @@
   justify-content: space-between;
   margin-top: 48rem;
   padding-top: 28rem;
-  border-top: 1rem solid rgba($white, 0.08);
+  border-top: 1rem solid rgba($white, 0.07);
   opacity: 0;
   transform: translateY(10rem);
   transition: opacity 0.4s ease 0.42s, transform 0.4s ease 0.42s;
@@ -285,7 +293,7 @@
 .overlayEmail {
   font-family: '75Medium';
   font-size: 17rem;
-  color: $lavender;
+  color: $teal;
   display: inline-flex;
   transition: opacity 0.25s;
 
@@ -300,10 +308,10 @@
   font-size: 12rem;
   letter-spacing: 2rem;
   text-transform: uppercase;
-  color: rgba($white, 0.25);
+  color: rgba($white, 0.22);
 }
 
-.overlayLangSep { opacity: 0.35; }
+.overlayLangSep    { opacity: 0.35; }
 .overlayLangActive { color: $white; }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
@@ -318,11 +326,9 @@
     border-color: transparent;
   }
 
-  // Hide nav links and contact on mobile — only menu button
-  .navLinks { display: none; }
+  .navLinks  { display: none; }
   .contactBtn { display: none; }
 
-  // Menu button always visible on mobile
   .menuBtn {
     max-width: 200rem !important;
     opacity: 1 !important;
