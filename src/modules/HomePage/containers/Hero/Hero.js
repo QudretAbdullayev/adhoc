@@ -1,47 +1,71 @@
 import styles from "./Hero.module.scss";
-import Paw from "@/assets/icons/home/Paw";
-import VideoStatic from "@/components/VideoStatic/VideoStatic";
-import Dog from "@/assets/icons/home/Dog";
-import StoreLinks from "@/components/StoreLinks/StoreLinks";
+import Link from "next/link";
+
+const TITLE_LINES = ["TOGETHER", "ON A DIGITAL", "JOURNEY"];
+
+const CLIENTS = [
+  "Kortrijk XPO", "Kultuurpunt", "All Set", "Kaatom", "LaatDrukken",
+  "Bilkem", "Nour Regenmorter", "317", "Kortrijk XPO", "Kultuurpunt",
+  "All Set", "Kaatom", "LaatDrukken", "Bilkem", "Nour Regenmorter", "317",
+];
 
 export default function Hero() {
   return (
-    <section id="home-hero" className={`${styles.hero} hero-container`}>
-      <VideoStatic src="/home/hero/background.mp4" />
+    <section className={styles.hero}>
 
-      <div className={styles.hero__content}>
-        <div className={styles.hero__left}>
-          <div className={styles.hero__heading}>
-            <span className={styles.hero__icon}>
-              <Dog />
-            </span>
-            <span className={styles.hero__tagline}>
-              #1{"\n"}
-              DOG, CAT AND ETC.
-            </span>
-            <h1 className={styles.hero__title}>
-              <div>EVERYTHING</div>
-              <div>YOUR PET</div>
-              <div>NEEDS</div>
-            </h1>
-          </div>
+      <div className={`g-container`}>
+        <div className={styles.badge}>
+          <span className={styles.badgePill}>
+            <span className={styles.badgeDot} />
+            Digital studio — Baku
+          </span>
         </div>
-        <div className={styles.hero__right}>
-          <p className={styles.hero__description}>
-            Keep your furry friend healthy and happy with one smart app. Track
-            vaccines, plan meals, get expert tips, and enjoy.
+      </div>
+
+      <div className={`${styles.inner} g-container`}>
+        <div className={styles.left}>
+          <h1 className={styles.title}>
+            {TITLE_LINES.map((line, i) => (
+              <span key={i} className={styles.titleLine}>
+                <span className={styles.titleWord} style={{ "--i": i }}>{line}</span>
+              </span>
+            ))}
+          </h1>
+          <p className={styles.eyebrow}>
+            We never just build a website — we create a digital experience.
           </p>
+        </div>
 
-          <StoreLinks />
+        <div className={styles.right}>
+          <p className={styles.description}>
+            Expect creative design and thoughtful strategy that comes to life
+            technically. And, of course, results ready for your digital journey.
+          </p>
+          <Link href="/contact" className={styles.cta}>
+            Get the journey started
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
         </div>
       </div>
 
-      <div className={styles.hero__scroll}>
-        <div className={styles.hero__scroll__icon}>
-          <Paw />
-        </div>
-        <span className={styles.hero__scroll__text}>Scroll to discover</span>
+      <div className={styles.scrollHint} aria-hidden="true">
+        <span className={styles.scrollLine} />
+        <span className={styles.scrollText}>scroll</span>
       </div>
+
+      <div className={styles.clients} aria-hidden="true">
+        <div className={styles.clientsTrack}>
+          {CLIENTS.map((name, i) => (
+            <span key={i} className={styles.clientName}>
+              {name}
+              <span className={styles.clientSep}> • </span>
+            </span>
+          ))}
+        </div>
+      </div>
+
     </section>
   );
 }

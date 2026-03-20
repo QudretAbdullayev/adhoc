@@ -1,0 +1,222 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── SERVICES — dark bg, image left + text right rows ──────────────────────
+
+.section {
+  background: #0C0C0C;
+  padding: 120rem 0 140rem;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 80rem;
+}
+
+// ── HEADER ───────────────────────────────────────────────────────────────
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(24rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.headVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.label {
+  font-family: '74Regular';
+  font-size: 12rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.25);
+}
+
+.heading {
+  font-family: '37Extrabold';
+  font-size: 80rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2rem;
+  color: $white;
+  text-transform: uppercase;
+}
+
+// ── SERVICE ROWS ─────────────────────────────────────────────────────────
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 560rem 1fr;
+  gap: 80rem;
+  align-items: center;
+  padding: 64rem 0;
+  border-top: 1rem solid rgba($white, 0.07);
+  opacity: 0;
+  transform: translateY(40rem);
+  transition: opacity 0.7s ease var(--delay, 0s),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+
+  &:last-child {
+    border-bottom: 1rem solid rgba($white, 0.07);
+  }
+
+  &.itemVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── IMAGE VISUAL ─────────────────────────────────────────────────────────
+
+.visual {
+  position: relative;
+  height: 360rem;
+  border-radius: 20rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+
+  .item:hover & {
+    transform: scale(1.015);
+  }
+}
+
+.visualShine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba($white, 0.05) 0%,
+    transparent 50%,
+    rgba($white, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
+// ── TEXT CONTENT ─────────────────────────────────────────────────────────
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24rem;
+}
+
+.contentLabel {
+  font-family: '74Regular';
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.25);
+}
+
+.contentHead {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.contentNum {
+  font-family: '74Regular';
+  font-size: 13rem;
+  font-weight: 400;
+  line-height: 18rem;
+  letter-spacing: 0.5rem;
+  color: rgba($white, 0.2);
+}
+
+.contentTitle {
+  font-family: '37Extrabold';
+  font-size: 56rem;
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -1.5rem;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.contentDesc {
+  font-family: '73Book';
+  font-size: 16rem;
+  font-weight: 300;
+  line-height: 26rem;
+  letter-spacing: -0.3rem;
+  color: rgba($white, 0.5);
+  max-width: 400rem;
+}
+
+.contentBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 500;
+  line-height: 20rem;
+  color: $carbon;
+  background: $honey;
+  padding: 12rem 28rem;
+  border-radius: 100rem;
+  width: fit-content;
+  transition: background 0.3s, transform 0.2s;
+
+  &:hover {
+    background: lighten(#FFCC66, 8%);
+    transform: scale(1.04);
+  }
+}
+
+// ─── RESPONSIVE ─────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 700px) {
+  .section {
+    padding: 80rem 0 100rem;
+  }
+
+  .inner {
+    gap: 56rem;
+  }
+
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8rem;
+  }
+
+  .heading {
+    font-size: 44rem;
+    letter-spacing: -1.2rem;
+  }
+
+  .item {
+    grid-template-columns: 1fr;
+    gap: 32rem;
+    padding: 48rem 0;
+  }
+
+  .visual {
+    height: 240rem;
+  }
+
+  .contentTitle {
+    font-size: 36rem;
+    letter-spacing: -1rem;
+  }
+
+  .contentDesc {
+    max-width: 100%;
+  }
+}

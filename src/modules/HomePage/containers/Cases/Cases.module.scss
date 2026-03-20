@@ -1,0 +1,320 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── CASES — scroll-driven stacking cards ─────────────────────────────────────
+
+.section {
+  background: $carbon;
+  padding-bottom: 120rem;
+}
+
+// ── Head ─────────────────────────────────────────────────────────────────────
+
+.head {
+  padding: 120rem 0 80rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+}
+
+.label {
+  font-family: '74Regular';
+  font-size: 12rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.3);
+}
+
+.headRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24rem;
+}
+
+.heading {
+  font-family: '37Extrabold';
+  font-size: 72rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2rem;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rem;
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 500;
+  line-height: 20rem;
+  color: rgba($white, 0.5);
+  border-bottom: 1.5rem solid rgba($white, 0.15);
+  padding-bottom: 4rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 10rem;
+  transition: color 0.3s, border-color 0.3s, gap 0.3s;
+
+  svg { transition: transform 0.3s; }
+
+  &:hover {
+    color: $white;
+    border-color: rgba($white, 0.45);
+    gap: 12rem;
+    svg { transform: translateX(3rem); }
+  }
+}
+
+// ── Stack container ──────────────────────────────────────────────────────────
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+// Each slot gives its card a scroll budget before the next card appears.
+// Last slot doesn't need a large margin since nothing follows it.
+.cardSlot {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 60vh;
+  }
+}
+
+// ── Card ─────────────────────────────────────────────────────────────────────
+
+.card {
+  position: sticky;
+  top: 80rem;
+  height: calc(100vh - 80rem - 40rem);
+  min-height: 520rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: $graphite;
+  border-radius: 24rem;
+  overflow: hidden;
+  transform-origin: top center;
+  // transform & filter are driven by the scroll JS
+  will-change: transform, filter;
+
+  // Subtle ring so cards are distinct when stacked behind one another
+  box-shadow:
+    0 0 0 1rem rgba($white, 0.06),
+    0 40rem 100rem rgba($black, 0.5);
+}
+
+// ── Card content (left half) ─────────────────────────────────────────────────
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52rem 56rem;
+}
+
+.cardTop {
+  display: flex;
+  align-items: baseline;
+  gap: 16rem;
+}
+
+.cardNum {
+  font-family: '37Extrabold';
+  font-size: 48rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2rem;
+  color: $white;
+}
+
+.cardNumTotal {
+  font-family: '74Regular';
+  font-size: 14rem;
+  font-weight: 400;
+  color: rgba($white, 0.25);
+  letter-spacing: 0;
+}
+
+.cardClient {
+  font-family: '74Regular';
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.3);
+}
+
+.cardTitle {
+  font-family: '46Bold';
+  font-size: 28rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.5rem;
+  color: $white;
+  max-width: 360rem;
+}
+
+.cardDesc {
+  font-family: '73Book';
+  font-size: 15rem;
+  font-weight: 300;
+  line-height: 24rem;
+  color: rgba($white, 0.45);
+  max-width: 340rem;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rem;
+}
+
+.cardTag {
+  font-family: '74Regular';
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 14rem;
+  letter-spacing: 0.5rem;
+  color: rgba($white, 0.4);
+  background: rgba($white, 0.06);
+  border: 1rem solid rgba($white, 0.1);
+  padding: 6rem 14rem;
+  border-radius: 100rem;
+  white-space: nowrap;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10rem;
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 500;
+  line-height: 20rem;
+  border-bottom: 1.5rem solid;
+  padding-bottom: 4rem;
+  align-self: flex-start;
+  transition: gap 0.3s ease;
+
+  svg { transition: transform 0.3s ease; }
+
+  &:hover {
+    gap: 14rem;
+    svg { transform: translateX(3rem); }
+  }
+}
+
+// ── Card visual (right half) ─────────────────────────────────────────────────
+
+.cardVisual {
+  position: relative;
+  overflow: hidden;
+
+  // Subtle inner shadow on the left edge where content meets visual
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 60rem;
+    background: linear-gradient(to right, rgba($graphite, 0.35), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+.browserBar {
+  position: absolute;
+  top: 28rem;
+  left: 36rem;
+  display: flex;
+  gap: 7rem;
+  z-index: 2;
+
+  span {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: rgba($white, 0.2);
+  }
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    height: auto;
+    min-height: unset;
+    position: relative;
+    top: unset;
+  }
+
+  .cardSlot {
+    &:not(:last-child) {
+      margin-bottom: 24rem;
+    }
+  }
+
+  .cardVisual {
+    height: 260rem;
+    order: -1;
+  }
+
+  .cardContent {
+    padding: 36rem 32rem;
+    gap: 28rem;
+  }
+
+  .cardNum {
+    font-size: 36rem;
+  }
+
+  .cardTitle {
+    font-size: 22rem;
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .heading {
+    font-size: 40rem;
+    letter-spacing: -1.2rem;
+  }
+
+  .headRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16rem;
+  }
+
+  .head {
+    padding: 80rem 0 56rem;
+  }
+
+  .cardContent {
+    padding: 28rem 24rem;
+  }
+
+  .cardVisual {
+    height: 200rem;
+  }
+
+  .cardNum {
+    font-size: 28rem;
+  }
+
+  .cardTitle {
+    font-size: 20rem;
+  }
+}

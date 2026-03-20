@@ -1,0 +1,152 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── JOURNEY — dark bg, sticky left heading + 2-col cards right ────────────
+
+.section {
+  background: #0C0C0C;
+  padding: 120rem 0 140rem;
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 340rem 1fr;
+  gap: 80rem;
+  align-items: flex-start;
+}
+
+// ── LEFT HEADING COL ────────────────────────────────────────────────────────
+
+.headCol {
+  position: sticky;
+  top: 120rem;
+  display: flex;
+  flex-direction: column;
+  gap: 28rem;
+  opacity: 0;
+  transform: translateY(32rem);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+
+  &.headVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.label {
+  font-family: '74Regular';
+  font-size: 12rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.25);
+}
+
+.heading {
+  font-family: '37Extrabold';
+  font-size: 56rem;
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -1.5rem;
+  color: $white;
+  text-transform: uppercase;
+}
+
+// ── RIGHT CARDS GRID ────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rem;
+}
+
+.card {
+  background: $lavender;
+  border-radius: 20rem;
+  padding: 32rem 28rem 36rem;
+  display: flex;
+  flex-direction: column;
+  gap: 48rem;
+  opacity: 0;
+  transform: translateY(40rem);
+  transition: opacity 0.6s ease var(--delay, 0s),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+  cursor: default;
+
+  &:hover {
+    background: #e4deff;
+    transform: translateY(-2rem) !important;
+  }
+}
+
+.gridVisible .card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardNum {
+  font-family: '74Regular';
+  font-size: 12rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 1rem;
+  color: rgba($carbon, 0.35);
+  text-transform: uppercase;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.cardTitle {
+  font-family: '46Bold';
+  font-size: 20rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.4rem;
+  color: $carbon;
+}
+
+.cardDesc {
+  font-family: '73Book';
+  font-size: 14rem;
+  font-weight: 300;
+  line-height: 22rem;
+  letter-spacing: -0.2rem;
+  color: rgba($carbon, 0.55);
+}
+
+// ─── RESPONSIVE ────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 700px) {
+  .section {
+    padding: 80rem 0 100rem;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48rem;
+  }
+
+  .headCol {
+    position: static;
+  }
+
+  .heading {
+    font-size: 40rem;
+    letter-spacing: -1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10rem;
+  }
+
+  .card {
+    padding: 24rem;
+    gap: 28rem;
+  }
+}

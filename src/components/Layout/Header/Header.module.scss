@@ -1,0 +1,344 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── HEADER ──────────────────────────────────────────────────────────────────
+// Logo is in normal page flow (scrolls with page).
+// Nav pill is position:fixed top-right — always visible.
+
+.header {
+  position: relative;
+  z-index: 1;
+  padding: 28rem 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: '37Extrabold';
+  font-size: 20rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.5rem;
+  text-transform: lowercase;
+  color: $carbon;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: opacity 0.25s;
+
+  &:hover { opacity: 0.65; }
+}
+
+.logoDot { color: $lavender; }
+
+// ── FIXED NAV PILL ────────────────────────────────────────────────────────────
+// Floats fixed in the top-right corner over the page.
+
+.navFixed {
+  position: fixed;
+  top: 20rem;
+  right: 24rem;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  border-radius: 100rem;
+  backdrop-filter: blur(12rem);
+  border: 1.5rem solid rgba($lavender, 0.3);
+  background: rgba(#111111, 0.8);
+  padding: 6rem 6rem 6rem 20rem;
+  transition: background 0.4s ease, border-color 0.4s ease, padding 0.5s ease;
+
+  // On scroll: compact, no nav links
+  &.scrolled {
+    background: rgba(#111111, 0.88);
+    border-color: rgba($lavender, 0.12);
+    padding: 6rem;
+  }
+}
+
+// ── NAV LINKS — collapse on scroll ───────────────────────────────────────────
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+  max-width: 600rem;
+  opacity: 1;
+  transition: max-width 0.5s ease, opacity 0.3s ease;
+
+  .scrolled & {
+    max-width: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.navLink {
+  font-family: '73Book';
+  font-size: 14rem;
+  font-weight: 300;
+  line-height: 1;
+  color: rgba($white, 0.75);
+  padding: 8rem 14rem;
+  border-radius: 100rem;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    color: $white;
+    background: rgba($white, 0.07);
+  }
+}
+
+// ── CONTACT BUTTON ────────────────────────────────────────────────────────────
+
+.contactBtn {
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 500;
+  line-height: 1;
+  color: $carbon;
+  background: $lavender;
+  padding: 0 20rem;
+  height: 40rem;
+  border-radius: 100rem;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.25s, transform 0.2s;
+
+  &:hover {
+    background: darken(#EDE9FE, 7%);
+    transform: scale(1.03);
+  }
+}
+
+// ── MENU BUTTON — slides in on scroll ────────────────────────────────────────
+
+.menuBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10rem;
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba($white, 0.85);
+  background: rgba($white, 0.08);
+  border: 1.5rem solid rgba($white, 0.1);
+  padding: 0 18rem;
+  height: 40rem;
+  border-radius: 100rem;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  // Hidden by default (clipped off to the right)
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding-left: 0;
+  padding-right: 0;
+  pointer-events: none;
+  transition: max-width 0.5s ease, opacity 0.3s ease, padding 0.5s ease, background 0.25s;
+
+  .scrolled & {
+    max-width: 200rem;
+    opacity: 1;
+    padding: 0 18rem;
+    pointer-events: auto;
+  }
+
+  &:hover {
+    background: rgba($white, 0.14);
+  }
+
+  &.menuBtnActive {
+    background: rgba($white, 0.14);
+  }
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  width: 16rem;
+  flex-shrink: 0;
+
+  span {
+    display: block;
+    height: 1.5rem;
+    background: rgba($white, 0.85);
+    border-radius: 2rem;
+    transform-origin: center;
+    transition: transform 0.32s ease, width 0.32s ease;
+
+    &:first-child { width: 100%; }
+    &:last-child  { width: 65%; }
+  }
+
+  .menuBtnActive & {
+    span:first-child {
+      transform: translateY(3rem) rotate(45deg);
+      width: 100%;
+    }
+    span:last-child {
+      transform: translateY(-3rem) rotate(-45deg);
+      width: 100%;
+    }
+  }
+}
+
+.menuLabel { white-space: nowrap; }
+
+// ─── OVERLAY (full-screen menu) ───────────────────────────────────────────────
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: #111111;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayOpen {
+  clip-path: inset(0 0 0% 0);
+}
+
+.overlayContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding-top: 100rem;
+  padding-bottom: 48rem;
+}
+
+.overlayNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayLink {
+  display: flex;
+  align-items: center;
+  gap: 24rem;
+  font-family: '37Extrabold';
+  font-size: 80rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2rem;
+  color: rgba($white, 0.8);
+  text-transform: uppercase;
+  padding: 20rem 0;
+  border-bottom: 1rem solid rgba($white, 0.07);
+  opacity: 0;
+  transform: translateY(20rem);
+  transition:
+    opacity 0.45s ease calc(var(--i) * 0.06s + 0.08s),
+    transform 0.45s ease calc(var(--i) * 0.06s + 0.08s),
+    color 0.2s;
+
+  .overlayOpen & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover { color: $lavender; }
+}
+
+.overlayLinkNum {
+  font-family: '74Regular';
+  font-size: 12rem;
+  letter-spacing: 1rem;
+  color: rgba($white, 0.2);
+  flex-shrink: 0;
+  padding-top: 6rem;
+}
+
+.overlayBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48rem;
+  padding-top: 28rem;
+  border-top: 1rem solid rgba($white, 0.08);
+  opacity: 0;
+  transform: translateY(10rem);
+  transition: opacity 0.4s ease 0.42s, transform 0.4s ease 0.42s;
+
+  .overlayOpen & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlayEmail {
+  font-family: '75Medium';
+  font-size: 17rem;
+  color: $lavender;
+  display: inline-flex;
+  transition: opacity 0.25s;
+
+  &:hover { opacity: 0.65; }
+}
+
+.overlayLang {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+  font-family: '74Regular';
+  font-size: 12rem;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.25);
+}
+
+.overlayLangSep { opacity: 0.35; }
+.overlayLangActive { color: $white; }
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 700px) {
+  .header { padding: 20rem 0; }
+
+  .navFixed {
+    top: 14rem;
+    right: 16rem;
+    padding: 6rem;
+    border-color: transparent;
+  }
+
+  // Hide nav links and contact on mobile — only menu button
+  .navLinks { display: none; }
+  .contactBtn { display: none; }
+
+  // Menu button always visible on mobile
+  .menuBtn {
+    max-width: 200rem !important;
+    opacity: 1 !important;
+    padding: 0 18rem !important;
+    pointer-events: auto !important;
+  }
+
+  .overlayLink {
+    font-size: 44rem;
+    letter-spacing: -1rem;
+    padding: 18rem 0;
+    gap: 16rem;
+  }
+
+  .overlayContent {
+    padding-top: 80rem;
+    padding-bottom: 32rem;
+  }
+}

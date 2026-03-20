@@ -1,223 +1,297 @@
 @use '@/assets/styles/abstracts/' as *;
 
+// ─── HERO — light warm background, dark text ───────────────────────────────
+
 .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+  position: relative;
+  min-height: 100svh;
+  background: #F0EEE7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 0; // header is in page flow, not fixed
+  overflow: hidden;
+}
 
-    &__scroll {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4rem;
-        transform: translateX(-50%);
-        left: 50%;
-        bottom: 64rem;
+// top badge row
+.badge {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+  padding: 48rem 0 0;
+  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
 
-        &__icon {
-            svg {
-                color: $white;
-                width: 32rem;
-                height: 32rem;
-            }
-        }
+.badgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rem;
+  font-family: '74Regular';
+  font-size: 12rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 1.5rem;
+  text-transform: uppercase;
+  color: rgba($carbon, 0.45);
+  background: rgba($carbon, 0.06);
+  padding: 8rem 14rem;
+  border-radius: 100rem;
+}
 
-        &__text {
-            font-family: '74Regular';
-            @include font(16, 400, 20);
-            letter-spacing: -0.4rem;
-            color: $white;
-        }
+.badgeDot {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: $honey;
+}
+
+// main content area
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 380rem;
+  align-items: flex-end;
+  gap: 64rem;
+  padding-top: 64rem;
+  padding-bottom: 100rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 32rem;
+}
+
+// title stagger reveal
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+}
+
+.titleWord {
+  display: block;
+  font-family: '37Extrabold';
+  font-size: 152rem;
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -5rem;
+  text-transform: uppercase;
+  color: $carbon;
+  animation: lineReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i) * 0.14s + 0.08s);
+}
+
+@keyframes lineReveal {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+// small tagline under title
+.eyebrow {
+  font-family: '73Book';
+  font-size: 14rem;
+  font-weight: 300;
+  line-height: 22rem;
+  letter-spacing: -0.2rem;
+  color: rgba($carbon, 0.4);
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+// right column
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 40rem;
+  padding-bottom: 8rem;
+  animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.description {
+  font-family: '73Book';
+  font-size: 17rem;
+  font-weight: 300;
+  line-height: 28rem;
+  letter-spacing: -0.3rem;
+  color: rgba($carbon, 0.6);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10rem;
+  font-family: '75Medium';
+  font-size: 15rem;
+  font-weight: 500;
+  line-height: 20rem;
+  color: $white;
+  background: $carbon;
+  padding: 15rem 30rem;
+  border-radius: 100rem;
+  width: fit-content;
+  transition: background 0.3s, gap 0.3s, transform 0.2s;
+
+  svg {
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: $ash;
+    gap: 16rem;
+
+    svg {
+      transform: translateX(4rem);
     }
+  }
+}
 
-    &__content {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        padding: 188rem 168rem 0 284rem;
-        display: grid;
-        grid-template-columns: 620rem 368rem;
-        gap: 160rem;
-    }
+// bottom bar with client names marquee
+.clients {
+  position: relative;
+  z-index: 1;
+  border-top: 1rem solid rgba($carbon, 0.1);
+  padding: 20rem 0;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease 0.9s both;
+}
 
-    &__left {
-        position: relative;
-        width: 100%;
-    }
+.clientsTrack {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: clientScroll 30s linear infinite;
+}
 
-    &__heading {
-        position: relative;
-    }
+.clientName {
+  font-family: '74Regular';
+  font-size: 12rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
+  color: rgba($carbon, 0.3);
+  padding: 0 32rem;
+  white-space: nowrap;
+  transition: color 0.25s;
 
-    &__title {
-        font-family: '37Extrabold';
-        @include font(156, 800, 132);
-        text-transform: uppercase;
-        color: $white;
+  &:hover {
+    color: rgba($carbon, 0.6);
+  }
+}
 
-        div:first-child {
-            margin-left: 140rem;
-        }
+.clientSep {
+  font-size: 8rem;
+  color: rgba($carbon, 0.2);
+  flex-shrink: 0;
+}
 
-        div:nth-child(2) {
-            margin-left: 12rem;
-        }
+@keyframes clientScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
-        div:last-child {
-            margin-left: 240rem;
-        }
-    }
+// scroll indicator
+.scrollHint {
+  position: absolute;
+  right: 40rem;
+  bottom: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+  z-index: 2;
+  animation: fadeUp 0.6s ease 1.1s both;
+}
 
-    &__icon {
-        position: absolute;
-        top: 0;
-        left: 0;
+.scrollLine {
+  display: block;
+  width: 1rem;
+  height: 48rem;
+  background: linear-gradient(to bottom, transparent, rgba($carbon, 0.3));
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
 
-        svg {
-            width: 132rem;
-            height: 132rem;
-        }
-    }
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(0.7) translateY(-8rem); }
+  50%       { opacity: 1;   transform: scaleY(1)   translateY(0); }
+}
 
-    &__tagline {
-        position: absolute;
-        right: 72rem;
-        top: 132rem;
-        padding: 8rem 0;
-        font-family: '73Book';
-        @include font(16, 300, 24);
-        color: rgba($white, 0.6);
-        white-space: pre-line;
-    }
+.scrollText {
+  font-family: '74Regular';
+  font-size: 10rem;
+  font-weight: 400;
+  line-height: 14rem;
+  letter-spacing: 3rem;
+  text-transform: uppercase;
+  color: rgba($carbon, 0.3);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
 
-    &__qr {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8rem;
-        width: 136rem;
-        height: 184rem;
-        left: 106rem;
-        top: 231rem;
-        background: $honey;
-        border-radius: 16rem;
-        transform: rotate(15deg);
-        padding: 4rem 4rem 12rem;
+// ─── RESPONSIVE ────────────────────────────────────────────────────────────
 
-        &__wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 128rem;
-            height: 128rem;
-            background: $white;
-            border-radius: 12rem 12rem 4rem 4rem;
-            padding: 12rem;
-        }
+@media screen and (max-width: 700px) {
 
-        &__image {
-            width: 104rem;
-            height: 104rem;
-            background-blend-mode: multiply;
-            position: relative;
-        }
+  .badge {
+    padding-top: 32rem;
+  }
 
-        &__text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: '74Regular';
-            @include font(12, 500, 16);
-            text-align: center;
-            color: $carbon;
-            padding: 0 4rem;
-            white-space: pre-line;
-        }
-    }
+  .inner {
+    grid-template-columns: 1fr;
+    padding-top: 40rem;
+    padding-bottom: 80rem;
+    gap: 32rem;
+  }
 
-    &__right {
-        display: flex;
-        flex-direction: column;
-        gap: 56rem;
-    }
+  .titleWord {
+    font-size: 68rem;
+    letter-spacing: -2rem;
+    line-height: 0.9;
+  }
 
-    &__description {
-        font-family: '73Book';
-        @include font(16, 300, 24);
-        letter-spacing: -0.4rem;
-        color: rgba($white, 0.6);
-    }
+  .right {
+    gap: 24rem;
+    padding-bottom: 0;
+  }
 
-    @media screen and (max-width: 700px) {
-        height: 800rem;
+  .description {
+    font-size: 15rem;
+    line-height: 25rem;
+  }
 
-        &__scroll {
-            bottom: 24rem;
+  .scrollHint {
+    display: none;
+  }
 
-            &__text {
-                font-family: '73Book';
-                font-size: 14rem;
-                font-weight: 300;
-            }
-        }
-
-        &__content {
-            padding: 128rem 20rem 0 20rem;
-            display: flex;
-            flex-direction: column;
-            gap: 12rem;
-        }
-
-        &__title {
-            font-size: 64rem;
-            line-height: 56rem;
-
-            div:first-child {
-                margin-left: 56rem;
-            }
-
-            div:nth-child(2) {
-                margin-left: 0rem;
-            }
-
-            div:last-child {
-                margin-left: 94rem;
-            }
-        }
-
-        &__icon {
-            position: absolute;
-            top: initial;
-            left: initial;
-            bottom: -8rem;
-            right: 96rem;
-
-            svg {
-                width: 64rem;
-                height: 64rem;
-            }
-        }
-
-        &__tagline {
-            right: 37rem;
-            top: 56rem;
-            padding: 4rem 0;
-        }
-
-        &__qr {
-            display: none;
-        }
-
-        &__right {
-            gap: 108rem;
-        }
-
-        &__description {
-            font-size: 14rem;
-            width: 269rem;
-        }
-    }
+  .clientName {
+    font-size: 11rem;
+    padding: 0 20rem;
+  }
 }

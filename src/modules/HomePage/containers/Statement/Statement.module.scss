@@ -1,0 +1,263 @@
+@use '@/assets/styles/abstracts/' as *;
+
+.section {
+  background: $white;
+  padding: 120rem 0;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64rem;
+}
+
+.label {
+  font-family: '74Regular';
+  font-size: 12rem;
+  font-weight: 400;
+  line-height: 16rem;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+  color: rgba($carbon, 0.4);
+  opacity: 0;
+  transform: translateY(16rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 440rem;
+  gap: 80rem;
+  align-items: flex-start;
+}
+
+.heading {
+  font-family: '46Bold';
+  font-size: 48rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5rem;
+  color: $carbon;
+  opacity: 0;
+  transform: translateY(24rem);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 40rem;
+  padding-top: 8rem;
+}
+
+.text {
+  font-family: '73Book';
+  font-size: 16rem;
+  font-weight: 300;
+  line-height: 26rem;
+  letter-spacing: -0.3rem;
+  color: rgba($carbon, 0.65);
+  opacity: 0;
+  transform: translateY(20rem);
+  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+}
+
+.actions {
+  display: flex;
+  gap: 16rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20rem);
+  transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+}
+
+.primaryBtn {
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 500;
+  line-height: 20rem;
+  color: $white;
+  background: $carbon;
+  padding: 12rem 28rem;
+  border-radius: 100rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.3s, transform 0.2s;
+
+  &:hover {
+    background: $ash;
+    transform: scale(1.02);
+  }
+}
+
+.secondaryBtn {
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 500;
+  line-height: 20rem;
+  color: $carbon;
+  background: transparent;
+  border: 1.5rem solid rgba($carbon, 0.2);
+  padding: 12rem 28rem;
+  border-radius: 100rem;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.3s, transform 0.2s;
+
+  &:hover {
+    border-color: $carbon;
+    transform: scale(1.02);
+  }
+}
+
+.stats {
+  display: flex;
+  gap: 40rem;
+  padding-top: 8rem;
+  border-top: 1rem solid rgba($carbon, 0.08);
+  opacity: 0;
+  transform: translateY(20rem);
+  transition: opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.statNum {
+  font-family: '37Extrabold';
+  font-size: 32rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1rem;
+  color: $carbon;
+}
+
+.statLabel {
+  font-family: '73Book';
+  font-size: 13rem;
+  font-weight: 300;
+  line-height: 18rem;
+  color: rgba($carbon, 0.45);
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 280rem 160rem;
+  gap: 12rem;
+  opacity: 0;
+  transform: translateY(32rem);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.imgCard {
+  border-radius: 16rem;
+  overflow: hidden;
+
+  &:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    transition-delay: 0.35s;
+  }
+
+  &:nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    transition-delay: 0.45s;
+  }
+
+  &:nth-child(3) {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    transition-delay: 0.55s;
+  }
+
+  &:nth-child(4) {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+    transition-delay: 0.5s;
+  }
+}
+
+.imgPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, $fog 0%, darken(#F5F5F5, 5%) 100%);
+  min-height: 100%;
+  transition: transform 0.6s ease;
+
+  .imgCard:hover & {
+    transform: scale(1.04);
+  }
+}
+
+.imgCard1 .imgPlaceholder {
+  background: linear-gradient(135deg, #E8E0FF 0%, #C4B5FD 100%);
+}
+
+.imgCard2 .imgPlaceholder {
+  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+}
+
+.imgCard3 .imgPlaceholder {
+  background: linear-gradient(135deg, #BAE6FD 0%, #38BDF8 100%);
+}
+
+.imgCard4 .imgPlaceholder {
+  background: linear-gradient(135deg, #D1FAE5 0%, #6EE7B7 100%);
+}
+
+// Animated state
+.visible {
+  .label,
+  .heading,
+  .text,
+  .actions,
+  .stats,
+  .imageGrid {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .section {
+    padding: 80rem 0;
+  }
+
+  .inner {
+    gap: 48rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40rem;
+  }
+
+  .heading {
+    font-size: 28rem;
+    letter-spacing: -0.8rem;
+  }
+
+  .imageGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 160rem 160rem;
+
+    .imgCard:nth-child(1) { grid-column: 1 / 2; }
+    .imgCard:nth-child(2) { grid-column: 2 / 3; }
+    .imgCard:nth-child(3) { grid-column: 1 / 2; }
+    .imgCard:nth-child(4) { grid-column: 2 / 3; grid-row: auto; }
+  }
+
+  .stats {
+    gap: 24rem;
+  }
+
+  .statNum {
+    font-size: 24rem;
+  }
+}
