@@ -4,7 +4,7 @@ html {
     font-size: calc(1 * 100vw/402);
 
     @media screen and (min-width: 700px) {
-        font-size: calc(1 * 100vw/1600);
+        font-size: calc(1 * 100vw/1440);
     }
 }
 
@@ -34,8 +34,8 @@ img {
 
 .g-container {
     margin: 0 auto;
-    max-width: 1600rem;
-    padding: 0 40rem;
+    max-width: 1440rem;
+    padding: 0 64rem;
 
     @media only screen and (max-width: 700px) {
         padding: 0 20rem;

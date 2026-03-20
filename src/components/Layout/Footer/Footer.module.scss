@@ -1,126 +1,308 @@
 @use '@/assets/styles/abstracts/' as *;
 
 // ─── FOOTER ───────────────────────────────────────────────────────────────────
-// Dark bg. Lavender card with 3-column layout inside.
-// LETS TALK text absolute at card bottom, overflows into dark.
+// #0C0C0C bg. Top bar → two cards → bottom bar.
 
 .footer {
   background: #0C0C0C;
-  overflow: hidden;
+  padding: 0;
 }
 
-// ── CARD WRAPPER ──────────────────────────────────────────────────────────────
+// ── TOP BAR ───────────────────────────────────────────────────────────────────
 
-.cardWrap {
-  padding: 20rem 20rem 0;
-}
-
-// ── LAVENDER CARD — 3-column CSS grid ─────────────────────────────────────────
-//
-//  [colLabel]  [    colContact    ]  [colSocials]
-//  [colLang ]  [                  ]  [          ]
-//  [           LETS TALK (absolute)             ]
-
-.card {
-  position: relative;
-  background: $lavender;
-  border-radius: 24rem;
-  overflow: hidden; // clips LETS TALK vertically at card bottom
-  min-height: 380rem;
-
-  display: grid;
-  grid-template-columns: 220rem 1fr 200rem;
-  grid-template-rows: 1fr auto;
-  padding: 40rem 48rem 48rem;
-  gap: 0;
-}
-
-// Col 1 top — "CONTACT" label
-.colLabel {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.cardLabel {
-  font-family: '74Regular';
-  font-size: 12rem;
-  font-weight: 400;
-  line-height: 16rem;
-  letter-spacing: 2.5rem;
-  text-transform: uppercase;
-  color: rgba($carbon, 0.45);
-}
-
-// Col 2 — phone + email, centered
-.colContact {
-  grid-column: 2;
-  grid-row: 1 / 3;
+.topBar {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  gap: 24rem;
+  padding-top: 36rem;
+  padding-bottom: 36rem;
+  border-bottom: 1rem solid rgba($white, 0.07);
+}
+
+.wordmark {
+  font-family: '37Extrabold';
+  font-size: 22rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.5rem;
+  color: $white;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+// ── Contact row ───────────────────────────────────────────────────────────────
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 32rem;
 }
 
 .contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10rem;
   font-family: '73Book';
-  font-size: 28rem;
+  font-size: 13rem;
   font-weight: 300;
-  line-height: 1;
-  color: $carbon;
-  letter-spacing: -0.5rem;
-  text-decoration: underline;
-  text-underline-offset: 6rem;
-  text-decoration-color: rgba($carbon, 0.25);
-  transition: text-decoration-color 0.25s;
+  line-height: 18rem;
+  color: rgba($white, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 8rem 14rem;
+  border-radius: 8rem;
+  background: rgba($white, 0.04);
+  border: 1rem solid rgba($white, 0.07);
 
-  &:hover {
-    text-decoration-color: $carbon;
+  &:is(a):hover {
+    color: $white;
+    background: rgba($white, 0.07);
+    border-color: rgba($white, 0.12);
   }
 }
 
-// Col 3 top — social buttons stacked, right-aligned
-.colSocials {
-  grid-column: 3;
-  grid-row: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8rem;
-}
-
-.socialBtn {
-  width: 52rem;
-  height: 52rem;
-  background: $white;
-  border-radius: 14rem;
+.contactIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $carbon;
-  transition: transform 0.25s, background 0.25s;
+  width: 24rem;
+  height: 24rem;
+  background: rgba($white, 0.08);
+  border-radius: 6rem;
   flex-shrink: 0;
+  color: rgba($white, 0.6);
+}
 
-  svg {
-    width: 20rem;
-    height: 20rem;
-    flex-shrink: 0;
-  }
+.contactDivider {
+  width: 1rem;
+  height: 20rem;
+  background: rgba($white, 0.08);
+  flex-shrink: 0;
+}
+
+// ── Social buttons ────────────────────────────────────────────────────────────
+
+.socials {
+  display: flex;
+  gap: 8rem;
+  flex-shrink: 0;
+}
+
+.socialBtn {
+  width: 40rem;
+  height: 40rem;
+  background: rgba($white, 0.07);
+  border: 1rem solid rgba($white, 0.1);
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba($white, 0.5);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 
   &:hover {
-    background: darken($white, 5%);
-    transform: scale(1.07);
+    background: rgba($white, 0.12);
+    color: $white;
+    border-color: rgba($white, 0.2);
   }
 }
 
-// Col 1 bottom — language switcher
-.colLang {
-  grid-column: 1;
-  grid-row: 2;
+// ── CARDS ROW ─────────────────────────────────────────────────────────────────
+
+.cardsRow {
+  display: grid;
+  grid-template-columns: 1fr 340rem;
+  gap: 16rem;
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+}
+
+// ── Left card — nav columns ───────────────────────────────────────────────────
+
+.cardLeft {
+  background: rgba($white, 0.03);
+  border: 1rem solid rgba($white, 0.07);
+  border-radius: 20rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 44rem 48rem;
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+
+  // vertical divider between columns
+  &:not(:last-child) {
+    padding-right: 32rem;
+    border-right: 1rem solid rgba($white, 0.06);
+    margin-right: 32rem;
+  }
+}
+
+.navHeading {
+  font-family: '74Regular';
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 14rem;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.25);
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+}
+
+.navLink {
+  font-family: '73Book';
+  font-size: 15rem;
+  font-weight: 300;
+  line-height: 20rem;
+  color: rgba($white, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+// ── Right card — CTA ─────────────────────────────────────────────────────────
+
+.cardRight {
+  background: rgba($white, 0.03);
+  border: 1rem solid rgba($white, 0.07);
+  border-radius: 20rem;
+  padding: 44rem 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20rem;
+}
+
+.ctaEyebrow {
+  font-family: '74Regular';
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 14rem;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.25);
+}
+
+.ctaHeading {
+  display: flex;
+  flex-direction: column;
+  font-family: '37Extrabold';
+  font-size: 60rem;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -2rem;
+  text-transform: uppercase;
+  color: $white;
+  user-select: none;
+  flex: 1;
+}
+
+.ctaText {
+  font-family: '73Book';
+  font-size: 13rem;
+  font-weight: 300;
+  line-height: 21rem;
+  color: rgba($white, 0.35);
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10rem;
+  align-self: flex-start;
+  font-family: '75Medium';
+  font-size: 13rem;
+  font-weight: 500;
+  line-height: 18rem;
+  color: $white;
+  background: rgba($white, 0.08);
+  border: 1rem solid rgba($white, 0.12);
+  border-radius: 10rem;
+  padding: 12rem 20rem;
+  transition: background 0.25s, border-color 0.25s, gap 0.25s;
+
+  svg { transition: transform 0.25s; }
+
+  &:hover {
+    background: rgba($white, 0.13);
+    border-color: rgba($white, 0.22);
+    gap: 14rem;
+    svg { transform: translateX(2rem); }
+  }
+}
+
+// ── BOTTOM BAR ────────────────────────────────────────────────────────────────
+
+.bottomBar {
   display: flex;
   align-items: center;
-  gap: 8rem;
-  align-self: flex-end;
+  justify-content: space-between;
+  gap: 24rem;
+  padding-top: 20rem;
+  padding-bottom: 24rem;
+  border-top: 1rem solid rgba($white, 0.07);
+}
+
+.copy {
+  font-family: '74Regular';
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 14rem;
+  letter-spacing: 0.5rem;
+  color: rgba($white, 0.2);
+  white-space: nowrap;
+}
+
+.legal {
+  display: flex;
+  align-items: center;
+  gap: 20rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.legalLink {
+  font-family: '74Regular';
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 14rem;
+  letter-spacing: 1rem;
+  text-transform: uppercase;
+  color: rgba($white, 0.2);
+  white-space: nowrap;
+  transition: color 0.2s;
+
+  &:hover { color: rgba($white, 0.5); }
+}
+
+.legalSep {
+  width: 1rem;
+  height: 14rem;
+  background: rgba($white, 0.1);
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
 }
 
 .langItem {
@@ -130,155 +312,83 @@
   line-height: 14rem;
   letter-spacing: 1.5rem;
   text-transform: uppercase;
-  color: rgba($carbon, 0.4);
-  cursor: pointer;
-  transition: color 0.2s;
-
-  &:hover { color: $carbon; }
-}
-
-.langSep {
-  font-size: 10rem;
-  color: rgba($carbon, 0.2);
-}
-
-// ── LETS TALK — absolute at card bottom ───────────────────────────────────────
-
-.bigTextWrap {
-  position: absolute;
-  bottom: -32rem; // clips into dark footer below card
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  user-select: none;
-  line-height: 0.85;
-}
-
-.bigText {
-  display: block;
-  font-family: '37Extrabold';
-  font-size: 240rem;
-  font-weight: 800;
-  letter-spacing: -8rem;
-  text-transform: uppercase;
-  color: $carbon;
-  line-height: 0.85;
-  white-space: nowrap;
-  padding: 0 48rem;
-}
-
-// ── BOTTOM BAR — legal + copyright only ───────────────────────────────────────
-
-.bottomBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16rem 20rem 20rem;
-}
-
-.legal {
-  display: flex;
-  align-items: center;
-  gap: 24rem;
-  flex-wrap: wrap;
-}
-
-.legalLink {
-  font-family: '74Regular';
-  font-size: 11rem;
-  font-weight: 400;
-  line-height: 14rem;
-  letter-spacing: 1.5rem;
-  text-transform: uppercase;
   color: rgba($white, 0.25);
-  white-space: nowrap;
+  cursor: pointer;
   transition: color 0.2s;
 
   &:hover { color: rgba($white, 0.6); }
 }
 
-.copy {
-  font-family: '74Regular';
-  font-size: 11rem;
-  font-weight: 400;
-  line-height: 14rem;
-  letter-spacing: 1.5rem;
-  text-transform: uppercase;
-  color: rgba($white, 0.25);
-  white-space: nowrap;
-  flex-shrink: 0;
+.langSep {
+  font-size: 10rem;
+  color: rgba($white, 0.1);
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
-@media screen and (max-width: 700px) {
-  .cardWrap {
-    padding: 12rem 12rem 0;
-  }
-
-  .card {
+@media screen and (max-width: 1100px) {
+  .cardsRow {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    min-height: unset;
-    padding: 28rem 24rem 36rem;
-    border-radius: 18rem;
   }
 
-  .colLabel {
-    grid-column: 1;
-    grid-row: 1;
-    margin-bottom: 20rem;
-  }
-
-  .colContact {
-    grid-column: 1;
-    grid-row: 2;
-    align-items: flex-start;
-    gap: 16rem;
-    margin-bottom: 24rem;
-  }
-
-  .contactItem {
-    font-size: 20rem;
-  }
-
-  .colSocials {
-    grid-column: 1;
-    grid-row: 3;
+  .cardRight {
     flex-direction: row;
-    align-items: flex-start;
-    margin-bottom: 24rem;
-  }
-
-  .colLang {
-    grid-column: 1;
-    grid-row: 4;
-    align-self: auto;
-  }
-
-  .bigTextWrap {
-    position: static;
-    margin-top: 32rem;
-    padding-bottom: 0;
-  }
-
-  .bigText {
-    font-size: 80rem;
-    letter-spacing: -3rem;
-    padding: 0;
-  }
-
-  .bottomBar {
-    padding: 14rem 12rem 18rem;
     flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  .ctaHeading {
+    font-size: 48rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .topBar {
+    flex-wrap: wrap;
+    gap: 20rem;
+    padding-top: 28rem;
+    padding-bottom: 28rem;
+  }
+
+  .contactRow {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .contactDivider {
+    display: none;
+  }
+
+  .cardLeft {
+    grid-template-columns: 1fr;
+    padding: 32rem 28rem;
+    gap: 28rem;
+  }
+
+  .navCol {
+    &:not(:last-child) {
+      padding-right: 0;
+      margin-right: 0;
+      border-right: none;
+      border-bottom: 1rem solid rgba($white, 0.06);
+      padding-bottom: 28rem;
+    }
+  }
+
+  .cardRight {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 12rem;
   }
 
   .legal {
-    gap: 12rem;
-  }
-
-  .legalLink {
-    font-size: 10rem;
+    justify-content: flex-start;
   }
 }

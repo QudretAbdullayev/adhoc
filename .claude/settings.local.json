@@ -6,7 +6,8 @@
       "Bash(curl -s \"https://sitetrip.be/en\")",
       "Bash(curl -s \"https://sitetrip.be/sites/default/files/css/css_SBUPtMldCot2GVHEX3SmwnA2rJwFzTR9SEo9ujE_ToQ.css?delta=0&language=en&theme=jakarta\")",
       "Bash(curl -s \"https://sitetrip.be/sites/default/files/css/css_2horh8v3YexT8ZeWZliVJNtACO9NOSBy43ELpmL75R4.css?delta=1&language=en&theme=jakarta\")",
-      "Bash(tr '}' '\\\\n')"
+      "Bash(tr '}' '\\\\n')",
+      "WebFetch(domain:www.evokehr.ca)"
     ]
   }
 }
