@@ -1,19 +1,33 @@
 @use '@/assets/styles/abstracts/' as *;
 
-// ─── SERVICES — dark bg, image left + text right rows ──────────────────────
+// ─── SERVICES — navy bg, glass visuals, teal accent ──────────────────────────
 
 .section {
-  background: #0C0C0C;
+  background: $navy;
   padding: 120rem 0 140rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 900rem;
+    height: 600rem;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba($teal, 0.06) 0%, transparent 65%);
+    bottom: 0;
+    right: -200rem;
+    pointer-events: none;
+  }
 }
 
 .inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 80rem;
 }
 
-// ── HEADER ───────────────────────────────────────────────────────────────
+// ── HEADER ────────────────────────────────────────────────────────────────────
 
 .head {
   display: flex;
@@ -49,7 +63,7 @@
   text-transform: uppercase;
 }
 
-// ── SERVICE ROWS ─────────────────────────────────────────────────────────
+// ── SERVICE ROWS ──────────────────────────────────────────────────────────────
 
 .list {
   display: flex;
@@ -63,15 +77,13 @@
   gap: 80rem;
   align-items: center;
   padding: 64rem 0;
-  border-top: 1rem solid rgba($white, 0.07);
+  border-top: 1rem solid rgba($white, 0.06);
   opacity: 0;
   transform: translateY(40rem);
   transition: opacity 0.7s ease var(--delay, 0s),
               transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
 
-  &:last-child {
-    border-bottom: 1rem solid rgba($white, 0.07);
-  }
+  &:last-child { border-bottom: 1rem solid rgba($white, 0.06); }
 
   &.itemVisible {
     opacity: 1;
@@ -79,7 +91,7 @@
   }
 }
 
-// ── IMAGE VISUAL ─────────────────────────────────────────────────────────
+// ── VISUAL — glass panel ──────────────────────────────────────────────────────
 
 .visual {
   position: relative;
@@ -87,10 +99,14 @@
   border-radius: 20rem;
   overflow: hidden;
   flex-shrink: 0;
-  transition: transform 0.5s ease;
+  background: $glass-bg;
+  border: 1rem solid $glass-border;
+  backdrop-filter: blur(12rem);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 
   .item:hover & {
     transform: scale(1.015);
+    box-shadow: 0 24rem 60rem rgba($black, 0.3), 0 0 0 1rem rgba($teal, 0.12);
   }
 }
 
@@ -99,14 +115,14 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba($white, 0.05) 0%,
+    rgba($white, 0.07) 0%,
     transparent 50%,
-    rgba($white, 0.02) 100%
+    rgba($teal, 0.03) 100%
   );
   pointer-events: none;
 }
 
-// ── TEXT CONTENT ─────────────────────────────────────────────────────────
+// ── TEXT CONTENT ──────────────────────────────────────────────────────────────
 
 .content {
   display: flex;
@@ -121,7 +137,7 @@
   line-height: 16rem;
   letter-spacing: 2rem;
   text-transform: uppercase;
-  color: rgba($white, 0.25);
+  color: rgba($white, 0.22);
 }
 
 .contentHead {
@@ -136,14 +152,14 @@
   font-weight: 400;
   line-height: 18rem;
   letter-spacing: 0.5rem;
-  color: rgba($white, 0.2);
+  color: rgba($white, 0.18);
 }
 
 .contentTitle {
   font-family: '37Extrabold';
   font-size: 56rem;
   font-weight: 800;
-  line-height: 1.0;
+  line-height: 1;
   letter-spacing: -1.5rem;
   color: $white;
   text-transform: uppercase;
@@ -155,7 +171,7 @@
   font-weight: 300;
   line-height: 26rem;
   letter-spacing: -0.3rem;
-  color: rgba($white, 0.5);
+  color: rgba($white, 0.45);
   max-width: 400rem;
 }
 
@@ -166,29 +182,24 @@
   font-size: 14rem;
   font-weight: 500;
   line-height: 20rem;
-  color: $carbon;
-  background: $honey;
+  color: $navy;
+  background: $teal;
   padding: 12rem 28rem;
   border-radius: 100rem;
   width: fit-content;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.3s, box-shadow 0.3s;
 
   &:hover {
-    background: lighten(#FFCC66, 8%);
-    transform: scale(1.04);
+    background: lighten(#0BC8D8, 8%);
+    box-shadow: 0 0 20rem rgba($teal, 0.35);
   }
 }
 
-// ─── RESPONSIVE ─────────────────────────────────────────────────────────────
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
 @media screen and (max-width: 700px) {
-  .section {
-    padding: 80rem 0 100rem;
-  }
-
-  .inner {
-    gap: 56rem;
-  }
+  .section { padding: 80rem 0 100rem; }
+  .inner   { gap: 56rem; }
 
   .head {
     flex-direction: column;
@@ -207,16 +218,12 @@
     padding: 48rem 0;
   }
 
-  .visual {
-    height: 240rem;
-  }
+  .visual { height: 240rem; }
 
   .contentTitle {
     font-size: 36rem;
     letter-spacing: -1rem;
   }
 
-  .contentDesc {
-    max-width: 100%;
-  }
+  .contentDesc { max-width: 100%; }
 }

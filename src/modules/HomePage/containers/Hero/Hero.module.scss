@@ -1,16 +1,41 @@
 @use '@/assets/styles/abstracts/' as *;
 
-// ─── HERO — light warm background, dark text ───────────────────────────────
+// ─── HERO — dark navy, teal accent, glass right panel ──────────────────────
 
 .hero {
   position: relative;
   min-height: 100svh;
-  background: #F0EEE7;
+  background: $navy;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-top: 0; // header is in page flow, not fixed
   overflow: hidden;
+
+  // ambient teal glow — top right
+  &::before {
+    content: '';
+    position: absolute;
+    width: 800rem;
+    height: 800rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($teal, 0.12) 0%, transparent 65%);
+    top: -200rem;
+    right: -200rem;
+    pointer-events: none;
+  }
+
+  // secondary azure glow — bottom left
+  &::after {
+    content: '';
+    position: absolute;
+    width: 600rem;
+    height: 600rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($azure, 0.08) 0%, transparent 65%);
+    bottom: 0;
+    left: -100rem;
+    pointer-events: none;
+  }
 }
 
 // top badge row
@@ -34,17 +59,20 @@
   line-height: 16rem;
   letter-spacing: 1.5rem;
   text-transform: uppercase;
-  color: rgba($carbon, 0.45);
-  background: rgba($carbon, 0.06);
+  color: rgba($white, 0.4);
+  background: $glass-bg;
+  border: 1rem solid $glass-border-s;
   padding: 8rem 14rem;
   border-radius: 100rem;
+  backdrop-filter: blur(12rem);
 }
 
 .badgeDot {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
-  background: $honey;
+  background: $teal;
+  box-shadow: 0 0 8rem rgba($teal, 0.7);
 }
 
 // main content area
@@ -65,7 +93,6 @@
   gap: 32rem;
 }
 
-// title stagger reveal
 .title {
   display: flex;
   flex-direction: column;
@@ -85,51 +112,46 @@
   line-height: 0.88;
   letter-spacing: -5rem;
   text-transform: uppercase;
-  color: $carbon;
+  color: $white;
   animation: lineReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: calc(var(--i) * 0.14s + 0.08s);
 }
 
 @keyframes lineReveal {
-  from {
-    transform: translateY(110%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
-  }
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0%);   opacity: 1; }
 }
 
-// small tagline under title
 .eyebrow {
   font-family: '73Book';
   font-size: 14rem;
   font-weight: 300;
   line-height: 22rem;
   letter-spacing: -0.2rem;
-  color: rgba($carbon, 0.4);
+  color: rgba($white, 0.35);
   animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
 }
 
-// right column
+// right column — glass card
 .right {
   display: flex;
   flex-direction: column;
   gap: 40rem;
-  padding-bottom: 8rem;
+  padding: 32rem;
+  padding-bottom: 36rem;
+  background: $glass-bg;
+  border: 1rem solid $glass-border;
+  border-radius: 20rem;
+  backdrop-filter: blur(24rem);
+  -webkit-backdrop-filter: blur(24rem);
+  // top shine line
+  box-shadow: inset 0 1rem 0 rgba($white, 0.08);
   animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(28rem); }
+  to   { opacity: 1; transform: translateY(0);     }
 }
 
 .description {
@@ -138,7 +160,7 @@
   font-weight: 300;
   line-height: 28rem;
   letter-spacing: -0.3rem;
-  color: rgba($carbon, 0.6);
+  color: rgba($white, 0.55);
 }
 
 .cta {
@@ -149,12 +171,12 @@
   font-size: 15rem;
   font-weight: 500;
   line-height: 20rem;
-  color: $white;
-  background: $carbon;
+  color: $navy;
+  background: $teal;
   padding: 15rem 30rem;
   border-radius: 100rem;
   width: fit-content;
-  transition: background 0.3s, gap 0.3s, transform 0.2s;
+  transition: background 0.3s, gap 0.3s, box-shadow 0.3s;
 
   svg {
     transition: transform 0.3s;
@@ -162,20 +184,18 @@
   }
 
   &:hover {
-    background: $ash;
+    background: lighten(#0BC8D8, 8%);
     gap: 16rem;
-
-    svg {
-      transform: translateX(4rem);
-    }
+    box-shadow: 0 0 24rem rgba($teal, 0.4);
+    svg { transform: translateX(4rem); }
   }
 }
 
-// bottom bar with client names marquee
+// client marquee strip
 .clients {
   position: relative;
   z-index: 1;
-  border-top: 1rem solid rgba($carbon, 0.1);
+  border-top: 1rem solid rgba($white, 0.07);
   padding: 20rem 0;
   overflow: hidden;
   animation: fadeUp 0.6s ease 0.9s both;
@@ -196,19 +216,17 @@
   line-height: 16rem;
   letter-spacing: 2rem;
   text-transform: uppercase;
-  color: rgba($carbon, 0.3);
+  color: rgba($white, 0.2);
   padding: 0 32rem;
   white-space: nowrap;
   transition: color 0.25s;
 
-  &:hover {
-    color: rgba($carbon, 0.6);
-  }
+  &:hover { color: rgba($white, 0.5); }
 }
 
 .clientSep {
   font-size: 8rem;
-  color: rgba($carbon, 0.2);
+  color: rgba($white, 0.12);
   flex-shrink: 0;
 }
 
@@ -234,13 +252,13 @@
   display: block;
   width: 1rem;
   height: 48rem;
-  background: linear-gradient(to bottom, transparent, rgba($carbon, 0.3));
+  background: linear-gradient(to bottom, transparent, rgba($teal, 0.5));
   animation: scrollPulse 2.2s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.4; transform: scaleY(0.7) translateY(-8rem); }
-  50%       { opacity: 1;   transform: scaleY(1)   translateY(0); }
+  50%       { opacity: 1;   transform: scaleY(1)   translateY(0);     }
 }
 
 .scrollText {
@@ -250,7 +268,7 @@
   line-height: 14rem;
   letter-spacing: 3rem;
   text-transform: uppercase;
-  color: rgba($carbon, 0.3);
+  color: rgba($white, 0.25);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
@@ -258,10 +276,7 @@
 // ─── RESPONSIVE ────────────────────────────────────────────────────────────
 
 @media screen and (max-width: 700px) {
-
-  .badge {
-    padding-top: 32rem;
-  }
+  .badge { padding-top: 32rem; }
 
   .inner {
     grid-template-columns: 1fr;
@@ -278,7 +293,7 @@
 
   .right {
     gap: 24rem;
-    padding-bottom: 0;
+    padding: 24rem;
   }
 
   .description {
@@ -286,9 +301,7 @@
     line-height: 25rem;
   }
 
-  .scrollHint {
-    display: none;
-  }
+  .scrollHint { display: none; }
 
   .clientName {
     font-size: 11rem;

@@ -1,21 +1,36 @@
 @use '@/assets/styles/abstracts/' as *;
 
-// ─── JOURNEY — dark bg, sticky left heading + 2-col cards right ────────────
+// ─── JOURNEY — navy bg, sticky heading, glass process cards ──────────────────
 
 .section {
-  background: #0C0C0C;
+  background: $navy-2;
   padding: 120rem 0 140rem;
   overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 600rem;
+    height: 600rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($azure, 0.07) 0%, transparent 65%);
+    top: 50%;
+    left: -100rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 }
 
 .inner {
+  position: relative;
   display: grid;
   grid-template-columns: 340rem 1fr;
   gap: 80rem;
   align-items: flex-start;
 }
 
-// ── LEFT HEADING COL ────────────────────────────────────────────────────────
+// ── LEFT HEADING COL ──────────────────────────────────────────────────────────
 
 .headCol {
   position: sticky;
@@ -47,13 +62,13 @@
   font-family: '37Extrabold';
   font-size: 56rem;
   font-weight: 800;
-  line-height: 1.0;
+  line-height: 1;
   letter-spacing: -1.5rem;
   color: $white;
   text-transform: uppercase;
 }
 
-// ── RIGHT CARDS GRID ────────────────────────────────────────────────────────
+// ── RIGHT CARDS GRID ──────────────────────────────────────────────────────────
 
 .grid {
   display: grid;
@@ -61,9 +76,14 @@
   gap: 12rem;
 }
 
+// Glass process cards
 .card {
-  background: $lavender;
+  background: $glass-bg;
+  border: 1rem solid $glass-border-s;
   border-radius: 20rem;
+  backdrop-filter: blur(20rem);
+  -webkit-backdrop-filter: blur(20rem);
+  box-shadow: inset 0 1rem 0 $glass-shine;
   padding: 32rem 28rem 36rem;
   display: flex;
   flex-direction: column;
@@ -71,11 +91,13 @@
   opacity: 0;
   transform: translateY(40rem);
   transition: opacity 0.6s ease var(--delay, 0s),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
+              background 0.25s, border-color 0.25s;
   cursor: default;
 
   &:hover {
-    background: #e4deff;
+    background: $glass-bg-hover;
+    border-color: $glass-border;
     transform: translateY(-2rem) !important;
   }
 }
@@ -91,7 +113,7 @@
   font-weight: 400;
   line-height: 16rem;
   letter-spacing: 1rem;
-  color: rgba($carbon, 0.35);
+  color: rgba($teal, 0.5);
   text-transform: uppercase;
 }
 
@@ -107,7 +129,7 @@
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.4rem;
-  color: $carbon;
+  color: $white;
 }
 
 .cardDesc {
@@ -116,24 +138,20 @@
   font-weight: 300;
   line-height: 22rem;
   letter-spacing: -0.2rem;
-  color: rgba($carbon, 0.55);
+  color: rgba($white, 0.4);
 }
 
-// ─── RESPONSIVE ────────────────────────────────────────────────────────────
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
 @media screen and (max-width: 700px) {
-  .section {
-    padding: 80rem 0 100rem;
-  }
+  .section { padding: 80rem 0 100rem; }
 
   .inner {
     grid-template-columns: 1fr;
     gap: 48rem;
   }
 
-  .headCol {
-    position: static;
-  }
+  .headCol { position: static; }
 
   .heading {
     font-size: 40rem;

@@ -12,7 +12,7 @@ body {
     position: relative;
     height: 100%;
     overflow-x: hidden !important;
-    background-color: #F0EEE7;
+    background-color: $navy;
 
     &.custom-cursor-active {
         cursor: none !important;

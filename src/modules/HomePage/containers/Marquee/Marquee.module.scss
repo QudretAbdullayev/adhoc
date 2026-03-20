@@ -2,9 +2,9 @@
 
 .marquee {
   overflow: hidden;
-  background: $snow;
-  border-top: 1rem solid rgba($carbon, 0.06);
-  border-bottom: 1rem solid rgba($carbon, 0.06);
+  background: $navy-2;
+  border-top: 1rem solid rgba($white, 0.06);
+  border-bottom: 1rem solid rgba($white, 0.06);
   padding: 20rem 0;
   user-select: none;
 }
@@ -29,19 +29,19 @@
   line-height: 20rem;
   letter-spacing: 1.5rem;
   text-transform: uppercase;
-  color: rgba($carbon, 0.5);
+  color: rgba($white, 0.3);
   padding: 0 24rem;
   white-space: nowrap;
   gap: 24rem;
   transition: color 0.25s;
 
   &:hover {
-    color: $carbon;
+    color: rgba($white, 0.7);
   }
 }
 
 .sep {
-  color: $honey;
+  color: $teal;
   font-size: 10rem;
   line-height: 1;
 }
