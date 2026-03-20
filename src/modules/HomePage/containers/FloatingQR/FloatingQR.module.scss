@@ -1,0 +1,74 @@
+@use '@/assets/styles/abstracts/' as *;
+
+.floatingQR {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: auto;
+    will-change: left, top, transform;
+
+    left: 360rem;
+    top: 419rem;
+    transform: rotate(-15deg);
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8rem;
+        width: 136rem;
+        height: 184rem;
+        background: $honey;
+        border-radius: 16rem;
+        padding: 4rem 4rem 12rem;
+        transition: background 0.3s ease;
+    }
+
+    &__imageWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 128rem;
+        height: 128rem;
+        background: $white;
+        border-radius: 12rem 12rem 4rem 4rem;
+        padding: 12rem;
+    }
+
+    &__image {
+        width: 104rem;
+        height: 104rem;
+        background-blend-mode: multiply;
+        position: relative;
+    }
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: '74Regular';
+        @include font(12, 500, 16);
+        text-align: center;
+        color: $carbon;
+        padding: 0 4rem;
+        white-space: pre-line;
+        width: 100%;
+        transition: color 0.3s ease, background 0.3s ease;
+    }
+
+    &--inMarquee {
+        .floatingQR__wrapper {
+            background: #077133;
+        }
+
+        .floatingQR__text {
+            background: radial-gradient(39.06% 104.69% at 37.11% 26.56%, #59E700 0%, $white 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
+}

@@ -1,0 +1,237 @@
+@use '@/assets/styles/abstracts/' as *;
+
+.works {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 160rem;
+    padding-bottom: 160rem;
+    gap: 48rem;
+    width: 100%;
+    height: 1560rem;
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+
+    &__background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        z-index: 1;
+        pointer-events: none;
+    }
+
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24rem;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+
+        &__title {
+            width: 100%;
+            font-family: '37Extrabold';
+            @include font(304, 800, 256);
+            text-align: center;
+            text-transform: uppercase;
+            color: $white;
+        }
+
+        &__description {
+            max-width: 752rem;
+            font-family: '74Regular';
+            @include font(16, 400, 24);
+            text-align: center;
+            letter-spacing: -0.4rem;
+            color: $white;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 48rem 40rem;
+        gap: 32rem;
+        width: 1160rem;
+        height: 764rem;
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0) 43.93%,
+                rgba(0, 0, 0, 0.4) 100%);
+        border: 8rem solid rgba($white, 0.5);
+        border-radius: 32rem;
+        overflow: hidden;
+
+        &__title {
+            width: 100%;
+            font-family: '46Bold';
+            @include font(44, 700, 44);
+            text-transform: uppercase;
+            color: $white;
+            white-space: pre-line;
+        }
+
+        &__texts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32rem;
+            width: 100%;
+
+            &__column {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16rem;
+            }
+
+            &__label {
+                font-family: '74Regular';
+                @include font(18, 400, 24);
+                text-transform: uppercase;
+                color: rgba($white, 0.7);
+            }
+
+            &__text {
+                font-family: '73Book';
+                @include font(24, 300, 32);
+                letter-spacing: -0.4rem;
+                color: $white;
+            }
+
+            &__italic {
+                font-family: '73BookItalic';
+                font-style: italic;
+            }
+        }
+    }
+
+    &__group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        padding: 8rem;
+        gap: 8rem;
+        position: relative;
+        z-index: 2;
+        background: rgba($black, 0.12);
+        border: 1rem solid $white;
+        border-radius: 80rem;
+        margin: 0 auto;
+        width: fit-content;
+
+        .indicator {
+            position: absolute;
+            top: 8rem; // Match padding of container
+            bottom: 8rem;
+            background: $white;
+            border-radius: 40rem;
+            border: 2rem solid $white; // Match border of active segment
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+            // backdrop-filter: blur(25rem); // Optional if needed
+        }
+
+        .segment {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 7rem 16rem 9rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 40rem;
+            font-family: '74Regular';
+            @include font(14, 400, 20);
+            letter-spacing: -0.4rem;
+            color: $white;
+            white-space: nowrap;
+
+            span {
+                position: relative;
+                z-index: 2;
+            }
+
+            &__progress {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 100%;
+                background: rgba($white, 0.3);
+                transition: width 0.05s linear;
+                z-index: 1;
+                border-radius: 40rem 0 0 40rem;
+            }
+
+            &.active {
+                // border: 2rem solid $white; // Moved to indicator
+                // background: $white; // Moved to indicator
+                // backdrop-filter: blur(25rem); 
+                // border-radius: 40rem;
+                color: $carbon;
+
+                // Ensure text stays visible
+                z-index: 1;
+
+                .segment__progress {
+                    background: rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        padding-top: 96rem;
+        padding-bottom: 96rem;
+        height: 1216rem;
+
+        &__header {
+            &__title {
+                font-size: 104rem;
+                line-height: 96rem;
+            }
+
+            &__description {
+                max-width: 100%;
+            }
+        }
+
+        &__content {
+            padding: 20rem;
+            width: 100%;
+            height: 564rem;
+            border-radius: 24rem;
+
+            &__texts {
+                grid-template-columns: 1fr;
+
+                &__column {
+                    gap: 4rem;
+                }
+
+                &__label,
+                &__text {
+                    font-size: 14rem;
+                    line-height: 20rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,210 @@
+@use '../abstracts' as *;
+
+html {
+    font-size: calc(1 * 100vw/402);
+
+    @media screen and (min-width: 700px) {
+        font-size: calc(1 * 100vw/1600);
+    }
+}
+
+body {
+    position: relative;
+    height: 100%;
+    overflow-x: hidden !important;
+    background-color: $white;
+
+    &.custom-cursor-active {
+        cursor: none !important;
+
+        * {
+            cursor: none !important;
+        }
+    }
+}
+
+main {
+    position: relative;
+    top: 0;
+}
+
+img {
+    object-fit: cover;
+}
+
+.g-container {
+    margin: 0 auto;
+    max-width: 1600rem;
+    padding: 0 40rem;
+
+    @media only screen and (max-width: 700px) {
+        padding: 0 20rem;
+    }
+}
+
+.rich {
+    font-family: "73Book";
+    @include font(16, 300, 24);
+    leading-trim: NONE;
+    line-height: 24rem;
+    letter-spacing: -0.4rem;
+    color: $carbon;
+    margin-right: 24rem;
+
+    p,
+    div,
+    span,
+    li,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "73Book";
+        @include font(16, 300, 24);
+        leading-trim: NONE;
+        line-height: 24rem;
+        letter-spacing: -0.4rem;
+        color: $carbon;
+
+        a {
+            display: inline-block;
+            text-decoration: underline;
+        }
+    }
+
+    a {
+        font-family: "73Book";
+        @include font(16, 300, 24);
+        leading-trim: NONE;
+        line-height: 24rem;
+        letter-spacing: -0.4rem;
+        color: $honey;
+        text-decoration: underline;
+    }
+
+    ol,
+    ul {
+        padding-left: 24rem;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    li {
+        list-style: inherit;
+    }
+
+    img {
+        width: 1008rem;
+        height: 498rem;
+        border-radius: 24rem;
+        margin: 40rem 0;
+    }
+
+    table {
+        width: 1008rem;
+        border-radius: 16rem;
+        overflow: hidden;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 2rem solid $white;
+
+        tr {
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 16rem;
+            font-family: "73Book";
+            @include font(16, 300, 24);
+            letter-spacing: -0.4rem;
+            color: $carbon;
+            border-right: 2rem solid $white;
+            border-bottom: 2rem solid $white;
+            text-align: left;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+        th {
+            background-color: $honey;
+            font-family: "75Medium";
+            @include font(16, 500, 24);
+        }
+
+        td {
+            background-color: $snow;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        margin-right: 0;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 16rem;
+            margin: 24rem 0;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            border-radius: 12rem;
+            width: max-content;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            thead,
+            tbody {
+                display: block;
+                width: 1008rem;
+            }
+
+            tr {
+                display: flex;
+                width: 1008rem;
+            }
+
+            th,
+            td {
+                flex: 1;
+                padding: 12rem;
+                @include font(14, 300, 20);
+            }
+        }
+
+        .tableWrapper {
+            width: calc(100% + 40rem);
+            margin-left: -20rem;
+            margin-right: -20rem;
+            padding: 0 20rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+}

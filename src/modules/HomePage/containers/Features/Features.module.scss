@@ -1,0 +1,460 @@
+@use '@/assets/styles/abstracts/' as *;
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rem 40rem 160rem;
+  width: 100%;
+  background: $carbon;
+  position: relative;
+
+  &__header {
+    position: relative;
+    width: 100%;
+    bottom: -80rem;
+  }
+
+  &__title {
+    width: 100%;
+    font-family: '37Extrabold';
+    @include font(304, 800, 256);
+    text-align: center;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, $white 0%, rgba($white, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    z-index: 0;
+  }
+
+  &__logo {
+    width: 96rem;
+    height: 96rem;
+    left: 427rem;
+    top: 173rem;
+    transform: rotate(-19deg);
+    position: absolute;
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  &__wordmark {
+    position: absolute;
+    width: 85.33rem;
+    height: 32rem;
+    left: 396rem;
+    top: 25rem;
+    z-index: 4;
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    width: 200rem;
+    height: 200rem;
+    top: 37rem;
+    right: 302rem;
+    z-index: 3;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      animation: rotate 15s linear infinite;
+
+      path:last-child {
+        animation: counterRotate 15s linear infinite;
+        transform-origin: center;
+      }
+    }
+  }
+
+
+  &__mobile {
+    display: none;
+  }
+
+
+  &__box {
+    height: calc(100vh + 300vh);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64rem;
+    isolation: isolate;
+    width: 1520rem;
+    height: 812rem;
+    position: sticky;
+    top: calc(50vh - 360rem);
+    z-index: 1;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16rem;
+    width: 508rem;
+    height: 608rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16rem;
+    width: 508rem;
+    height: 608rem;
+    z-index: 3;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40rem;
+    gap: 16rem;
+    width: 508rem;
+    border-radius: 24rem;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 508rem;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba($white, 0.06);
+      border-radius: 24rem 148rem 24rem 24rem;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &__active::before {
+      opacity: 1;
+    }
+
+    &__label {
+      width: 428rem;
+      height: 24rem;
+      font-family: '74Regular';
+      @include font(18, 400, 24);
+      text-transform: uppercase;
+      color: rgba($white, 0.5);
+    }
+
+    &__title {
+      width: 428rem;
+      height: 88rem;
+      font-family: '46Bold';
+      @include font(44, 700, 44);
+      text-transform: uppercase;
+      color: $white;
+    }
+
+    &__text {
+      width: 428rem;
+      height: 72rem;
+      font-family: '73Book';
+      @include font(16, 300, 24);
+      letter-spacing: -0.4rem;
+      color: rgba($white, 0.5);
+    }
+  }
+
+  &__phone {
+    position: relative;
+    z-index: 2;
+    top: 0;
+
+    &__wrapper {
+      width: auto;
+      aspect-ratio: 376/812;
+      height: 85vh;
+      min-height: 556rem;
+      max-height: 812rem;
+      outline: 12rem solid rgba(177, 177, 177, 0.4);
+      border-radius: 40rem;
+      border: none;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        transition: opacity 0.5s ease;
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 700px) {
+    padding: 96rem 20rem;
+    gap: 48rem;
+    overflow: hidden;
+
+    &__header {
+      bottom: initial;
+    }
+
+    &__title {
+      font-size: 104rem;
+      line-height: 96rem;
+      color: $white;
+      background: initial;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
+      background-clip: initial;
+    }
+
+    &__logo {
+      width: 64rem;
+      height: 64rem;
+      left: 40rem;
+      top: 25rem;
+      transform: rotate(-15deg);
+    }
+
+    &__wordmark {
+      left: 50%;
+      top: -32rem;
+      transform: translateX(-50%);
+    }
+
+    &__badge {
+      width: 102rem;
+      height: 102rem;
+      top: -14rem;
+      right: -10rem;
+    }
+
+    &__box {
+      display: none;
+    }
+
+    &__mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40rem;
+      width: 100%;
+    }
+
+    &__textContainer {
+      width: 100%;
+      overflow: visible;
+    }
+
+    &__textSwiper {
+      width: 100%;
+      overflow: visible !important;
+    }
+
+    &__textSlide {
+      width: 280rem !important;
+      overflow: hidden;
+    }
+
+    &__card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20rem;
+      gap: 16rem;
+      width: 280rem;
+      border-radius: 24rem;
+      position: relative;
+      isolation: isolate;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba($white, 0.06);
+        border-radius: 16rem 96rem 16rem 16rem;
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &__active::before {
+        opacity: 1;
+      }
+
+      &__label {
+        font-family: '74Regular';
+        font-size: 14rem;
+        line-height: 20rem;
+        text-transform: uppercase;
+        color: rgba($white, 0.5);
+        position: relative;
+        z-index: 1;
+      }
+
+      &__title {
+        font-family: '46Bold';
+        font-size: 32rem;
+        line-height: 32rem;
+        text-transform: uppercase;
+        color: $white;
+        position: relative;
+        z-index: 1;
+      }
+
+      &__text {
+        font-family: '73Book';
+        font-size: 14rem;
+        line-height: 20rem;
+        letter-spacing: -0.4rem;
+        color: rgba($white, 0.5);
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    &__phoneContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__phoneSwiper {
+      width: 100%;
+      overflow: visible;
+    }
+
+    &__phoneSlide {
+      width: 100% !important;
+
+    }
+
+    &__phoneWrapper {
+      width: 270rem;
+      height: 584rem;
+      min-height: 584rem;
+      max-height: 584rem;
+      border: 8rem solid rgba(177, 177, 177, 0.4);
+      border-radius: 32rem;
+      position: relative;
+      overflow: hidden;
+      margin-inline: 46rem;
+
+      img {
+        transition: opacity 0.5s ease;
+      }
+    }
+
+    &__carousel {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8rem;
+
+      &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56rem;
+        height: 56rem;
+        background: rgba($white, 0.08);
+        border-radius: 12rem;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+
+        &:disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
+
+        svg {
+          width: 24rem;
+          height: 24rem;
+        }
+      }
+
+      &__progress {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 16rem 24rem;
+        background: rgba($white, 0.08);
+        border-radius: 56rem;
+        min-width: 158rem;
+        height: 56rem;
+      }
+
+      &__dots {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+        padding: 8rem;
+        backdrop-filter: blur(10rem);
+        border-radius: 56rem;
+      }
+
+      &__dot {
+        width: 8rem;
+        height: 8rem;
+        background: rgba($white, 0.16);
+        border-radius: 16rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+
+        &__active {
+          width: 42rem;
+          background: $white;
+          border-radius: 116rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}

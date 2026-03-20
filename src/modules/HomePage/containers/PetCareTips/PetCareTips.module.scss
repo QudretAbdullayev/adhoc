@@ -1,0 +1,166 @@
+@use '@/assets/styles/abstracts/' as *;
+
+.tips {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 160rem;
+    padding-bottom: 160rem;
+    gap: 56rem;
+    width: 100%;
+    background: $carbon;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8rem;
+    }
+
+    &__label {
+        font-family: '74Regular';
+        @include font(18, 400, 24);
+        letter-spacing: -0.4rem;
+        text-transform: uppercase;
+        color: $white;
+    }
+
+    &__title {
+        font-family: '37Extrabold';
+        @include font(208, 800, 184);
+        text-transform: uppercase;
+        color: $white;
+    }
+
+    &__grid {
+        width: 100%;
+    }
+
+    &__swiper {
+        width: 100%;
+        padding-bottom: 48rem;
+        overflow: initial !important;
+    }
+
+    &__slide {
+        width: 368rem !important;
+        margin-right: 16rem !important;
+
+        &:first-child,
+        &:last-child {
+            height: 564rem;
+        }
+
+        &:last-child {
+            margin-right: 0 !important;
+        }
+
+        &:nth-child(2) {
+            height: 496rem;
+        }
+
+        &:nth-child(3) {
+            height: 432rem;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 24rem;
+        gap: 8rem;
+        width: 100%;
+        position: relative;
+        border-radius: 24rem;
+        overflow: hidden;
+        height: 100%;
+
+        video {
+            border-radius: 24rem;
+        }
+
+        &__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 65.16%,
+                    rgba(0, 0, 0, 0.95) 100%);
+            z-index: 1;
+        }
+
+        &__content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 8rem;
+            width: 100%;
+            background-color: transparent;
+        }
+
+        &__subtitle {
+            font-family: '73Book';
+            @include font(14, 300, 20);
+            letter-spacing: -0.4rem;
+            text-transform: uppercase;
+            color: rgba($white, 0.6);
+        }
+
+        &__title {
+            font-family: '46Bold';
+            @include font(36, 700, 36);
+            text-transform: uppercase;
+            color: $white;
+        }
+    }
+
+
+    @media screen and (max-width: 700px) {
+        padding-top: 96rem;
+        padding-bottom: 96rem;
+        gap: 40rem;
+        overflow: hidden;
+
+        &__title {
+            font-size: 104rem;
+            line-height: 96rem;
+        }
+
+        &__slide {
+            width: 304rem !important;
+            margin-right: 16rem !important;
+
+            &:first-child,
+            &:last-child {
+                height: 476rem;
+            }
+
+            &:last-child {
+                margin-right: 0 !important;
+            }
+
+            &:nth-child(2) {
+                height: 428rem;
+            }
+
+            &:nth-child(3) {
+                height: 380rem;
+            }
+        }
+
+        &__card {
+            padding: 20rem;
+
+            &__title {
+                font-size: 32rem;
+                line-height: 32rem;
+            }
+        }
+    }
+}
