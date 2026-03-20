@@ -5,23 +5,10 @@
 .section {
   background: $navy;
   padding: 120rem 0 140rem;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 900rem;
-    height: 600rem;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba($teal, 0.06) 0%, transparent 65%);
-    bottom: 0;
-    right: -200rem;
-    pointer-events: none;
-  }
+  border-top: 1rem solid rgba($white, 0.05);
 }
 
 .inner {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 80rem;

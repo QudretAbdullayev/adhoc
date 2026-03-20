@@ -11,31 +11,6 @@
   justify-content: flex-end;
   overflow: hidden;
 
-  // ambient teal glow — top right
-  &::before {
-    content: '';
-    position: absolute;
-    width: 800rem;
-    height: 800rem;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba($teal, 0.12) 0%, transparent 65%);
-    top: -200rem;
-    right: -200rem;
-    pointer-events: none;
-  }
-
-  // secondary azure glow — bottom left
-  &::after {
-    content: '';
-    position: absolute;
-    width: 600rem;
-    height: 600rem;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba($azure, 0.08) 0%, transparent 65%);
-    bottom: 0;
-    left: -100rem;
-    pointer-events: none;
-  }
 }
 
 // top badge row

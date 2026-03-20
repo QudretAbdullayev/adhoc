@@ -7,6 +7,7 @@ import Marquee from "./containers/Marquee/Marquee";
 import Journey from "./containers/Journey/Journey";
 import Services from "./containers/Services/Services";
 import Cases from "./containers/Cases/Cases";
+import News from "./containers/News/News";
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
       <Journey />
       <Services />
       <Cases />
+      <News />
     </>
   );
 };

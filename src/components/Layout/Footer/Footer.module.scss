@@ -6,18 +6,6 @@
   background: $navy;
   position: relative;
 
-  // subtle glow
-  &::before {
-    content: '';
-    position: absolute;
-    width: 700rem;
-    height: 400rem;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba($teal, 0.06) 0%, transparent 65%);
-    bottom: 80rem;
-    right: -100rem;
-    pointer-events: none;
-  }
 }
 
 // ── DIVIDER ───────────────────────────────────────────────────────────────────

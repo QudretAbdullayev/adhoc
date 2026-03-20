@@ -3,23 +3,11 @@
 // ─── JOURNEY — navy bg, sticky heading, glass process cards ──────────────────
 
 .section {
-  background: $navy-2;
+  background: $navy;
   padding: 120rem 0 140rem;
   overflow: hidden;
   position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 600rem;
-    height: 600rem;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba($azure, 0.07) 0%, transparent 65%);
-    top: 50%;
-    left: -100rem;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
+  border-top: 1rem solid rgba($white, 0.05);
 }
 
 .inner {
@@ -50,12 +38,12 @@
 
 .label {
   font-family: '74Regular';
-  font-size: 12rem;
+  font-size: 11rem;
   font-weight: 400;
   line-height: 16rem;
   letter-spacing: 2.5rem;
   text-transform: uppercase;
-  color: rgba($white, 0.25);
+  color: rgba($white, 0.28);
 }
 
 .heading {
@@ -80,7 +68,7 @@
 .card {
   background: $glass-bg;
   border: 1rem solid $glass-border-s;
-  border-radius: 20rem;
+  border-radius: 16rem;
   backdrop-filter: blur(20rem);
   -webkit-backdrop-filter: blur(20rem);
   box-shadow: inset 0 1rem 0 $glass-shine;
@@ -113,7 +101,7 @@
   font-weight: 400;
   line-height: 16rem;
   letter-spacing: 1rem;
-  color: rgba($teal, 0.5);
+  color: rgba($teal, 0.55);
   text-transform: uppercase;
 }
 
@@ -138,7 +126,7 @@
   font-weight: 300;
   line-height: 22rem;
   letter-spacing: -0.2rem;
-  color: rgba($white, 0.4);
+  color: rgba($white, 0.42);
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────

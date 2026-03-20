@@ -7,7 +7,8 @@
       "Bash(curl -s \"https://sitetrip.be/sites/default/files/css/css_SBUPtMldCot2GVHEX3SmwnA2rJwFzTR9SEo9ujE_ToQ.css?delta=0&language=en&theme=jakarta\")",
       "Bash(curl -s \"https://sitetrip.be/sites/default/files/css/css_2horh8v3YexT8ZeWZliVJNtACO9NOSBy43ELpmL75R4.css?delta=1&language=en&theme=jakarta\")",
       "Bash(tr '}' '\\\\n')",
-      "WebFetch(domain:www.evokehr.ca)"
+      "WebFetch(domain:www.evokehr.ca)",
+      "Bash(node -e \"const p=require\\(''c:/Users/abdul/Desktop/adhoc.az/node_modules/swiper/package.json''\\); console.log\\(p.version\\)\")"
     ]
   }
 }
