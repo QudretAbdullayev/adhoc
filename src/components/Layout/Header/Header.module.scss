@@ -109,7 +109,7 @@
   transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
 
   &:hover {
-    background: darken(#2DD4BF, 8%);
+    background: darken(#4F7CFF, 8%);
     box-shadow: 0 0 20rem $teal-glow;
     transform: scale(1.03);
   }

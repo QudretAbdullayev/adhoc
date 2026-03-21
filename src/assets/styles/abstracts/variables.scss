@@ -1,4 +1,4 @@
-// ─── SEMANTIC COLOR SYSTEM — LIGHT THEME ──────────────────────────────────────
+// ─── SEMANTIC COLOR SYSTEM — DARK THEME ───────────────────────────────────────
 //
 //  Background  ·  Surface  ·  Border  ·  Text  ·  Accent
 //  Each token has a role — never use raw rgba() in components.
@@ -9,34 +9,48 @@ $black:   #000000;
 $carbon:  #191919;
 
 // ── Background scale ──────────────────────────────────────────────────────────
-//   base      — page canvas, section backgrounds (near-black)
-//   surface   — cards, panels (dark gray)
-//   elevated  — hover states, nested elements (lighter dark)
-$bg-base:     #070707;   // near-black — main page canvas
-$bg-surface:  #111111;   // card / panel — elevated dark
-$bg-elevated: #1C1C1C;   // hover / pressed — lighter dark
+//   base      — page canvas, ultra-deep black with cool blue tint
+//   surface   — cards, sections
+//   elevated  — modals, dropdowns, hover states
+$bg-base:     #0B0B0F;   // Background Primary — deep black, blue tint
+$bg-surface:  #121218;   // Background Secondary — cards / sections
+$bg-elevated: #1A1A22;   // Surface / Elevated — modals, dropdowns
 
 // ── Border scale ──────────────────────────────────────────────────────────────
 //   default   — card outlines, dividers between named elements
 //   subtle    — between same-surface elements, internal section rules
-$border:      #2C2C2C;   // default border — dark gray, visible
-$border-s:    #1C1C1C;   // subtle border — barely there
+$border:      #2A2A35;   // Border / Divider — subtle separation
+$border-s:    #1E1E28;   // Subtle border — barely there
 
 // ── Text scale ────────────────────────────────────────────────────────────────
-//   primary   — headings, important labels
-//   secondary — body copy, descriptions
-//   tertiary  — eyebrow labels, dates, captions, placeholders
-$text-1:  #F0EFE9;   // primary   — warm off-white
-$text-2:  #9CA3AF;   // secondary — cool neutral gray
-$text-3:  #6B7280;   // tertiary  — muted, for labels & metadata
+//   primary   — headings, high-contrast readability
+//   secondary — descriptions, labels
+//   tertiary  — captions, placeholders, metadata
+$text-1:  #FFFFFF;   // Primary Text — maximum contrast
+$text-2:  #A1A1B5;   // Secondary Text — muted, cool-toned
+$text-3:  #6B6B80;   // Tertiary Text — subtle metadata
 
-// ── Accent ────────────────────────────────────────────────────────────────────
-$teal:          #2DD4BF;   // teal-400 — bright, contrast-safe on dark bg
-$teal-bg:       rgba(#2DD4BF, 0.08);   // tinted button/tag bg
-$teal-border:   rgba(#2DD4BF, 0.22);   // tinted border
-$teal-glow:     rgba(#2DD4BF, 0.18);   // box-shadow glow
+// ── Primary Accent (Blue) ─────────────────────────────────────────────────────
+$accent:        #4F7CFF;               // CTAs, links, focus states
+$accent-bg:     rgba(#4F7CFF, 0.10);   // tinted background
+$accent-border: rgba(#4F7CFF, 0.25);   // tinted border
+$accent-glow:   rgba(#4F7CFF, 0.20);   // box-shadow glow
 
-// Secondary/legacy (keep for table styles, rich text)
+// ── Legacy teal alias (keeps existing components working) ─────────────────────
+$teal:          $accent;
+$teal-bg:       $accent-bg;
+$teal-border:   $accent-border;
+$teal-glow:     $accent-glow;
+
+// ── Semantic state colors ──────────────────────────────────────────────────────
+$success:        #22C55E;
+$success-bg:     rgba(#22C55E, 0.10);
+$warning:        #F59E0B;
+$warning-bg:     rgba(#F59E0B, 0.10);
+$error:          #EF4444;
+$error-bg:       rgba(#EF4444, 0.10);
+
+// ── Legacy secondaries (kept for backwards compat) ────────────────────────────
 $honey:    #FFCC66;
 $snow:     #F5F5F5;
 $fog:      #E4E4E4;
@@ -58,9 +72,9 @@ $r-lg:    24rem;    // cards, panels
 $r-xl:    32rem;    // large cards
 $r-pill:  9999rem;  // fully rounded
 
-// ── Glass tokens (for floating elements like nav pill that sit over content) ───
-$glass-bg:       rgba(#1A1A1A, 0.88);
-$glass-bg-hover: rgba(#282828, 0.96);
+// ── Glass tokens (floating nav pill, overlays) ────────────────────────────────
+$glass-bg:       rgba(#121218, 0.88);
+$glass-bg-hover: rgba(#1A1A22, 0.96);
 $glass-border:   $border;
 $glass-border-s: $border-s;
 $glass-shine:    rgba($white, 0.04);
