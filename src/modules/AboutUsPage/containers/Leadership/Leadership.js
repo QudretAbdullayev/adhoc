@@ -1,4 +1,5 @@
 import styles from './Leadership.module.scss';
+import ComponentTitle from '@/components/ComponentTitle/ComponentTitle';
 
 const LOGOS = ['McKinsey', 'Deloitte', 'KPMG', 'PwC'];
 
@@ -9,8 +10,7 @@ export default function Leadership() {
 
         <div className={styles.topRow}>
           <div className={styles.headingCol}>
-            <span className={styles.eyebrow}>Tanıyın</span>
-            <h2 className={styles.heading}>Rəhbərlik</h2>
+            <ComponentTitle label="Tanıyın" title="Rəhbərlik" size="xl" />
           </div>
         </div>
 

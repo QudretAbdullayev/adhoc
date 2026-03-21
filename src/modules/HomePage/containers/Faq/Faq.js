@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./Faq.module.scss";
 import useInView from "@/hooks/useInView";
+import ComponentTitle from "@/components/ComponentTitle/ComponentTitle";
 
 const ITEMS = [
   {
@@ -46,8 +47,7 @@ export default function Faq() {
           className={`${styles.sideCol} ${sideVisible ? styles.sideVisible : ""}`}
           ref={sideRef}
         >
-          <span className={styles.label}>FAQ</span>
-          <h2 className={styles.title}>Tez-tez soruşulan suallar.</h2>
+          <ComponentTitle label="FAQ" title="Tez-tez soruşulan suallar." />
         </div>
 
         {/* ── Accordion ── */}

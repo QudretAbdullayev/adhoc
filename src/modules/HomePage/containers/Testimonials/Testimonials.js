@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./Testimonials.module.scss";
+import ComponentTitle from "@/components/ComponentTitle/ComponentTitle";
 
 const TESTIMONIALS = [
   {
@@ -52,7 +53,7 @@ export default function Testimonials() {
   return (
     <section className={styles.section}>
       <div className={`${styles.inner} g-container`}>
-        <h2 className={styles.heading}>Müştərilərimiz nə deyir</h2>
+        <ComponentTitle title="Müştərilərimiz nə deyir" size="lg" />
 
         <div className={styles.sliderWrap}>
           <Swiper

@@ -37,28 +37,6 @@
   max-width: 630rem;
 }
 
-.headingGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 16rem;
-}
-
-.eyebrow {
-  font-size: 24rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.48rem;
-  color: $text-2;
-}
-
-.heading {
-  font-size: 88rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -1.76rem;
-  color: $text-1;
-  margin: 0;
-}
 
 // ── Join button ───────────────────────────────────────────────────────────────
 
@@ -176,7 +154,6 @@
 
 @media screen and (max-width: 1100px) {
   .grid { grid-template-columns: repeat(4, 1fr); }
-  .heading { font-size: 64rem; letter-spacing: -1.28rem; }
 }
 
 @media screen and (max-width: 900px) {
@@ -184,12 +161,10 @@
   .inner { padding: 32rem 24rem; padding-bottom: 64rem; }
   .topRow { flex-direction: column; gap: 32rem; }
   .headingCol, .descCol { max-width: 100%; }
-  .heading { font-size: 56rem; letter-spacing: -1.12rem; }
   .grid { grid-template-columns: repeat(3, 1fr); gap: 16rem; padding-top: 40rem; }
 }
 
 @media screen and (max-width: 560px) {
-  .heading { font-size: 40rem; letter-spacing: -0.8rem; }
   .inner { padding: 24rem 16rem; padding-bottom: 48rem; }
   .grid { grid-template-columns: repeat(2, 1fr); }
 }

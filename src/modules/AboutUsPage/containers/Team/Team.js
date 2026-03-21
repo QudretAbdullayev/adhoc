@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './Team.module.scss';
+import ComponentTitle from '@/components/ComponentTitle/ComponentTitle';
 
 const TEAM = [
   { name: 'Rauf',    role: 'Qurucu & İcraçı Direktor'  },
@@ -27,10 +28,7 @@ export default function Team() {
 
         <div className={styles.topRow}>
           <div className={styles.headingCol}>
-            <div className={styles.headingGroup}>
-              <span className={styles.eyebrow}>Komanda</span>
-              <h2 className={styles.heading}>Mütəxəssislərimiz</h2>
-            </div>
+            <ComponentTitle label="Komanda" title="Mütəxəssislərimiz" size="xl" />
             <Link href="/karyera" className={styles.joinBtn}>
               Komandaya qoşul
             </Link>
