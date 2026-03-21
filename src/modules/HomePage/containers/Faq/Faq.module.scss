@@ -5,41 +5,51 @@
 .section {
   background: $bg-base;
   border-top: 1rem solid $border-s;
-  padding-bottom: 120rem;
+  padding: 100rem 0 120rem;
 }
 
-.inner {
-  max-width: 888rem;
-  margin: 0 auto;
+// ── Two-column layout ──────────────────────────────────────────────────────────
+
+.layout {
+  display: grid;
+  grid-template-columns: 360rem 1fr;
+  gap: 80rem;
+  align-items: start;
 }
 
-// ── Head ──────────────────────────────────────────────────────────────────────
+// ── Left sticky col ───────────────────────────────────────────────────────────
 
-.head {
-  padding-top: 100rem;
-  padding-bottom: 64rem;
+.sideCol {
+  position: sticky;
+  top: 112rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+  opacity: 0;
+  transform: translateY(24rem);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.sideVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.titleWrap {
-  overflow: hidden;
-  line-height: 1;
+.label {
+  font-size: 11rem;
+  font-weight: 500;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+  color: $teal;
 }
 
 .title {
-  display: block;
-  font-size: 80rem;
+  font-size: 48rem;
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -2.5rem;
-  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -1.5rem;
   color: $text-1;
   margin: 0;
-  transform: translateY(105%);
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 0.1s + 0.05s);
-
-  &.titleVisible {
-    transform: translateY(0);
-  }
 }
 
 // ── Accordion list ────────────────────────────────────────────────────────────
@@ -68,21 +78,15 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  transition: color 0.2s;
 
-  &:hover .triggerText {
-    color: $text-1;
-  }
-
-  &.triggerOpen .triggerText {
-    color: $text-1;
-  }
+  &:hover .triggerText { color: $text-1; }
+  &.triggerOpen .triggerText { color: $text-1; }
 }
 
 .triggerText {
-  font-size: 20rem;
-  font-weight: 700;
-  line-height: 1.35;
+  font-size: 18rem;
+  font-weight: 600;
+  line-height: 1.4;
   letter-spacing: -0.3rem;
   color: $text-2;
   transition: color 0.25s;
@@ -92,9 +96,9 @@
 
 .chevron {
   flex-shrink: 0;
-  width: 32rem;
-  height: 32rem;
-  border-radius: 50%;
+  width: 28rem;
+  height: 28rem;
+  border-radius: $r-sm;
   border: 1rem solid $border;
   background: $bg-surface;
   display: flex;
@@ -102,11 +106,6 @@
   justify-content: center;
   color: $text-2;
   transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-
-  svg {
-    flex-shrink: 0;
-    transition: inherit;
-  }
 
   &.chevronOpen {
     background: $teal-bg;
@@ -131,22 +130,33 @@
 }
 
 .answer {
-  font-size: 17rem;
+  font-size: 16rem;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.75;
   color: $text-2;
   margin: 0;
   padding-bottom: 28rem;
-  max-width: 680rem;
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
-@media screen and (max-width: 700px) {
-  .section { padding-bottom: 80rem; }
-  .head { padding-top: 72rem; padding-bottom: 48rem; }
-  .title { font-size: 52rem; letter-spacing: -1.5rem; }
-  .triggerText { font-size: 17rem; }
+@media screen and (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 280rem 1fr;
+    gap: 56rem;
+  }
+  .title { font-size: 40rem; letter-spacing: -1.2rem; }
+}
+
+@media screen and (max-width: 760px) {
+  .section { padding: 72rem 0 80rem; }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40rem;
+  }
+  .sideCol { position: static; }
+  .title { font-size: 36rem; letter-spacing: -1rem; }
+  .triggerText { font-size: 16rem; }
   .trigger { padding: 22rem 0; }
   .answer { font-size: 15rem; }
 }

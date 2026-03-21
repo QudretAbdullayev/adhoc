@@ -33,29 +33,24 @@ const ITEMS = [
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
-  const [headRef, headVisible] = useInView(0.2);
+  const [sideRef, sideVisible] = useInView(0.1);
 
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <section className={styles.section}>
-      <div className={`${styles.inner} g-container`}>
-        <div className={styles.head} ref={headRef}>
-          <div className={styles.titleWrap}>
-            <h2 className={`${styles.title} ${headVisible ? styles.titleVisible : ""}`}>
-              Tez-tez soruşulan
-            </h2>
-          </div>
-          <div className={styles.titleWrap}>
-            <h2
-              className={`${styles.title} ${headVisible ? styles.titleVisible : ""}`}
-              style={{ "--i": 1 }}
-            >
-              suallar.
-            </h2>
-          </div>
+      <div className={`${styles.layout} g-container`}>
+
+        {/* ── Left sticky col ── */}
+        <div
+          className={`${styles.sideCol} ${sideVisible ? styles.sideVisible : ""}`}
+          ref={sideRef}
+        >
+          <span className={styles.label}>FAQ</span>
+          <h2 className={styles.title}>Tez-tez soruşulan suallar.</h2>
         </div>
 
+        {/* ── Accordion ── */}
         <ul className={styles.list}>
           {ITEMS.map((item, i) => {
             const isOpen = openIndex === i;
@@ -68,8 +63,8 @@ export default function Faq() {
                 >
                   <span className={styles.triggerText}>{item.q}</span>
                   <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
                 </button>
@@ -82,6 +77,7 @@ export default function Faq() {
             );
           })}
         </ul>
+
       </div>
     </section>
   );
