@@ -10,8 +10,8 @@ html {
 
 body {
     position: relative;
-    height: 100%;
-    overflow-x: hidden !important;
+    min-height: 100vh;
+    overflow-x: hidden;
     background-color: $bg-base;
     font-family: var(--font-inter), Inter, sans-serif;
     -webkit-font-smoothing: antialiased;

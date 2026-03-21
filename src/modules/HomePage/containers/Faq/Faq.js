@@ -6,28 +6,28 @@ import useInView from "@/hooks/useInView";
 
 const ITEMS = [
   {
-    q: "What types of projects does AD HOC take on?",
-    a: "We work on digital products end-to-end — from brand identity and UX strategy to frontend development and launch. We typically partner with startups, scale-ups, and established businesses looking to redesign or build something new.",
+    q: "ADHOC hansı sahələrdə xidmət göstərir?",
+    a: "Biz maliyyə, enerji, istehsal, texnologiya və xidmət sektorlarında strateji konsaltinq, biznes analizi və idarəetmə məsləhəti xidmətləri göstəririk. Hər sahə üzrə dərin sektoral biliyimiz var.",
   },
   {
-    q: "How long does a typical project take?",
-    a: "It depends on the scope. A focused landing page or brand refresh can take 2–4 weeks. A full product design and build usually runs 6–16 weeks. We'll give you a clear timeline during our first conversation.",
+    q: "Tipik bir layihə nə qədər davam edir?",
+    a: "Əhatə dairəsindən asılı olaraq dəyişir. Qısa müddətli strateji qiymətləndirmə 2–4 həftə, tam miqyaslı transformasiya layihəsi isə 3–9 ay çəkə bilər. İlk görüşdə sizə dəqiq qrafik təqdim edirik.",
   },
   {
-    q: "Do you work with clients outside of Azerbaijan?",
-    a: "Yes — we work remotely with clients across Europe, the Middle East, and Central Asia. Our process is built for async collaboration, so timezone differences rarely cause friction.",
+    q: "Azərbaycandan kənar müştərilərlə işləyirsiniz?",
+    a: "Bəli — Körfəz ölkələri, Mərkəzi Asiya, Türkiyə və Avropada müştərilərimiz var. Prosesimiz uzaqdan əməkdaşlığa tam uyğunlaşdırılıb, saat fərqi heç vaxt maneə yaratmır.",
   },
   {
-    q: "What does your process look like?",
-    a: "We start with a discovery phase to understand your goals and users. From there we move into design (wireframes → visual design → prototype), then development, QA, and handoff. You're involved at every stage — no black boxes.",
+    q: "İş prosesiniz necə görünür?",
+    a: "Kəşfiyyat mərhələsindən başlayırıq — mövcud vəziyyəti, hədəfləri və çətinlikləri dərindən öyrənirik. Sonra analiz, tövsiyə paketi, tətbiq planı və nəticələrin monitorinqi gəlir. Hər mərhələdə şəffaf hesabat veririk.",
   },
   {
-    q: "Can you take over an existing codebase or design system?",
-    a: "Yes. We regularly step into ongoing projects to audit, refactor, or extend existing work. We'll review what's there first and give you an honest assessment before committing.",
+    q: "Mövcud bir iş prosesini audit edə bilərsiniz?",
+    a: "Bəli. Artıq fəaliyyət göstərən iş proseslərini, maliyyə modellərini və ya idarəetmə strukturlarını müstəqil olaraq qiymətləndiririk, ətraflı audit hesabatı hazırlayırıq.",
   },
   {
-    q: "How do we get started?",
-    a: "Send us a brief overview of your project through the contact form or by email. We'll schedule a short call to align on scope, timeline, and fit — and take it from there.",
+    q: "Necə başlamaq olar?",
+    a: "Əlaqə forması vasitəsilə və ya e-poçtla bizə qısa layihə icmalı göndərin. Əhatə, qrafik və uyğunluq barədə danışmaq üçün qısa görüş planlaşdırırıq — pulsuz ilkin konsultasiya.",
   },
 ];
 
@@ -40,13 +40,10 @@ export default function Faq() {
   return (
     <section className={styles.section}>
       <div className={`${styles.inner} g-container`}>
-        {/* Head */}
         <div className={styles.head} ref={headRef}>
           <div className={styles.titleWrap}>
-            <h2
-              className={`${styles.title} ${headVisible ? styles.titleVisible : ""}`}
-            >
-              Frequently
+            <h2 className={`${styles.title} ${headVisible ? styles.titleVisible : ""}`}>
+              Tez-tez soruşulan
             </h2>
           </div>
           <div className={styles.titleWrap}>
@@ -54,12 +51,11 @@ export default function Faq() {
               className={`${styles.title} ${headVisible ? styles.titleVisible : ""}`}
               style={{ "--i": 1 }}
             >
-              asked questions.
+              suallar.
             </h2>
           </div>
         </div>
 
-        {/* Accordion */}
         <ul className={styles.list}>
           {ITEMS.map((item, i) => {
             const isOpen = openIndex === i;
@@ -73,20 +69,11 @@ export default function Faq() {
                   <span className={styles.triggerText}>{item.q}</span>
                   <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path
-                        d="M5 7.5l5 5 5-5"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
+                      <path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
                 </button>
-                <div
-                  className={styles.body}
-                  style={{ "--open": isOpen ? 1 : 0 }}
-                >
+                <div className={styles.body} style={{ "--open": isOpen ? 1 : 0 }}>
                   <div className={styles.bodyInner}>
                     <p className={styles.answer}>{item.a}</p>
                   </div>

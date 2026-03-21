@@ -4,37 +4,33 @@ import { Fragment, useState } from "react";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
-
 const NAV_COMPANY = [
-  { label: "About",   href: "/about" },
-  { label: "Work",    href: "/works" },
-  { label: "Blog",    href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "Haqqımızda", href: "/haqqimizda" },
+  { label: "İşlər",      href: "/isler"       },
+  { label: "Bloq",       href: "/bloq"         },
+  { label: "Əlaqə",      href: "/elaqe"        },
 ];
 
 const NAV_SERVICES = [
-  { label: "Websites",         href: "/services/websites" },
-  { label: "Web Applications", href: "/services/web-apps" },
-  { label: "UI/UX Design",     href: "/services/design" },
-  { label: "Branding",         href: "/services/branding" },
-  { label: "Strategy",         href: "/services/strategy" },
+  { label: "Strateji Konsaltinq",   href: "/xidmetler/strategiya"  },
+  { label: "Biznes Analizi",        href: "/xidmetler/analiz"      },
+  { label: "İdarəetmə Məsləhəti",   href: "/xidmetler/idaeetme"    },
+  { label: "Maliyyə Planlaması",    href: "/xidmetler/maliyye"     },
+  { label: "Risk İdarəetməsi",      href: "/xidmetler/risk"        },
 ];
 
 const NAV_MORE = [
-  { label: "Our Process", href: "/process" },
-  { label: "Pricing",     href: "/pricing" },
-  { label: "Careers",     href: "/careers" },
-  { label: "FAQ",         href: "/faq" },
+  { label: "Prosesimiz", href: "/proses"   },
+  { label: "Qiymətlər",  href: "/qiymetler"},
+  { label: "Karyera",    href: "/karyera"  },
+  { label: "FAQ",        href: "/faq"      },
 ];
 
 const LEGAL_LINKS = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Disclaimer",     href: "/disclaimer" },
-  { label: "Cookies",        href: "/cookies" },
+  { label: "Gizlilik Siyasəti", href: "/gizlilik" },
+  { label: "İmtina",            href: "/imtina"    },
+  { label: "Cookies",           href: "/cookies"   },
 ];
-
-// ─── ICONS ────────────────────────────────────────────────────────────────────
 
 function IconPhone() {
   return (
@@ -62,8 +58,6 @@ function IconLocation() {
   );
 }
 
-// ─── COMPONENT ────────────────────────────────────────────────────────────────
-
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -76,23 +70,21 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
 
-      {/* ── TOP BAR — wordmark | contacts | socials ── */}
       <div className={`${styles.topBar} g-container`}>
-
-        <Link href="/" className={styles.wordmark}>ADHOC.</Link>
+        <Link href="/" className={styles.wordmark}>ADHOC.AZ</Link>
 
         <div className={styles.contactRow}>
           <a href="tel:+994501234567" className={styles.contactItem}>
             <span className={styles.contactIcon}><IconPhone /></span>
             +994 50 123 45 67
           </a>
-          <a href="mailto:hello@adhoc.az" className={styles.contactItem}>
+          <a href="mailto:info@adhoc.az" className={styles.contactItem}>
             <span className={styles.contactIcon}><IconMail /></span>
-            hello@adhoc.az
+            info@adhoc.az
           </a>
           <span className={styles.contactItem}>
             <span className={styles.contactIcon}><IconLocation /></span>
-            Baku, Azerbaijan
+            Bakı, Azərbaycan
           </span>
         </div>
 
@@ -111,22 +103,18 @@ export default function Footer() {
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
-          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Behance">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029H23.726zm-7.726-3h3.543c-.063-1.337-.61-2.245-1.731-2.245-1.23 0-1.72.91-1.812 2.245zM7.491 11.618c.963-.344 1.497-1.126 1.497-2.251 0-2.076-1.504-3.367-3.848-3.367H0v14h5.501c2.983 0 4.875-1.388 4.875-3.934 0-1.546-.747-2.724-2.885-2.448zM3 8.5h1.5c.948 0 1.531.54 1.531 1.35s-.583 1.35-1.531 1.35H3V8.5zm2.5 7.5H3v-3h2.5c1.118 0 1.754.591 1.754 1.5 0 .954-.636 1.5-1.754 1.5z" />
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
             </svg>
           </a>
         </div>
-
       </div>
 
-      {/* ── BODY — nav card + newsletter card ── */}
       <div className={`${styles.body} g-container`}>
-
-        {/* Left — nav columns card */}
         <div className={styles.cardNav}>
           <div className={styles.navCol}>
-            <h3 className={styles.navHeading}>Company</h3>
+            <h3 className={styles.navHeading}>Şirkət</h3>
             <ul className={styles.navList}>
               {NAV_COMPANY.map((l) => (
                 <li key={l.href}>
@@ -136,7 +124,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className={styles.navCol}>
-            <h3 className={styles.navHeading}>Services</h3>
+            <h3 className={styles.navHeading}>Xidmətlər</h3>
             <ul className={styles.navList}>
               {NAV_SERVICES.map((l) => (
                 <li key={l.href}>
@@ -146,7 +134,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className={styles.navCol}>
-            <h3 className={styles.navHeading}>Explore</h3>
+            <h3 className={styles.navHeading}>Kəşf et</h3>
             <ul className={styles.navList}>
               {NAV_MORE.map((l) => (
                 <li key={l.href}>
@@ -157,59 +145,54 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Right — newsletter card */}
         <div className={styles.cardNewsletter}>
           {subscribed ? (
             <div className={styles.successState}>
               <span className={styles.successIcon}>✓</span>
-              <p className={styles.successText}>Thank you for subscribing!</p>
+              <p className={styles.successText}>Abunəliyiniz üçün təşəkkür edirik!</p>
             </div>
           ) : (
             <>
               <h3 className={styles.newsHeading}>
-                Stay up to date on everything digital
+                Biznes dünyasından xəbərdar olun
               </h3>
               <form className={styles.newsForm} onSubmit={handleSubscribe}>
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="E-poçt ünvanınız"
                   className={styles.newsInput}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
                 <button type="submit" className={styles.newsBtn}>
-                  Subscribe
+                  Abunə ol
                 </button>
               </form>
               <p className={styles.newsNote}>
-                By subscribing, you agree to our Privacy Policy and consent to receive updates from us.
+                Abunə olmaqla Gizlilik Siyasətimizə razılıq verirsiniz.
               </p>
             </>
           )}
         </div>
-
       </div>
 
-      {/* ── BOTTOM BAR ── */}
       <div className={`${styles.bottomBar} g-container`}>
         <span className={styles.copy}>
-          © {new Date().getFullYear()} ADHOC. All rights reserved.
+          © {new Date().getFullYear()} ADHOC. Bütün hüquqlar qorunur.
         </span>
         <nav className={styles.legal}>
           {LEGAL_LINKS.map((l, i) => (
             <Fragment key={l.href}>
               {i > 0 && <span className={styles.legalSep} />}
-              <Link href={l.href} className={styles.legalLink}>
-                {l.label}
-              </Link>
+              <Link href={l.href} className={styles.legalLink}>{l.label}</Link>
             </Fragment>
           ))}
           <span className={styles.legalSep} />
           <span className={styles.lang}>
-            <span className={styles.langItem}>EN</span>
-            <span className={styles.langSep}>/</span>
             <span className={styles.langItem}>AZ</span>
+            <span className={styles.langSep}>/</span>
+            <span className={styles.langItem}>EN</span>
           </span>
         </nav>
       </div>

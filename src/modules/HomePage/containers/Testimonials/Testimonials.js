@@ -6,50 +6,44 @@ import styles from "./Testimonials.module.scss";
 const TESTIMONIALS = [
   {
     company: "TechBridge AZ",
-    quote:
-      "\"AD HOC rebuilt our entire digital presence in a matter of weeks. The precision and attention to detail was unlike anything we had experienced with previous agencies. Truly exceptional work.\"",
+    quote: "\"ADHOC bizim bütün iş proseslərimizi yenidən qurdu. Dəqiqlik və peşəkarlıq baxımından əvvəllər gördüyümüz heç bir şirkətlə müqayisə edilə bilməz. Həqiqətən əla iş.\"",
     name: "Kamran Əliyev",
-    role: "CEO",
-    initials: "KA",
+    role: "İcraçı Direktor",
+    initials: "KƏ",
   },
   {
     company: "Silk Road Ventures",
-    quote:
-      "\"They do not just design — they think. Every screen they delivered had a clear reason behind it, and our conversion rate has doubled since the redesign launched.\"",
+    quote: "\"Onlar yalnız məsləhət vermir — düşünür. Hər tövsiyənin arxasında aydın arqument var. Əməkdaşlıqdan sonra gəlirlərimiz ikiqat artdı.\"",
     name: "Leyla Hüseynova",
-    role: "Head of Marketing",
+    role: "Marketinq Direktoru",
     initials: "LH",
   },
   {
     company: "Caspian Tech",
-    quote:
-      "\"Responsive, fast, and honest about timelines. The product launched on schedule and our users love it. The whole process felt effortless — and that is the mark of a great team.\"",
-    name: "Orkhan Mammadov",
-    role: "Founder",
+    quote: "\"Cavabdehlər, sürətli və qrafik barədə dürüst. Layihə vaxtında başa çatdı. Bütün proses çox rahat keçdi — bu, yüksək peşəkarlığın əlamətidir.\"",
+    name: "Orxan Məmmədov",
+    role: "Qurucu",
     initials: "OM",
   },
   {
     company: "Aura Retail",
-    quote:
-      "\"Our brand needed a complete overhaul. AD HOC delivered a system that is consistent, modern, and finally represents who we are. We get compliments on it every single day.\"",
+    quote: "\"Biznesimizin tam strategiyasını yenidən qurmağa ehtiyacımız var idi. ADHOC müasir, ardıcıl və kim olduğumuzu əks etdirən bir yol xəritəsi hazırladı.\"",
     name: "Nigar Rzayeva",
-    role: "Brand Director",
+    role: "Brend Direktoru",
     initials: "NR",
   },
   {
     company: "BakuSoft",
-    quote:
-      "\"The team understood our audience better than we did. The UX research phase alone changed how we think about our product roadmap. An investment that paid back immediately.\"",
+    quote: "\"Komanda bizim auditoriyamızı bizdən daha yaxşı anladı. Analiz mərhələsinin özü məhsul strategiyamızı dəyişdirdi. Dərhal geri qaytarılan bir investisiya.\"",
     name: "Tural Qasımov",
-    role: "Product Manager",
+    role: "Məhsul Meneceri",
     initials: "TQ",
   },
   {
     company: "Meridian Holdings",
-    quote:
-      "\"From first brief to final handoff, the process was completely transparent. No hidden costs, no missed deadlines. Just great work, great communication, and a result we are proud of.\"",
+    quote: "\"İlk görüşdən son təhvildə qədər proses tamamilə şəffaf idi. Gizli xərclər yox, buraxılmış son tarixlər yox. Sadəcə əla iş, əla ünsiyyət.\"",
     name: "Aysel Babayeva",
-    role: "COO",
+    role: "Əməliyyat Direktoru",
     initials: "AB",
   },
 ];
@@ -58,7 +52,7 @@ export default function Testimonials() {
   return (
     <section className={styles.section}>
       <div className={`${styles.inner} g-container`}>
-        <h2 className={styles.heading}>What our clients say</h2>
+        <h2 className={styles.heading}>Müştərilərimiz nə deyir</h2>
 
         <div className={styles.sliderWrap}>
           <Swiper
@@ -75,13 +69,10 @@ export default function Testimonials() {
             {TESTIMONIALS.map((t, i) => (
               <SwiperSlide key={i} className={styles.slide}>
                 <div className={styles.card}>
-                  {/* Top — company + quote */}
                   <div className={styles.top}>
                     <h3 className={styles.company}>{t.company}</h3>
                     <p className={styles.quote}>{t.quote}</p>
                   </div>
-
-                  {/* Bottom — author */}
                   <div className={styles.author}>
                     <div className={styles.avatar}>{t.initials}</div>
                     <div className={styles.authorMeta}>

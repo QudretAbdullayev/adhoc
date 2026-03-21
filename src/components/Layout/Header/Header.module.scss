@@ -20,7 +20,7 @@
 }
 
 .logo {
-  font-size: 20rem;
+  font-size: 26rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.5rem;
@@ -30,7 +30,7 @@
   align-items: center;
   flex-shrink: 0;
   transition: opacity 0.25s;
-
+  text-transform: uppercase;
   &:hover { opacity: 0.55; }
 }
 

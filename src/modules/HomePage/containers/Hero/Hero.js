@@ -4,12 +4,11 @@ import Link from "next/link";
 import styles from "./Hero.module.scss";
 
 const STATS = [
-  { value: "50+", label: "Projects delivered" },
-  { value: "30+", label: "Clients worldwide"  },
-  { value: "98%", label: "Satisfaction rate"  },
-  { value: "5yr", label: "In the industry"    },
+  { value: "100+", label: "Tamamlanmış layihə" },
+  { value: "50+",  label: "Müştəri"            },
+  { value: "98%",  label: "Məmnuniyyət dərəcəsi"},
+  { value: "10 il",label: "Sahə təcrübəsi"     },
 ];
-
 
 export default function Hero() {
   return (
@@ -27,29 +26,29 @@ export default function Hero() {
 
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowDot} />
-            Digital Agency — Baku, Azerbaijan
+            Konsaltinq Şirkəti — Bakı, Azərbaycan
           </div>
 
           <h1 className={styles.heading}>
-            We build<br />
-            digital things<br />
-            <em className={styles.headingEm}>that matter.</em>
+            Biznesinizi<br />
+            növbəti<br />
+            <em className={styles.headingEm}>səviyyəyə çatdırırıq.</em>
           </h1>
 
           <p className={styles.lead}>
-            From brand identity to full-scale web applications — we design and
-            engineer products that connect with your audience and drive results.
+            Strateji planlaşdırmadan iş proseslərinin optimallaşdırılmasına qədər —
+            sizin uğurunuz bizim hədəfimizdir.
           </p>
 
           <div className={styles.actions}>
-            <Link href="/works" className={styles.btnPrimary}>
-              See our work
+            <Link href="/xidmetler" className={styles.btnPrimary}>
+              Xidmətlərimiz
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
                 <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
-            <Link href="/contact" className={styles.btnGhost}>
-              Talk to us
+            <Link href="/elaqe" className={styles.btnGhost}>
+              Bizimlə əlaqə
             </Link>
           </div>
 

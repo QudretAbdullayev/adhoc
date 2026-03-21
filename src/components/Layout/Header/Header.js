@@ -34,7 +34,7 @@ export default function Header({ locale = "en" }) {
       <header className={styles.header}>
         <div className={`${styles.inner} g-container`}>
           <Link href="/" className={styles.logo} onClick={closeMenu}>
-            adhoc<span className={styles.logoDot}>.</span>
+            adhoc<span className={styles.logoDot}>.</span>az
           </Link>
         </div>
       </header>

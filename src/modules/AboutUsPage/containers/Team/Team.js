@@ -2,18 +2,18 @@ import Link from 'next/link';
 import styles from './Team.module.scss';
 
 const TEAM = [
-  { name: 'Rauf',    role: 'Founder & CEO' },
-  { name: 'Aysel',   role: 'Design Lead' },
-  { name: 'Murad',   role: 'Product Designer' },
-  { name: 'Leyla',   role: 'UI/UX Designer' },
-  { name: 'Kamran',  role: 'Front-End Developer' },
-  { name: 'Nigar',   role: 'Project Manager' },
-  { name: 'Elvin',   role: 'Visual Designer' },
-  { name: 'Sevinc',  role: 'UX Researcher' },
-  { name: 'Tural',   role: 'Full-Stack Developer' },
-  { name: 'Günay',   role: 'Brand Strategist' },
-  { name: 'Anar',    role: 'Motion Designer' },
-  { name: 'Xədicə',  role: 'Operations Manager' },
+  { name: 'Rauf',    role: 'Qurucu & İcraçı Direktor'  },
+  { name: 'Aysel',   role: 'Strateji Direktor'          },
+  { name: 'Murad',   role: 'Baş Analitik'               },
+  { name: 'Leyla',   role: 'Biznes Məsləhətçisi'        },
+  { name: 'Kamran',  role: 'Maliyyə Analitiki'          },
+  { name: 'Nigar',   role: 'Layihə Meneceri'            },
+  { name: 'Elvin',   role: 'Risk Analitiki'             },
+  { name: 'Sevinc',  role: 'Əməliyyat Meneceri'         },
+  { name: 'Tural',   role: 'Texnologiya Məsləhətçisi'   },
+  { name: 'Günay',   role: 'İnsan Resursları'           },
+  { name: 'Anar',    role: 'Marketinq Direktoru'        },
+  { name: 'Xədicə',  role: 'Müştəri Əlaqələri'         },
 ];
 
 function getInitials(name) {
@@ -25,36 +25,31 @@ export default function Team() {
     <div className={styles.root}>
       <div className={styles.inner}>
 
-        {/* ── Top row: heading + description ── */}
         <div className={styles.topRow}>
-
           <div className={styles.headingCol}>
             <div className={styles.headingGroup}>
-              <span className={styles.eyebrow}>Team</span>
-              <h2 className={styles.heading}>Our Design Experts</h2>
+              <span className={styles.eyebrow}>Komanda</span>
+              <h2 className={styles.heading}>Mütəxəssislərimiz</h2>
             </div>
-            <Link href="/careers" className={styles.joinBtn}>
-              Join the team
+            <Link href="/karyera" className={styles.joinBtn}>
+              Komandaya qoşul
             </Link>
           </div>
 
           <div className={styles.descCol}>
             <p className={styles.desc}>
-              We work with best-in-class designers and developers, adept at conquering
-              diverse challenges. With a blend of creativity and technical proficiency,
-              our team navigates complexities in UX/UI design, branding, and engineering.
-              Collaborative and innovative, we transform ideas into visually striking
-              solutions — ensuring every project exceeds expectations.
+              Müxtəlif sektorlarda dərin təcrübəyə malik mütəxəssislərdən ibarət komandamız
+              analitik düşüncə tərzi və praktik yanaşmanın vəhdəti ilə hər bir çətinliyə
+              uyğun həll tapır. Hər layihəni özünəməxsusluğu ilə qəbul edir, müştərimizin
+              uğurunu öz uğurumuz sayırıq.
             </p>
             <div className={styles.hiringBadge}>
               <span className={styles.hiringDot} />
-              <span className={styles.hiringText}>We're hiring!</span>
+              <span className={styles.hiringText}>İş yeri var!</span>
             </div>
           </div>
-
         </div>
 
-        {/* ── Team grid ── */}
         <div className={styles.grid}>
           {TEAM.map((member) => (
             <div key={member.name} className={styles.card}>

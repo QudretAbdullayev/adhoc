@@ -1,23 +1,20 @@
 import styles from './Leadership.module.scss';
 
-const LOGOS = ['Microsoft', 'LinkedIn', 'Booking.com', 'Google'];
+const LOGOS = ['McKinsey', 'Deloitte', 'KPMG', 'PwC'];
 
 export default function Leadership() {
   return (
     <div className={styles.root}>
       <div className={styles.inner}>
 
-        {/* ── Top row: heading left ── */}
         <div className={styles.topRow}>
           <div className={styles.headingCol}>
-            <span className={styles.eyebrow}>Meet</span>
-            <h2 className={styles.heading}>The Leadership</h2>
+            <span className={styles.eyebrow}>Tanıyın</span>
+            <h2 className={styles.heading}>Rəhbərlik</h2>
           </div>
         </div>
 
-        {/* ── Bottom row: photo | bio + logos ── */}
         <div className={styles.bodyRow}>
-
           <div className={styles.photoWrap}>
             <div className={styles.photoPlaceholder}>
               <span className={styles.photoInitials}>RF</span>
@@ -26,11 +23,11 @@ export default function Leadership() {
 
           <div className={styles.bioCol}>
             <p className={styles.bio}>
-              Rauf has over a decade of experience building digital products and brands across
-              Azerbaijan and the broader Caucasus region. With a background spanning design and
-              technology, he leads ADHOC with a focus on purposeful digital experiences — from
-              brand identities to full-scale web applications. Drawing on work with international
-              clients, he guides the team to ship with speed, craft, and intelligence.
+              Rauf, Azərbaycan və Cənubi Qafqaz regionunda on ildən artıq müddət ərzində
+              strateji konsaltinq və biznes idarəetməsi sahəsində təcrübəyə malikdir.
+              Maliyyə, enerji və texnologiya sektorlarında aparıcı beynəlxalq şirkətlərlə
+              əldə etdiyi dərin sektoral biliyə əsaslanaraq ADHOC-u sürət, dəqiqlik və
+              dürüstlük prinsipləri üzərində idarə edir.
             </p>
             <div className={styles.logos}>
               {LOGOS.map((l) => (
@@ -38,7 +35,6 @@ export default function Leadership() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </div>
