@@ -14,11 +14,6 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
 
-      {/* ── Background ── */}
-      <div className={styles.glowPrimary}   aria-hidden="true" />
-      <div className={styles.glowSecondary} aria-hidden="true" />
-      <div className={styles.grid}          aria-hidden="true" />
-
       <div className={`${styles.inner} g-container`}>
 
         {/* ── Left — text ── */}

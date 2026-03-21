@@ -154,7 +154,7 @@ export default function Footer() {
           ) : (
             <>
               <h3 className={styles.newsHeading}>
-                Biznes dünyasından xəbərdar olun
+                Bütün yeniliklərdən xəbərdar olun
               </h3>
               <form className={styles.newsForm} onSubmit={handleSubscribe}>
                 <input

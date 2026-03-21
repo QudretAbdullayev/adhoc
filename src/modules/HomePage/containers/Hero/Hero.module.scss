@@ -11,38 +11,29 @@
   background: $bg-base;
 }
 
-// ── Background ────────────────────────────────────────────────────────────────
+// ── Background — pseudo-elements, clipped by hero overflow:hidden ─────────────
 
-.glowPrimary {
+// ::before — two radial glows combined into one layer
+.hero::before {
+  content: '';
   position: absolute;
-  top: -180rem;
-  right: 100rem;
-  width: 800rem;
-  height: 800rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(#4F7CFF, 0.16) 0%, transparent 60%);
+  inset: 0;
+  background:
+    radial-gradient(circle 400rem at 70% -10%, rgba(#4F7CFF, 0.16) 0%, transparent 60%),
+    radial-gradient(circle 240rem at -5% 110%,  rgba(#4F7CFF, 0.06) 0%, transparent 65%);
   pointer-events: none;
 }
 
-.glowSecondary {
-  position: absolute;
-  bottom: -100rem;
-  left: -100rem;
-  width: 480rem;
-  height: 480rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(#4F7CFF, 0.06) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.grid {
+// ::after — dot grid with fade mask
+.hero::after {
+  content: '';
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba($white, 0.05) 1px, transparent 1px);
   background-size: 40rem 40rem;
-  pointer-events: none;
   mask-image: radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 100%);
+  pointer-events: none;
 }
 
 // ── Inner — two-column layout ─────────────────────────────────────────────────
