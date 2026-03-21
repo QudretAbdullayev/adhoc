@@ -13,6 +13,9 @@ body {
     height: 100%;
     overflow-x: hidden !important;
     background-color: $bg-base;
+    font-family: var(--font-inter), Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     &.custom-cursor-active {
         cursor: none !important;
@@ -43,12 +46,10 @@ img {
 }
 
 .rich {
-    font-family: "73Book";
-    @include font(16, 300, 24);
-    leading-trim: NONE;
+    @include font(16, 400, 24);
     line-height: 24rem;
     letter-spacing: -0.4rem;
-    color: $carbon;
+    color: $text-1;
     margin-right: 24rem;
 
     p,
@@ -60,12 +61,10 @@ img {
     h4,
     h5,
     h6 {
-        font-family: "73Book";
-        @include font(16, 300, 24);
-        leading-trim: NONE;
+        @include font(16, 400, 24);
         line-height: 24rem;
         letter-spacing: -0.4rem;
-        color: $carbon;
+        color: $text-1;
 
         a {
             display: inline-block;
@@ -74,12 +73,10 @@ img {
     }
 
     a {
-        font-family: "73Book";
-        @include font(16, 300, 24);
-        leading-trim: NONE;
+        @include font(16, 400, 24);
         line-height: 24rem;
         letter-spacing: -0.4rem;
-        color: $honey;
+        color: $teal;
         text-decoration: underline;
     }
 
@@ -113,7 +110,7 @@ img {
         overflow: hidden;
         border-collapse: separate;
         border-spacing: 0;
-        border: 2rem solid $white;
+        border: 2rem solid $border;
 
         tr {
             width: 100%;
@@ -125,9 +122,9 @@ img {
             font-family: "73Book";
             @include font(16, 300, 24);
             letter-spacing: -0.4rem;
-            color: $carbon;
-            border-right: 2rem solid $white;
-            border-bottom: 2rem solid $white;
+            color: $text-1;
+            border-right: 2rem solid $border;
+            border-bottom: 2rem solid $border;
             text-align: left;
 
             &:last-child {
@@ -136,13 +133,13 @@ img {
         }
 
         th {
-            background-color: $honey;
+            background-color: $bg-elevated;
             font-family: "75Medium";
             @include font(16, 500, 24);
         }
 
         td {
-            background-color: $snow;
+            background-color: $bg-surface;
         }
 
         tr:last-child td {

@@ -9,32 +9,32 @@ $black:   #000000;
 $carbon:  #191919;
 
 // ── Background scale ──────────────────────────────────────────────────────────
-//   base      — page canvas, section backgrounds (warm off-white)
-//   surface   — cards, panels (pure white)
-//   elevated  — hover states, nested elements (warm tint)
-$bg-base:     #F4F3EF;   // warm off-white — quality paper feel
-$bg-surface:  #FFFFFF;   // card / panel — clean white
-$bg-elevated: #ECEAE4;   // hover / pressed — warm tint
+//   base      — page canvas, section backgrounds (near-black)
+//   surface   — cards, panels (dark gray)
+//   elevated  — hover states, nested elements (lighter dark)
+$bg-base:     #070707;   // near-black — main page canvas
+$bg-surface:  #111111;   // card / panel — elevated dark
+$bg-elevated: #1C1C1C;   // hover / pressed — lighter dark
 
 // ── Border scale ──────────────────────────────────────────────────────────────
 //   default   — card outlines, dividers between named elements
 //   subtle    — between same-surface elements, internal section rules
-$border:      #DEDAD2;   // default border — warm mid-gray, visible
-$border-s:    #E9E7E1;   // subtle border — barely there
+$border:      #2C2C2C;   // default border — dark gray, visible
+$border-s:    #1C1C1C;   // subtle border — barely there
 
 // ── Text scale ────────────────────────────────────────────────────────────────
 //   primary   — headings, important labels
 //   secondary — body copy, descriptions
 //   tertiary  — eyebrow labels, dates, captions, placeholders
-$text-1:  #111118;   // primary   — near-black, slight blue hint
-$text-2:  #6B7280;   // secondary — cool neutral gray
-$text-3:  #A1A8B5;   // tertiary  — muted, for labels & metadata
+$text-1:  #F0EFE9;   // primary   — warm off-white
+$text-2:  #9CA3AF;   // secondary — cool neutral gray
+$text-3:  #6B7280;   // tertiary  — muted, for labels & metadata
 
 // ── Accent ────────────────────────────────────────────────────────────────────
-$teal:          #0F766E;   // deep teal — contrast-safe on white bg
-$teal-bg:       rgba(#0F766E, 0.07);   // tinted button/tag bg
-$teal-border:   rgba(#0F766E, 0.18);   // tinted border
-$teal-glow:     rgba(#0F766E, 0.15);   // box-shadow glow
+$teal:          #2DD4BF;   // teal-400 — bright, contrast-safe on dark bg
+$teal-bg:       rgba(#2DD4BF, 0.08);   // tinted button/tag bg
+$teal-border:   rgba(#2DD4BF, 0.22);   // tinted border
+$teal-glow:     rgba(#2DD4BF, 0.18);   // box-shadow glow
 
 // Secondary/legacy (keep for table styles, rich text)
 $honey:    #FFCC66;
@@ -50,9 +50,17 @@ $navy-2:   $bg-surface;
 $navy-3:   $bg-elevated;
 $navy-4:   #D4D0C8;
 
+// ── Border radius ─────────────────────────────────────────────────────────────
+$r-xs:    4rem;     // small insets
+$r-sm:    8rem;     // inputs, chips, icon boxes
+$r-md:    16rem;    // small cards, tags
+$r-lg:    24rem;    // cards, panels
+$r-xl:    32rem;    // large cards
+$r-pill:  9999rem;  // fully rounded
+
 // ── Glass tokens (for floating elements like nav pill that sit over content) ───
-$glass-bg:       rgba($white, 0.82);
-$glass-bg-hover: rgba($white, 0.95);
+$glass-bg:       rgba(#1A1A1A, 0.88);
+$glass-bg-hover: rgba(#282828, 0.96);
 $glass-border:   $border;
 $glass-border-s: $border-s;
-$glass-shine:    rgba($white, 0.6);
+$glass-shine:    rgba($white, 0.04);

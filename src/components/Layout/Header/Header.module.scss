@@ -5,7 +5,7 @@
 .header {
   position: relative;
   z-index: 1;
-  padding: 28rem 0;
+  padding: 36rem 0;
 }
 
 .inner {
@@ -14,7 +14,6 @@
 }
 
 .logo {
-  font-family: '37Extrabold';
   font-size: 20rem;
   font-weight: 800;
   line-height: 1;
@@ -45,13 +44,13 @@
   backdrop-filter: blur(24rem);
   -webkit-backdrop-filter: blur(24rem);
   border: 1rem solid $border;
-  background: rgba($white, 0.82);
+  background: $glass-bg;
   padding: 6rem 6rem 6rem 20rem;
-  box-shadow: 0 2rem 16rem rgba(#000, 0.06);
+  box-shadow: 0 2rem 16rem rgba(#000, 0.4);
   transition: background 0.4s ease, border-color 0.4s ease, padding 0.5s ease, box-shadow 0.4s ease;
 
   &.scrolled {
-    background: rgba($white, 0.96);
+    background: $glass-bg-hover;
     border-color: $border-s;
     box-shadow: 0 4rem 24rem rgba(#000, 0.1);
     padding: 6rem;
@@ -77,9 +76,8 @@
 }
 
 .navLink {
-  font-family: '73Book';
   font-size: 14rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1;
   color: $text-2;
   padding: 8rem 14rem;
@@ -96,7 +94,6 @@
 // ── CONTACT BUTTON ────────────────────────────────────────────────────────────
 
 .contactBtn {
-  font-family: '75Medium';
   font-size: 14rem;
   font-weight: 500;
   line-height: 1;
@@ -112,7 +109,7 @@
   transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
 
   &:hover {
-    background: lighten(#0F766E, 8%);
+    background: darken(#2DD4BF, 8%);
     box-shadow: 0 0 20rem $teal-glow;
     transform: scale(1.03);
   }
@@ -124,7 +121,6 @@
   display: inline-flex;
   align-items: center;
   gap: 10rem;
-  font-family: '75Medium';
   font-size: 14rem;
   font-weight: 500;
   line-height: 1;
@@ -239,7 +235,6 @@
   display: flex;
   align-items: center;
   gap: 24rem;
-  font-family: '37Extrabold';
   font-size: 80rem;
   font-weight: 800;
   line-height: 1.05;
@@ -264,7 +259,6 @@
 }
 
 .overlayLinkNum {
-  font-family: '74Regular';
   font-size: 12rem;
   letter-spacing: 1rem;
   color: rgba($white, 0.18);
@@ -290,7 +284,6 @@
 }
 
 .overlayEmail {
-  font-family: '75Medium';
   font-size: 17rem;
   color: $teal;
   display: inline-flex;
@@ -303,7 +296,6 @@
   display: flex;
   align-items: center;
   gap: 8rem;
-  font-family: '74Regular';
   font-size: 12rem;
   letter-spacing: 2rem;
   text-transform: uppercase;
@@ -323,7 +315,7 @@
     right: 16rem;
     padding: 6rem;
     border-color: transparent;
-    box-shadow: 0 2rem 12rem rgba(#000, 0.08);
+    box-shadow: 0 2rem 12rem rgba(#000, 0.5);
   }
 
   .navLinks  { display: none; }

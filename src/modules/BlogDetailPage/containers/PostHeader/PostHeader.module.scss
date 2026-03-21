@@ -26,7 +26,6 @@
 .tag {
   display: inline-flex;
   align-items: center;
-  font-family: '75Medium';
   font-size: 14rem;
   font-weight: 700;
   line-height: 20rem;
@@ -44,7 +43,6 @@
 }
 
 .date {
-  font-family: '73Book';
   font-size: 14rem;
   line-height: 20rem;
   color: $text-3;
@@ -58,7 +56,6 @@
 }
 
 .title {
-  font-family: '37Extrabold';
   font-size: 56rem;
   line-height: 56rem;
   font-weight: 400;
@@ -68,7 +65,6 @@
 }
 
 .lead {
-  font-family: '73Book';
   font-size: 16rem;
   line-height: 26rem;
   color: $text-2;

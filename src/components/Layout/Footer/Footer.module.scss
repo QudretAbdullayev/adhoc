@@ -19,7 +19,6 @@
 }
 
 .wordmark {
-  font-family: '37Extrabold';
   font-size: 22rem;
   font-weight: 800;
   line-height: 1;
@@ -42,7 +41,6 @@
   display: inline-flex;
   align-items: center;
   gap: 16rem;
-  font-family: '73Book';
   font-size: 16rem;
   font-weight: 400;
   line-height: 24rem;
@@ -77,7 +75,7 @@
   width: 24rem;
   height: 24rem;
   background: $text-1;
-  border-radius: 6rem;
+  border-radius: $r-sm;
   flex-shrink: 0;
   color: $bg-base;
 }
@@ -94,7 +92,7 @@
   width: 32rem;
   height: 32rem;
   background: $text-1;
-  border-radius: 6rem;
+  border-radius: $r-sm;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,7 +115,7 @@
 .cardNav {
   flex: 1 1 0%;
   background: $bg-surface;
-  border-radius: 32rem;
+  border-radius: $r-xl;
   padding: 40rem;
   display: flex;
   gap: 0;
@@ -138,7 +136,6 @@
 }
 
 .navHeading {
-  font-family: '75Medium';
   font-size: 18rem;
   font-weight: 500;
   line-height: 27rem;
@@ -156,7 +153,6 @@
 }
 
 .navLink {
-  font-family: '73Book';
   font-size: 16rem;
   font-weight: 400;
   line-height: 24rem;
@@ -191,7 +187,7 @@
   flex-shrink: 0;
   width: 420rem;
   background: $bg-surface;
-  border-radius: 32rem;
+  border-radius: $r-xl;
   padding: 40rem;
   display: flex;
   flex-direction: column;
@@ -201,7 +197,6 @@
 }
 
 .newsHeading {
-  font-family: '37Extrabold';
   font-size: 24rem;
   font-weight: 600;
   line-height: 30rem;
@@ -219,13 +214,12 @@
   flex: 1;
   height: 48rem;
   padding: 12rem 16rem;
-  font-family: '73Book';
   font-size: 16rem;
   line-height: 24rem;
   color: $text-1;
-  background: rgba($white, 0.8);
+  background: $bg-elevated;
   border: 1rem solid $border;
-  border-radius: 8rem;
+  border-radius: $r-sm;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
   appearance: none;
@@ -242,14 +236,13 @@
   flex-shrink: 0;
   height: 48rem;
   padding: 0 20rem;
-  font-family: '75Medium';
   font-size: 18rem;
   font-weight: 600;
   line-height: 1;
   color: $bg-base;
   background: $text-1;
   border: none;
-  border-radius: 9rem;
+  border-radius: $r-sm;
   cursor: pointer;
   transition: opacity 0.2s;
   white-space: nowrap;
@@ -258,7 +251,6 @@
 }
 
 .newsNote {
-  font-family: '73Book';
   font-size: 12rem;
   line-height: 18rem;
   color: $text-3;
@@ -291,7 +283,6 @@
 }
 
 .successText {
-  font-family: '75Medium';
   font-size: 18rem;
   font-weight: 500;
   color: $text-1;
@@ -312,7 +303,6 @@
 }
 
 .copy {
-  font-family: '73Book';
   font-size: 14rem;
   font-weight: 400;
   line-height: 21rem;
@@ -329,7 +319,6 @@
 }
 
 .legalLink {
-  font-family: '75Medium';
   font-size: 14rem;
   font-weight: 500;
   line-height: 21rem;
@@ -369,7 +358,6 @@
 }
 
 .langItem {
-  font-family: '74Regular';
   font-size: 11rem;
   font-weight: 400;
   line-height: 14rem;
@@ -408,7 +396,7 @@
 
 @media screen and (max-width: 560px) {
   .topBar { padding-top: 32rem; padding-bottom: 32rem; }
-  .cardNav, .cardNewsletter { padding: 28rem; border-radius: 20rem; }
+  .cardNav, .cardNewsletter { padding: 28rem; border-radius: $r-lg; }
   .newsForm { flex-direction: column; }
   .newsBtn { width: 100%; }
   .bottomBar { flex-direction: column; align-items: flex-start; gap: 12rem; }

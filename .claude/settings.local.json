@@ -9,7 +9,10 @@
       "Bash(tr '}' '\\\\n')",
       "WebFetch(domain:www.evokehr.ca)",
       "Bash(node -e \"const p=require\\(''c:/Users/abdul/Desktop/adhoc.az/node_modules/swiper/package.json''\\); console.log\\(p.version\\)\")",
-      "WebFetch(domain:www.flexxi.studio)"
+      "WebFetch(domain:www.flexxi.studio)",
+      "Bash(xargs sed:*)",
+      "Bash(sed -i 's/border-radius: 20rem;/border-radius: $r-lg;/g' src/components/Layout/Footer/Footer.module.scss)",
+      "Bash(sed -i 's/border-radius: 32rem;/border-radius: $r-xl;/g' src/components/Layout/Footer/Footer.module.scss)"
     ]
   }
 }

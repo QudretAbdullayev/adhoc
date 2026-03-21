@@ -27,7 +27,6 @@
 
 .title {
   display: block;
-  font-family: '37Extrabold';
   font-size: 80rem;
   font-weight: 800;
   line-height: 0.95;
@@ -81,7 +80,6 @@
 }
 
 .triggerText {
-  font-family: '46Bold';
   font-size: 20rem;
   font-weight: 700;
   line-height: 1.35;
@@ -133,9 +131,8 @@
 }
 
 .answer {
-  font-family: '73Book';
   font-size: 17rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   color: $text-2;
   margin: 0;

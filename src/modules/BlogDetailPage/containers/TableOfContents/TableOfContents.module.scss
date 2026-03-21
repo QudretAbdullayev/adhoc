@@ -16,7 +16,6 @@
 }
 
 .heading {
-  font-family: '75Medium';
   font-size: 18rem;
   font-weight: 600;
   line-height: 28rem;
@@ -46,7 +45,6 @@
 
 .link {
   display: block;
-  font-family: '73Book';
   font-size: 14rem;
   line-height: 22.75rem;
   color: $text-3;
@@ -59,7 +57,6 @@
   }
 
   &.linkActive {
-    font-family: '75Medium';
     font-weight: 600;
     font-size: 16rem;
     line-height: 26rem;
