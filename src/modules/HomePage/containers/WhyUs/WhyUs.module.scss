@@ -1,9 +1,10 @@
-@use '@/assets/styles/abstracts/' as *;
+@use "@/assets/styles/abstracts/" as *;
 
 // ─── WHY AD HOC? — Flexxi-style list + filmstrip visual ───────────────────────
 
 .section {
   background: $bg-base;
+  padding-bottom: 120rem;
 }
 
 // ── Top bar ───────────────────────────────────────────────────────────────────
@@ -12,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 40rem;
+  padding-top: 120rem;
   padding-bottom: 40rem;
 }
 
@@ -36,15 +37,22 @@
   border-radius: $r-sm;
   height: 40rem;
   padding: 0 20rem;
-  transition: background 0.2s, color 0.2s, gap 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    gap 0.2s;
 
-  svg { transition: transform 0.2s; }
+  svg {
+    transition: transform 0.2s;
+  }
 
   &:hover {
     background: $text-1;
     color: $bg-base;
     gap: 12rem;
-    svg { transform: translateX(2rem); }
+    svg {
+      transform: translateX(2rem);
+    }
   }
 }
 
@@ -52,6 +60,10 @@
 
 .body {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 // ── Rows ──────────────────────────────────────────────────────────────────────
@@ -61,7 +73,9 @@
   cursor: default;
   transition: background 0.25s;
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 
   // &:hover,
   // &.rowActive {
@@ -87,12 +101,14 @@
   margin: 0;
   transform: translateX(-8rem);
   opacity: 0.3;
-  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-  .rowActive & {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.rowActive .rowTitle {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 // ── Visual — filmstrip panel (absolute, right side) ───────────────────────────
@@ -104,20 +120,21 @@
   position: absolute;
   top: 0;
   right: 64rem; // matches g-container's horizontal padding
-  width: 432rem;
-  height: 416rem;
+  width: 400rem;
+  height: 500rem;
   overflow: hidden;
   pointer-events: none;
+  border-radius: 32rem;
 }
 
 .strip {
-  transform: translateY(calc(var(--active, 0) * -416rem));
+  transform: translateY(calc(var(--active, 0) * -500rem));
   transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .frame {
-  width: 100%;
-  height: 416rem;
+  width: 400rem;
+  height: 500rem;
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
@@ -128,27 +145,58 @@
     height: 416rem;
     right: 64rem;
   }
-  .rowInner { padding-right: 420rem; }
-  .rowTitle { font-size: 48rem; line-height: 48rem; }
+  .rowInner {
+    padding-right: 420rem;
+  }
+  .rowTitle {
+    font-size: 48rem;
+    line-height: 48rem;
+  }
 }
 
 @media screen and (max-width: 900px) {
-  .topLabel { font-size: 28rem; }
-  .visual { display: none; }
-  .rowInner { padding-right: 64rem; } // revert to g-container standard
+  .topLabel {
+    font-size: 28rem;
+  }
+  .visual {
+    display: none;
+  }
+  .rowInner {
+    padding-right: 64rem;
+  } // revert to g-container standard
   .rowTitle {
     font-size: 40rem;
     line-height: 40rem;
     opacity: 1;
     transform: none;
   }
-  .rowActive .rowTitle { opacity: 1; transform: none; }
+}
+
+@media screen and (max-width: 760px) {
+  .section { padding-bottom: 72rem; }
+  .topBar { padding-top: 72rem; }
 }
 
 @media screen and (max-width: 560px) {
-  .topBar { padding-top: 28rem; padding-bottom: 28rem; }
-  .topLabel { font-size: 22rem; line-height: 30rem; }
-  .topBtn { font-size: 12rem; height: 36rem; padding: 0 16rem; }
-  .rowInner { padding-top: 20rem; padding-bottom: 20rem; }
-  .rowTitle { font-size: 32rem; line-height: 32rem; letter-spacing: -0.8rem; }
+  .topBar {
+    padding-bottom: 28rem;
+  }
+  .topLabel {
+    font-size: 22rem;
+    line-height: 30rem;
+  }
+  .topBtn {
+    font-size: 12rem;
+    height: 36rem;
+    padding: 0 16rem;
+  }
+  .rowInner {
+    padding-top: 20rem;
+    padding-bottom: 20rem;
+  }
+  .rowTitle {
+    font-size: 32rem;
+    line-height: 32rem;
+    letter-spacing: -0.8rem;
+  }
 }

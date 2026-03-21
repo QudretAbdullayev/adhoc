@@ -4,8 +4,7 @@
 
 .section {
   background: $bg-base;
-  border-top: 1rem solid $border-s;
-  padding-top: 80rem;
+  padding-top: 120rem;
 }
 
 // ── Accordion list ────────────────────────────────────────────────────────────
@@ -105,7 +104,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 32rem;
-  padding-bottom: 64rem;
+  padding-bottom: 120rem;
 }
 
 .bottomLabel {
@@ -130,10 +129,10 @@
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
 @media screen and (max-width: 760px) {
-  .section { padding-top: 56rem; }
+  .section { padding-top: 72rem; }
   .triggerText { font-size: 16rem; }
   .trigger { padding: 22rem 0; }
   .answer { font-size: 15rem; }
-  .bottomBar { padding-bottom: 48rem; }
+  .bottomBar { padding-bottom: 72rem; }
   .bottomTitle { font-size: 28rem; letter-spacing: -0.6rem; white-space: normal; }
 }

@@ -12,22 +12,16 @@ const STATS = [
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} g-container`}>
 
-      <div className={`${styles.inner} g-container`}>
+      <div className={styles.inner}>
 
         {/* ── Left — text ── */}
         <div className={styles.left}>
-
-          <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
-            Konsaltinq Şirkəti — Bakı, Azərbaycan
-          </div>
-
           <h1 className={styles.heading}>
-            Biznesinizi<br />
-            növbəti<br />
-            <em className={styles.headingEm}>səviyyəyə çatdırırıq.</em>
+            Biznesiniz üçün<br />
+            vacib 3 xidmət<br />
+            <em className={styles.headingEm}>1 tərəfdaşda</em>
           </h1>
 
           <p className={styles.lead}>

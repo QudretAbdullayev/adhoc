@@ -6,20 +6,16 @@ import styles from "./WhyUs.module.scss";
 
 const ITEMS = [
   {
-    title: "Precise Execution",
+    title: "Hüquqi Konsaltinq",
     gradient: "linear-gradient(160deg, #E8E3DC 0%, #CEC5B8 100%)",
   },
   {
-    title: "Rapid Delivery",
+    title: "İnsan Resursları",
     gradient: "linear-gradient(160deg, #DAE2E8 0%, #B8C8D4 100%)",
   },
   {
-    title: "Full Transparency",
+    title: "Mühasibatlıq",
     gradient: "linear-gradient(160deg, #E2DDD6 0%, #C8C0B4 100%)",
-  },
-  {
-    title: "Results-Led",
-    gradient: "linear-gradient(160deg, #DCE4DC 0%, #BED0BC 100%)",
   },
 ];
 

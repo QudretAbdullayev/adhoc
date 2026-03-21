@@ -54,38 +54,38 @@ export default function Testimonials() {
     <section className={styles.section}>
       <div className={`${styles.inner} g-container`}>
         <ComponentTitle title="Müştərilərimiz nə deyir" size="lg" />
+      </div>
 
-        <div className={styles.sliderWrap}>
-          <Swiper
-            className={styles.swiper}
-            slidesPerView={1.1}
-            spaceBetween={24}
-            grabCursor
-            loop
-            breakpoints={{
-              700:  { slidesPerView: 1.5, spaceBetween: 24 },
-              1000: { slidesPerView: 2,   spaceBetween: 24 },
-            }}
-          >
-            {TESTIMONIALS.map((t, i) => (
-              <SwiperSlide key={i} className={styles.slide}>
-                <div className={styles.card}>
-                  <div className={styles.top}>
-                    <h3 className={styles.company}>{t.company}</h3>
-                    <p className={styles.quote}>{t.quote}</p>
-                  </div>
-                  <div className={styles.author}>
-                    <div className={styles.avatar}>{t.initials}</div>
-                    <div className={styles.authorMeta}>
-                      <span className={styles.name}>{t.name}</span>
-                      <span className={styles.role}>{t.role}</span>
-                    </div>
+      <div className={styles.sliderWrap}>
+        <Swiper
+          className={styles.swiper}
+          slidesPerView={1.2}
+          spaceBetween={16}
+          grabCursor
+          loop
+          breakpoints={{
+            700:  { slidesPerView: 2.2, spaceBetween: 20 },
+            1000: { slidesPerView: 3.2, spaceBetween: 24 },
+          }}
+        >
+          {TESTIMONIALS.map((t, i) => (
+            <SwiperSlide key={i} className={styles.slide}>
+              <div className={styles.card}>
+                <div className={styles.top}>
+                  <h3 className={styles.company}>{t.company}</h3>
+                  <p className={styles.quote}>{t.quote}</p>
+                </div>
+                <div className={styles.author}>
+                  <div className={styles.avatar}>{t.initials}</div>
+                  <div className={styles.authorMeta}>
+                    <span className={styles.name}>{t.name}</span>
+                    <span className={styles.role}>{t.role}</span>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

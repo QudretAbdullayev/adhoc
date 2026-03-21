@@ -9,13 +9,13 @@ import Faq from "./containers/Faq/Faq";
 
 const HomePage = () => {
   return (
-    <>
+    <main>
       <Hero />
       <WhyUs />
       {/* <News /> */}
       <Testimonials />
       <Faq />
-    </>
+    </main>
   );
 };
 

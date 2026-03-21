@@ -1,8 +1,9 @@
-@use '@/assets/styles/abstracts/' as *;
+@use "@/assets/styles/abstracts/" as *;
 
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 
 .hero {
+  padding-top: 48rem;
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -15,24 +16,44 @@
 
 // ::before — two radial glows combined into one layer
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle 400rem at 70% -10%, rgba(#4F7CFF, 0.16) 0%, transparent 60%),
-    radial-gradient(circle 240rem at -5% 110%,  rgba(#4F7CFF, 0.06) 0%, transparent 65%);
+    radial-gradient(
+      circle 400rem at 70% -10%,
+      rgba(#4f7cff, 0.16) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle 240rem at -5% 110%,
+      rgba(#4f7cff, 0.06) 0%,
+      transparent 65%
+    );
   pointer-events: none;
 }
 
 // ::after — dot grid with fade mask
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba($white, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    rgba($white, 0.05) 1px,
+    transparent 1px
+  );
   background-size: 40rem 40rem;
-  mask-image: radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 100%);
+  mask-image: radial-gradient(
+    ellipse 90% 90% at 50% 30%,
+    black 20%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 90% at 50% 30%,
+    black 20%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
@@ -60,36 +81,16 @@
 
 // ── Eyebrow ───────────────────────────────────────────────────────────────────
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10rem;
-  font-size: 12rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: $text-2;
-  border: 1rem solid $border;
-  background: $bg-surface;
-  padding: 8rem 16rem;
-  border-radius: $r-pill;
-  width: fit-content;
-}
-
-.eyebrowDot {
-  display: block;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  background: $accent;
-  flex-shrink: 0;
-  box-shadow: 0 0 8rem rgba(#4F7CFF, 0.8);
-  animation: pulse 2.4s ease-in-out infinite;
-}
-
 @keyframes pulse {
-  0%, 100% { opacity: 1;   box-shadow: 0 0 8rem  rgba(#4F7CFF, 0.8); }
-  50%       { opacity: 0.6; box-shadow: 0 0 16rem rgba(#4F7CFF, 0.4); }
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8rem rgba(#4f7cff, 0.8);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 16rem rgba(#4f7cff, 0.4);
+  }
 }
 
 // ── Heading ───────────────────────────────────────────────────────────────────
@@ -105,7 +106,7 @@
 
 .headingEm {
   font-style: normal;
-  background: linear-gradient(120deg, #4F7CFF 0%, rgba(#4F7CFF, 0.55) 100%);
+  background: linear-gradient(120deg, #4f7cff 0%, rgba(#4f7cff, 0.55) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -143,11 +144,14 @@
   background: $accent;
   border-radius: $r-sm;
   text-decoration: none;
-  transition: background 0.2s, box-shadow 0.25s, transform 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.25s,
+    transform 0.2s;
 
   &:hover {
-    background: darken(#4F7CFF, 8%);
-    box-shadow: 0 0 32rem rgba(#4F7CFF, 0.35);
+    background: darken(#4f7cff, 8%);
+    box-shadow: 0 0 32rem rgba(#4f7cff, 0.35);
     transform: translateY(-2rem);
   }
 }
@@ -164,7 +168,10 @@
   border: 1rem solid $border;
   border-radius: 12rem;
   text-decoration: none;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
 
   &:hover {
     color: $text-1;
@@ -228,19 +235,31 @@
   border-radius: $r-xl;
   border: 1rem solid $border;
   background:
-    radial-gradient(ellipse 70% 60% at 40% 35%, rgba(#4F7CFF, 0.13) 0%, transparent 70%),
+    radial-gradient(
+      ellipse 70% 60% at 40% 35%,
+      rgba(#4f7cff, 0.13) 0%,
+      transparent 70%
+    ),
     $bg-surface;
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
 @media screen and (max-width: 1100px) {
-  .right { width: 400rem; }
-  .heading { font-size: 72rem; letter-spacing: -2.5rem; }
+  .right {
+    width: 400rem;
+  }
+  .heading {
+    font-size: 72rem;
+    letter-spacing: -2.5rem;
+  }
 }
 
 @media screen and (max-width: 900px) {
-  .hero { height: auto; min-height: 100vh; }
+  .hero {
+    height: auto;
+    min-height: 100vh;
+  }
   .inner {
     flex-direction: column;
     align-items: flex-start;
@@ -248,15 +267,36 @@
     padding-bottom: 64rem;
     gap: 48rem;
   }
-  .heading { font-size: 56rem; letter-spacing: -2rem; }
-  .right { width: 100%; height: 280rem; }
+  .heading {
+    font-size: 56rem;
+    letter-spacing: -2rem;
+  }
+  .right {
+    width: 100%;
+    height: 280rem;
+  }
 }
 
 @media screen and (max-width: 560px) {
-  .heading { font-size: 44rem; letter-spacing: -1.5rem; }
-  .inner { padding-top: 90rem; gap: 40rem; }
-  .lead { font-size: 15rem; }
-  .stat { padding-right: 24rem; margin-right: 24rem; }
-  .statValue { font-size: 22rem; }
-  .right { display: none; }
+  .heading {
+    font-size: 44rem;
+    letter-spacing: -1.5rem;
+  }
+  .inner {
+    padding-top: 90rem;
+    gap: 40rem;
+  }
+  .lead {
+    font-size: 15rem;
+  }
+  .stat {
+    padding-right: 24rem;
+    margin-right: 24rem;
+  }
+  .statValue {
+    font-size: 22rem;
+  }
+  .right {
+    display: none;
+  }
 }
