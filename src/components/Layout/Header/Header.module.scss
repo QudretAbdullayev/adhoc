@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
   gap: 4rem;
-  border-radius: 100rem;
+  border-radius: $r-sm;
   backdrop-filter: blur(24rem);
   -webkit-backdrop-filter: blur(24rem);
   border: 1rem solid $border;
@@ -87,7 +87,7 @@
   line-height: 1;
   color: $text-2;
   padding: 8rem 14rem;
-  border-radius: 100rem;
+  border-radius: $r-sm;
   white-space: nowrap;
   transition: color 0.2s, background 0.2s;
 
@@ -107,7 +107,7 @@
   background: $teal;
   padding: 0 20rem;
   height: 40rem;
-  border-radius: 100rem;
+  border-radius: $r-sm;
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
@@ -135,7 +135,7 @@
   border: 1rem solid $border;
   padding: 0 18rem;
   height: 40rem;
-  border-radius: 100rem;
+  border-radius: $r-sm;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;

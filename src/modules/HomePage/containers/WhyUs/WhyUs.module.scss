@@ -33,8 +33,9 @@
   font-weight: 500;
   color: $text-1;
   border: 1.5rem solid $text-1;
-  border-radius: 200rem;
-  padding: 10rem 24rem;
+  border-radius: $r-sm;
+  height: 40rem;
+  padding: 0 20rem;
   transition: background 0.2s, color 0.2s, gap 0.2s;
 
   svg { transition: transform 0.2s; }
@@ -148,7 +149,7 @@
 @media screen and (max-width: 560px) {
   .topBar { padding-top: 28rem; padding-bottom: 28rem; }
   .topLabel { font-size: 22rem; line-height: 30rem; }
-  .topBtn { font-size: 12rem; padding: 8rem 18rem; }
+  .topBtn { font-size: 12rem; height: 36rem; padding: 0 16rem; }
   .rowInner { padding: 20rem 20rem; }
   .rowTitle { font-size: 32rem; line-height: 32rem; letter-spacing: -0.8rem; }
 }

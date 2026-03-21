@@ -141,7 +141,7 @@
   font-weight: 600;
   color: $white;
   background: $accent;
-  border-radius: $r-pill;
+  border-radius: $r-sm;
   text-decoration: none;
   transition: background 0.2s, box-shadow 0.25s, transform 0.2s;
 
@@ -162,7 +162,7 @@
   color: $text-2;
   background: transparent;
   border: 1rem solid $border;
-  border-radius: $r-pill;
+  border-radius: 12rem;
   text-decoration: none;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 
