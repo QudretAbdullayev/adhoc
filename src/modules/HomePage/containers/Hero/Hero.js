@@ -1,16 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import styles from "./Hero.module.scss";
 
-const STATS = [
-  { value: "100+", label: "Tamamlanmış layihə" },
-  { value: "50+",  label: "Müştəri"            },
-  { value: "98%",  label: "Məmnuniyyət dərəcəsi"},
-  { value: "10 il",label: "Sahə təcrübəsi"     },
-];
-
 export default function Hero() {
+  const t = useTranslations("Hero");
+
+  const STATS = [
+    { value: "100+",  label: t("statProjects")    },
+    { value: "50+",   label: t("statClients")      },
+    { value: "98%",   label: t("statSatisfaction") },
+    { value: "10 il", label: t("statExperience")   },
+  ];
+
   return (
     <section className={`${styles.hero} g-container`}>
 
@@ -19,25 +22,22 @@ export default function Hero() {
         {/* ── Left — text ── */}
         <div className={styles.left}>
           <h1 className={styles.heading}>
-            Biznesiniz üçün<br />
-            vacib 3 xidmət<br />
-            <em className={styles.headingEm}>1 tərəfdaşda</em>
+            {t("headingLine1")}<br />
+            {t("headingLine2")}<br />
+            <em className={styles.headingEm}>{t("headingEm")}</em>
           </h1>
 
-          <p className={styles.lead}>
-            Strateji planlaşdırmadan iş proseslərinin optimallaşdırılmasına qədər —
-            sizin uğurunuz bizim hədəfimizdir.
-          </p>
+          <p className={styles.lead}>{t("lead")}</p>
 
           <div className={styles.actions}>
             <Link href="/xidmetler" className={styles.btnPrimary}>
-              Xidmətlərimiz
+              {t("btnServices")}
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
                 <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
             <Link href="/elaqe" className={styles.btnGhost}>
-              Bizimlə əlaqə
+              {t("btnContact")}
             </Link>
           </div>
 

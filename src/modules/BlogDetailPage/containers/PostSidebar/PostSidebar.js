@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./PostSidebar.module.scss";
 
 // ─── SHARE ICONS ─────────────────────────────────────────────────────────────
@@ -39,6 +40,8 @@ function IconLinkedIn() {
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 export default function PostSidebar({ author, related, title, slug }) {
+  const t = useTranslations("PostSidebar");
+
   const pageUrl = typeof window !== "undefined"
     ? window.location.href
     : `https://adhoc.az/blog/${slug}`;
@@ -48,17 +51,17 @@ export default function PostSidebar({ author, related, title, slug }) {
 
   const shareLinks = [
     {
-      label: "Share on Facebook",
+      label: t("shareFacebook"),
       href: `https://www.facebook.com/sharer/sharer.php?u=${encoded}`,
       icon: <IconFacebook />,
     },
     {
-      label: "Share on X",
+      label: t("shareX"),
       href: `https://twitter.com/intent/tweet?text=${encodedTitle}%20-%20${encoded}`,
       icon: <IconX />,
     },
     {
-      label: "Share on LinkedIn",
+      label: t("shareLinkedIn"),
       href: `https://www.linkedin.com/shareArticle?mini=true&url=${encoded}&title=${encodedTitle}`,
       icon: <IconLinkedIn />,
     },
@@ -70,7 +73,7 @@ export default function PostSidebar({ author, related, title, slug }) {
 
         {/* ── Share pill ── */}
         <div className={styles.sharePill}>
-          <span className={styles.shareLabel}>Share:</span>
+          <span className={styles.shareLabel}>{t("share")}</span>
           <ul className={styles.shareList}>
             {shareLinks.map((s) => (
               <li key={s.label}>
@@ -90,7 +93,7 @@ export default function PostSidebar({ author, related, title, slug }) {
 
         {/* ── Posted by ── */}
         <div className={styles.authorBlock}>
-          <p className={styles.sectionLabel}>Posted by</p>
+          <p className={styles.sectionLabel}>{t("postedBy")}</p>
           <div className={styles.authorRow}>
             <div className={styles.avatar}>
               {author.avatar ? (
@@ -111,7 +114,7 @@ export default function PostSidebar({ author, related, title, slug }) {
         {/* ── Related reading ── */}
         {related?.length > 0 && (
           <div className={styles.relatedBlock}>
-            <p className={styles.sectionLabel}>Related reading</p>
+            <p className={styles.sectionLabel}>{t("relatedReading")}</p>
             <ul className={styles.relatedList}>
               {related.map((item) => (
                 <li key={item.slug} className={styles.relatedItem}>

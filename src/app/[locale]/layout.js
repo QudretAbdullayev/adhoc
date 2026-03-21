@@ -8,7 +8,7 @@ import Header from '@/components/Layout/Header/Header';
 import Footer from '@/components/Layout/Footer/Footer';
 
 const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-inter',
   display: 'swap',
   weight: ['400', '500', '600', '700', '800'],
@@ -36,7 +36,7 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale} className={inter.variable}>
       <body>
         <NextIntlClientProvider>
-          <Header locale={locale} />
+          <Header />
           <main>
             {children}
           </main>

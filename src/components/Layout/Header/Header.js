@@ -1,19 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 
-const NAV_LINKS = [
-  { label: "What we do", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/works" },
-  { label: "FAQ", href: "/faq" },
-];
+const LOCALES = ["az", "en", "ru"];
 
-export default function Header({ locale = "en" }) {
+export default function Header() {
+  const t = useTranslations("Header");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const NAV_LINKS = [
+    { label: t("whatWeDo"), href: "/services" },
+    { label: t("about"),    href: "/about"    },
+    { label: t("work"),     href: "/works"    },
+    { label: t("faq"),      href: "/faq"      },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -27,6 +36,11 @@ export default function Header({ locale = "en" }) {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+
+  const switchLocale = (newLocale) => {
+    router.replace(pathname, { locale: newLocale });
+    closeMenu();
+  };
 
   return (
     <>
@@ -53,7 +67,7 @@ export default function Header({ locale = "en" }) {
 
         {/* Contact button — always visible */}
         <Link href="/contact" className={styles.contactBtn} onClick={closeMenu}>
-          Contact
+          {t("contact")}
         </Link>
 
         {/* Menu button — hidden by default, slides in on scroll */}
@@ -66,7 +80,7 @@ export default function Header({ locale = "en" }) {
             <span />
             <span />
           </span>
-          <span className={styles.menuLabel}>{menuOpen ? "Close" : "Menu"}</span>
+          <span className={styles.menuLabel}>{menuOpen ? t("close") : t("menu")}</span>
         </button>
 
       </div>
@@ -75,7 +89,7 @@ export default function Header({ locale = "en" }) {
       <div className={`${styles.overlay} ${menuOpen ? styles.overlayOpen : ""}`}>
         <div className={`${styles.overlayContent} g-container`}>
           <nav className={styles.overlayNav}>
-            {[...NAV_LINKS, { label: "Contact", href: "/contact" }].map((link, i) => (
+            {[...NAV_LINKS, { label: t("contact"), href: "/contact" }].map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -93,9 +107,17 @@ export default function Header({ locale = "en" }) {
               hello@adhoc.az
             </a>
             <div className={styles.overlayLang}>
-              <span className={locale === "en" ? styles.overlayLangActive : ""}>EN</span>
-              <span className={styles.overlayLangSep}>/</span>
-              <span className={locale === "az" ? styles.overlayLangActive : ""}>AZ</span>
+              {LOCALES.map((loc, i) => (
+                <span key={loc}>
+                  {i > 0 && <span className={styles.overlayLangSep}>/</span>}
+                  <button
+                    className={locale === loc ? styles.overlayLangActive : ""}
+                    onClick={() => switchLocale(loc)}
+                  >
+                    {loc.toUpperCase()}
+                  </button>
+                </span>
+              ))}
             </div>
           </div>
         </div>

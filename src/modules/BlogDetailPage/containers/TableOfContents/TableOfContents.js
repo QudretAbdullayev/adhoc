@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./TableOfContents.module.scss";
 
 export default function TableOfContents({ items }) {
+  const t = useTranslations("TableOfContents");
   const [activeId, setActiveId] = useState(items[0]?.id ?? null);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function TableOfContents({ items }) {
 
   return (
     <aside className={styles.aside}>
-      <h3 className={styles.heading}>Table of Contents</h3>
+      <h3 className={styles.heading}>{t("heading")}</h3>
       <nav>
         <ol className={styles.list}>
           {items.map((item) => {

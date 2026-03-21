@@ -1,32 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 
-const NAV_COMPANY = [
-  { label: "Haqqımızda", href: "/about-us" },
-  { label: "Bloq",       href: "/blog"     },
-  { label: "Əlaqə",      href: "/contact"  },
-  { label: "Karyera",    href: "/careers"  },
-];
-
-const NAV_SERVICES = [
-  { label: "Hüquqi Konsaltinq", href: "/services/legal"           },
-  { label: "İnsan Resursları",  href: "/services/human-resources" },
-  { label: "Mühasibatlıq",      href: "/services/accounting"      },
-];
-
-const NAV_MORE = [
-  { label: "Məxfilik Siyasəti", href: "/privacy" },
-  { label: "Şərtlər",           href: "/terms"   },
-  { label: "FAQ",                href: "/faq"     },
-];
-
 const LANGS = [
-  { code: "AZ", label: "Azərbaycan dili" },
-  { code: "EN", label: "English"         },
-  { code: "RU", label: "Русский"         },
+  { code: "AZ", label: "Azərbaycan dili", locale: "az" },
+  { code: "EN", label: "English",         locale: "en" },
+  { code: "RU", label: "Русский",         locale: "ru" },
 ];
 
 function IconPhone() {
@@ -82,15 +65,45 @@ function Socials() {
 }
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  const [activeLang, setActiveLang] = useState("AZ");
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef(null);
+
+  const activeLang = LANGS.find((l) => l.locale === locale) ?? LANGS[0];
+
+  const NAV_COMPANY = [
+    { label: t("companyAbout"),    href: "/about-us" },
+    { label: t("companyBlog"),     href: "/blog"     },
+    { label: t("companyContact"),  href: "/contact"  },
+    { label: t("companyCareers"),  href: "/careers"  },
+  ];
+
+  const NAV_SERVICES = [
+    { label: t("servicesLegal"),      href: "/services/legal"           },
+    { label: t("servicesHR"),         href: "/services/human-resources" },
+    { label: t("servicesAccounting"), href: "/services/accounting"      },
+  ];
+
+  const NAV_MORE = [
+    { label: t("morePrivacy"), href: "/privacy" },
+    { label: t("moreTerms"),   href: "/terms"   },
+    { label: t("moreFaq"),     href: "/faq"     },
+  ];
 
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (email) setSubscribed(true);
+  };
+
+  const switchLocale = (targetLocale) => {
+    router.replace(pathname, { locale: targetLocale });
+    setLangOpen(false);
   };
 
   useEffect(() => {
@@ -131,7 +144,7 @@ export default function Footer() {
             className={`${styles.langTrigger} ${langOpen ? styles.langTriggerOpen : ""}`}
             onClick={() => setLangOpen((v) => !v)}
           >
-            {activeLang}
+            {activeLang.code}
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
               <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -142,8 +155,8 @@ export default function Footer() {
               {LANGS.map((l) => (
                 <li key={l.code}>
                   <button
-                    className={`${styles.langOption} ${activeLang === l.code ? styles.langOptionActive : ""}`}
-                    onClick={() => { setActiveLang(l.code); setLangOpen(false); }}
+                    className={`${styles.langOption} ${activeLang.code === l.code ? styles.langOptionActive : ""}`}
+                    onClick={() => switchLocale(l.locale)}
                   >
                     {l.label}
                   </button>
@@ -158,7 +171,7 @@ export default function Footer() {
       <div className={`${styles.body} g-container`}>
         <div className={styles.cardNav}>
           <div className={styles.navCol}>
-            <h3 className={styles.navHeading}>Şirkət</h3>
+            <h3 className={styles.navHeading}>{t("companyHeading")}</h3>
             <ul className={styles.navList}>
               {NAV_COMPANY.map((l) => (
                 <li key={l.href}>
@@ -168,7 +181,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className={styles.navCol}>
-            <h3 className={styles.navHeading}>Xidmətlər</h3>
+            <h3 className={styles.navHeading}>{t("servicesHeading")}</h3>
             <ul className={styles.navList}>
               {NAV_SERVICES.map((l) => (
                 <li key={l.href}>
@@ -178,7 +191,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className={styles.navCol}>
-            <h3 className={styles.navHeading}>Kəşf et</h3>
+            <h3 className={styles.navHeading}>{t("moreHeading")}</h3>
             <ul className={styles.navList}>
               {NAV_MORE.map((l) => (
                 <li key={l.href}>
@@ -194,25 +207,23 @@ export default function Footer() {
           {subscribed ? (
             <div className={styles.successState}>
               <span className={styles.successIcon}>✓</span>
-              <p className={styles.successText}>Abunəliyiniz üçün təşəkkür edirik!</p>
+              <p className={styles.successText}>{t("newsSuccess")}</p>
             </div>
           ) : (
             <>
-              <h3 className={styles.newsHeading}>Bütün yeniliklərdən xəbərdar olun</h3>
+              <h3 className={styles.newsHeading}>{t("newsHeading")}</h3>
               <form className={styles.newsForm} onSubmit={handleSubscribe}>
                 <input
                   type="email"
-                  placeholder="E-poçt ünvanınız"
+                  placeholder={t("newsPlaceholder")}
                   className={styles.newsInput}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <button type="submit" className={styles.newsBtn}>Abunə ol</button>
+                <button type="submit" className={styles.newsBtn}>{t("newsBtn")}</button>
               </form>
-              <p className={styles.newsNote}>
-                Abunə olmaqla Gizlilik Siyasətimizə razılıq verirsiniz.
-              </p>
+              <p className={styles.newsNote}>{t("newsNote")}</p>
             </>
           )}
           <Socials />
@@ -222,10 +233,10 @@ export default function Footer() {
       {/* ── Bottom bar ── */}
       <div className={`${styles.bottomBar} g-container`}>
         <span className={styles.copy}>
-          © {new Date().getFullYear()} ADHOC. Bütün hüquqlar qorunur.
+          {t("copy", { year: new Date().getFullYear() })}
         </span>
         <span className={styles.credit}>
-          Designed by{" "}
+          {t("designedBy")}{" "}
           <a href="https://venera.az" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>
             Venera.az
           </a>

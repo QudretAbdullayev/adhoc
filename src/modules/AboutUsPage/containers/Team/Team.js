@@ -1,55 +1,39 @@
+import { getTranslations } from "next-intl/server";
 import Link from 'next/link';
 import styles from './Team.module.scss';
 import ComponentTitle from '@/components/ComponentTitle/ComponentTitle';
-
-const TEAM = [
-  { name: 'Rauf',    role: 'Qurucu & İcraçı Direktor'  },
-  { name: 'Aysel',   role: 'Strateji Direktor'          },
-  { name: 'Murad',   role: 'Baş Analitik'               },
-  { name: 'Leyla',   role: 'Biznes Məsləhətçisi'        },
-  { name: 'Kamran',  role: 'Maliyyə Analitiki'          },
-  { name: 'Nigar',   role: 'Layihə Meneceri'            },
-  { name: 'Elvin',   role: 'Risk Analitiki'             },
-  { name: 'Sevinc',  role: 'Əməliyyat Meneceri'         },
-  { name: 'Tural',   role: 'Texnologiya Məsləhətçisi'   },
-  { name: 'Günay',   role: 'İnsan Resursları'           },
-  { name: 'Anar',    role: 'Marketinq Direktoru'        },
-  { name: 'Xədicə',  role: 'Müştəri Əlaqələri'         },
-];
 
 function getInitials(name) {
   return name.slice(0, 2).toUpperCase();
 }
 
-export default function Team() {
+export default async function Team() {
+  const t = await getTranslations("Team");
+  const members = t.raw("members");
+
   return (
     <div className={styles.root}>
       <div className={styles.inner}>
 
         <div className={styles.topRow}>
           <div className={styles.headingCol}>
-            <ComponentTitle label="Komanda" title="Mütəxəssislərimiz" size="xl" />
+            <ComponentTitle label={t("label")} title={t("title")} size="xl" />
             <Link href="/karyera" className={styles.joinBtn}>
-              Komandaya qoşul
+              {t("joinBtn")}
             </Link>
           </div>
 
           <div className={styles.descCol}>
-            <p className={styles.desc}>
-              Müxtəlif sektorlarda dərin təcrübəyə malik mütəxəssislərdən ibarət komandamız
-              analitik düşüncə tərzi və praktik yanaşmanın vəhdəti ilə hər bir çətinliyə
-              uyğun həll tapır. Hər layihəni özünəməxsusluğu ilə qəbul edir, müştərimizin
-              uğurunu öz uğurumuz sayırıq.
-            </p>
+            <p className={styles.desc}>{t("desc")}</p>
             <div className={styles.hiringBadge}>
               <span className={styles.hiringDot} />
-              <span className={styles.hiringText}>İş yeri var!</span>
+              <span className={styles.hiringText}>{t("hiring")}</span>
             </div>
           </div>
         </div>
 
         <div className={styles.grid}>
-          {TEAM.map((member) => (
+          {members.map((member) => (
             <div key={member.name} className={styles.card}>
               <div className={styles.cardPhoto}>
                 <span className={styles.cardInitials}>{getInitials(member.name)}</span>

@@ -1,1 +1,151 @@
-{}
+{
+  "Header": {
+    "whatWeDo": "What we do",
+    "about": "About",
+    "work": "Work",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "Footer": {
+    "companyHeading": "Company",
+    "companyAbout": "About us",
+    "companyBlog": "Blog",
+    "companyContact": "Contact",
+    "companyCareers": "Careers",
+    "servicesHeading": "Services",
+    "servicesLegal": "Legal Consulting",
+    "servicesHR": "Human Resources",
+    "servicesAccounting": "Accounting",
+    "moreHeading": "Explore",
+    "morePrivacy": "Privacy Policy",
+    "moreTerms": "Terms",
+    "moreFaq": "FAQ",
+    "newsHeading": "Stay up to date with all news",
+    "newsPlaceholder": "Your email address",
+    "newsBtn": "Subscribe",
+    "newsNote": "By subscribing you agree to our Privacy Policy.",
+    "newsSuccess": "Thank you for subscribing!",
+    "copy": "© {year} ADHOC. All rights reserved.",
+    "designedBy": "Designed by"
+  },
+  "Hero": {
+    "headingLine1": "For your business",
+    "headingLine2": "3 essential services",
+    "headingEm": "in 1 partner",
+    "lead": "From strategic planning to optimizing business processes — your success is our goal.",
+    "btnServices": "Our Services",
+    "btnContact": "Contact Us",
+    "statProjects": "Completed projects",
+    "statClients": "Clients",
+    "statSatisfaction": "Satisfaction rate",
+    "statExperience": "Years of experience"
+  },
+  "WhyUs": {
+    "sectionTitle": "Our Services",
+    "contactBtn": "Get in touch",
+    "legal": "Legal",
+    "hr": "Human Resources",
+    "accounting": "Accounting"
+  },
+  "Faq": {
+    "heading": "Frequently asked questions.",
+    "q1": "What areas does ADHOC serve?",
+    "a1": "We provide strategic consulting, business analysis, and management advisory services in the finance, energy, manufacturing, technology, and service sectors. We have deep sector expertise in each area.",
+    "q2": "How long does a typical project take?",
+    "a2": "It varies depending on the scope. A short-term strategic assessment takes 2–4 weeks, while a full-scale transformation project may take 3–9 months. We provide you with a precise timeline at the first meeting.",
+    "q3": "Do you work with clients outside of Azerbaijan?",
+    "a3": "Yes — we have clients in the Gulf countries, Central Asia, Turkey, and Europe. Our process is fully adapted for remote collaboration, and time zone differences never pose a barrier.",
+    "q4": "What does your work process look like?",
+    "a4": "We start with a discovery phase — deeply studying the current situation, goals, and challenges. This is followed by analysis, a recommendation package, an implementation plan, and results monitoring. We provide transparent reports at every stage.",
+    "q5": "Can you audit an existing business process?",
+    "a5": "Yes. We independently evaluate existing business processes, financial models, or management structures and prepare detailed audit reports.",
+    "q6": "How do I get started?",
+    "a6": "Send us a brief project overview via the contact form or email. We'll schedule a short meeting to discuss scope, timeline, and fit — free initial consultation."
+  },
+  "Testimonials": {
+    "heading": "What our clients say",
+    "items": [
+      {
+        "company": "TechBridge AZ",
+        "quote": "\"ADHOC completely rebuilt all our business processes. In terms of precision and professionalism, nothing we've seen before compares. Truly excellent work.\"",
+        "name": "Kamran Aliyev",
+        "role": "CEO",
+        "initials": "KA"
+      },
+      {
+        "company": "Silk Road Ventures",
+        "quote": "\"They don't just advise — they think. There's a clear argument behind every recommendation. Our revenue doubled after the engagement.\"",
+        "name": "Leyla Huseynova",
+        "role": "Marketing Director",
+        "initials": "LH"
+      },
+      {
+        "company": "Caspian Tech",
+        "quote": "\"Accountable, fast, and honest about timelines. The project finished on time. The whole process was very smooth — a sign of high professionalism.\"",
+        "name": "Orkhan Mammadov",
+        "role": "Founder",
+        "initials": "OM"
+      },
+      {
+        "company": "Aura Retail",
+        "quote": "\"We needed to completely rebuild our business strategy. ADHOC produced a roadmap that is modern, consistent, and truly reflects who we are.\"",
+        "name": "Nigar Rzayeva",
+        "role": "Brand Director",
+        "initials": "NR"
+      },
+      {
+        "company": "BakuSoft",
+        "quote": "\"The team understood our audience better than we did. The analysis phase alone changed our product strategy. An investment that paid off immediately.\"",
+        "name": "Tural Gasimov",
+        "role": "Product Manager",
+        "initials": "TG"
+      },
+      {
+        "company": "Meridian Holdings",
+        "quote": "\"From the first meeting to the final delivery, the process was completely transparent. No hidden costs, no missed deadlines. Simply great work, great communication.\"",
+        "name": "Aysel Babayeva",
+        "role": "Operations Director",
+        "initials": "AB"
+      }
+    ]
+  },
+  "Leadership": {
+    "label": "Meet",
+    "title": "Leadership",
+    "bio": "Rauf has over ten years of experience in strategic consulting and business management in Azerbaijan and the South Caucasus region. Drawing on deep sector expertise gained with leading international companies in finance, energy, and technology, he leads ADHOC on principles of speed, precision, and integrity."
+  },
+  "Team": {
+    "label": "Team",
+    "title": "Our Specialists",
+    "joinBtn": "Join the team",
+    "desc": "Our team of specialists with deep expertise across various sectors finds solutions to every challenge through a combination of analytical thinking and practical approach. We treat every project as unique and consider our clients' success as our own.",
+    "hiring": "We're hiring!",
+    "members": [
+      { "name": "Rauf",    "role": "Founder & CEO"           },
+      { "name": "Aysel",   "role": "Strategy Director"       },
+      { "name": "Murad",   "role": "Lead Analyst"            },
+      { "name": "Leyla",   "role": "Business Consultant"     },
+      { "name": "Kamran",  "role": "Financial Analyst"       },
+      { "name": "Nigar",   "role": "Project Manager"         },
+      { "name": "Elvin",   "role": "Risk Analyst"            },
+      { "name": "Sevinc",  "role": "Operations Manager"      },
+      { "name": "Tural",   "role": "Technology Consultant"   },
+      { "name": "Günay",   "role": "Human Resources"         },
+      { "name": "Anar",    "role": "Marketing Director"      },
+      { "name": "Xədicə",  "role": "Client Relations"        }
+    ]
+  },
+  "PostSidebar": {
+    "share": "Share:",
+    "shareFacebook": "Share on Facebook",
+    "shareX": "Share on X",
+    "shareLinkedIn": "Share on LinkedIn",
+    "postedBy": "Posted by",
+    "relatedReading": "Related reading"
+  },
+  "TableOfContents": {
+    "heading": "Table of Contents"
+  }
+}

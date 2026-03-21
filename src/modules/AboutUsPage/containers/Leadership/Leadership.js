@@ -1,16 +1,19 @@
+import { getTranslations } from "next-intl/server";
 import styles from './Leadership.module.scss';
 import ComponentTitle from '@/components/ComponentTitle/ComponentTitle';
 
 const LOGOS = ['McKinsey', 'Deloitte', 'KPMG', 'PwC'];
 
-export default function Leadership() {
+export default async function Leadership() {
+  const t = await getTranslations("Leadership");
+
   return (
     <div className={styles.root}>
       <div className={styles.inner}>
 
         <div className={styles.topRow}>
           <div className={styles.headingCol}>
-            <ComponentTitle label="Tanıyın" title="Rəhbərlik" size="xl" />
+            <ComponentTitle label={t("label")} title={t("title")} size="xl" />
           </div>
         </div>
 
@@ -22,13 +25,7 @@ export default function Leadership() {
           </div>
 
           <div className={styles.bioCol}>
-            <p className={styles.bio}>
-              Rauf, Azərbaycan və Cənubi Qafqaz regionunda on ildən artıq müddət ərzində
-              strateji konsaltinq və biznes idarəetməsi sahəsində təcrübəyə malikdir.
-              Maliyyə, enerji və texnologiya sektorlarında aparıcı beynəlxalq şirkətlərlə
-              əldə etdiyi dərin sektoral biliyə əsaslanaraq ADHOC-u sürət, dəqiqlik və
-              dürüstlük prinsipləri üzərində idarə edir.
-            </p>
+            <p className={styles.bio}>{t("bio")}</p>
             <div className={styles.logos}>
               {LOGOS.map((l) => (
                 <span key={l} className={styles.logo}>{l}</span>

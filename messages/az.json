@@ -1,1 +1,151 @@
-{}
+{
+  "Header": {
+    "whatWeDo": "Xidmətlər",
+    "about": "Haqqımızda",
+    "work": "İşlər",
+    "faq": "FAQ",
+    "contact": "Əlaqə",
+    "menu": "Menyu",
+    "close": "Bağla"
+  },
+  "Footer": {
+    "companyHeading": "Şirkət",
+    "companyAbout": "Haqqımızda",
+    "companyBlog": "Bloq",
+    "companyContact": "Əlaqə",
+    "companyCareers": "Karyera",
+    "servicesHeading": "Xidmətlər",
+    "servicesLegal": "Hüquqi Konsaltinq",
+    "servicesHR": "İnsan Resursları",
+    "servicesAccounting": "Mühasibatlıq",
+    "moreHeading": "Kəşf et",
+    "morePrivacy": "Məxfilik Siyasəti",
+    "moreTerms": "Şərtlər",
+    "moreFaq": "FAQ",
+    "newsHeading": "Bütün yeniliklərdən xəbərdar olun",
+    "newsPlaceholder": "E-poçt ünvanınız",
+    "newsBtn": "Abunə ol",
+    "newsNote": "Abunə olmaqla Gizlilik Siyasətimizə razılıq verirsiniz.",
+    "newsSuccess": "Abunəliyiniz üçün təşəkkür edirik!",
+    "copy": "© {year} ADHOC. Bütün hüquqlar qorunur.",
+    "designedBy": "Designed by"
+  },
+  "Hero": {
+    "headingLine1": "Biznesiniz üçün",
+    "headingLine2": "vacib 3 xidmət",
+    "headingEm": "1 tərəfdaşda",
+    "lead": "Strateji planlaşdırmadan iş proseslərinin optimallaşdırılmasına qədər — sizin uğurunuz bizim hədəfimizdir.",
+    "btnServices": "Xidmətlərimiz",
+    "btnContact": "Bizimlə əlaqə",
+    "statProjects": "Tamamlanmış layihə",
+    "statClients": "Müştəri",
+    "statSatisfaction": "Məmnuniyyət dərəcəsi",
+    "statExperience": "Sahə təcrübəsi"
+  },
+  "WhyUs": {
+    "sectionTitle": "Xidmətlərimiz",
+    "contactBtn": "Əlaqə yarat",
+    "legal": "Hüquq",
+    "hr": "İnsan Resursları",
+    "accounting": "Mühasibatlıq"
+  },
+  "Faq": {
+    "heading": "Tez-tez soruşulan suallar.",
+    "q1": "ADHOC hansı sahələrdə xidmət göstərir?",
+    "a1": "Biz maliyyə, enerji, istehsal, texnologiya və xidmət sektorlarında strateji konsaltinq, biznes analizi və idarəetmə məsləhəti xidmətləri göstəririk. Hər sahə üzrə dərin sektoral biliyimiz var.",
+    "q2": "Tipik bir layihə nə qədər davam edir?",
+    "a2": "Əhatə dairəsindən asılı olaraq dəyişir. Qısa müddətli strateji qiymətləndirmə 2–4 həftə, tam miqyaslı transformasiya layihəsi isə 3–9 ay çəkə bilər. İlk görüşdə sizə dəqiq qrafik təqdim edirik.",
+    "q3": "Azərbaycandan kənar müştərilərlə işləyirsiniz?",
+    "a3": "Bəli — Körfəz ölkələri, Mərkəzi Asiya, Türkiyə və Avropada müştərilərimiz var. Prosesimiz uzaqdan əməkdaşlığa tam uyğunlaşdırılıb, saat fərqi heç vaxt maneə yaratmır.",
+    "q4": "İş prosesiniz necə görünür?",
+    "a4": "Kəşfiyyat mərhələsindən başlayırıq — mövcud vəziyyəti, hədəfləri və çətinlikləri dərindən öyrənirik. Sonra analiz, tövsiyə paketi, tətbiq planı və nəticələrin monitorinqi gəlir. Hər mərhələdə şəffaf hesabat veririk.",
+    "q5": "Mövcud bir iş prosesini audit edə bilərsiniz?",
+    "a5": "Bəli. Artıq fəaliyyət göstərən iş proseslərini, maliyyə modellərini və ya idarəetmə strukturlarını müstəqil olaraq qiymətləndiririk, ətraflı audit hesabatı hazırlayırıq.",
+    "q6": "Necə başlamaq olar?",
+    "a6": "Əlaqə forması vasitəsilə və ya e-poçtla bizə qısa layihə icmalı göndərin. Əhatə, qrafik və uyğunluq barədə danışmaq üçün qısa görüş planlaşdırırıq — pulsuz ilkin konsultasiya."
+  },
+  "Testimonials": {
+    "heading": "Müştərilərimiz nə deyir",
+    "items": [
+      {
+        "company": "TechBridge AZ",
+        "quote": "\"ADHOC bizim bütün iş proseslərimizi yenidən qurdu. Dəqiqlik və peşəkarlıq baxımından əvvəllər gördüyümüz heç bir şirkətlə müqayisə edilə bilməz. Həqiqətən əla iş.\"",
+        "name": "Kamran Əliyev",
+        "role": "İcraçı Direktor",
+        "initials": "KƏ"
+      },
+      {
+        "company": "Silk Road Ventures",
+        "quote": "\"Onlar yalnız məsləhət vermir — düşünür. Hər tövsiyənin arxasında aydın arqument var. Əməkdaşlıqdan sonra gəlirlərimiz ikiqat artdı.\"",
+        "name": "Leyla Hüseynova",
+        "role": "Marketinq Direktoru",
+        "initials": "LH"
+      },
+      {
+        "company": "Caspian Tech",
+        "quote": "\"Cavabdehlər, sürətli və qrafik barədə dürüst. Layihə vaxtında başa çatdı. Bütün proses çox rahat keçdi — bu, yüksək peşəkarlığın əlamətidir.\"",
+        "name": "Orxan Məmmədov",
+        "role": "Qurucu",
+        "initials": "OM"
+      },
+      {
+        "company": "Aura Retail",
+        "quote": "\"Biznesimizin tam strategiyasını yenidən qurmağa ehtiyacımız var idi. ADHOC müasir, ardıcıl və kim olduğumuzu əks etdirən bir yol xəritəsi hazırladı.\"",
+        "name": "Nigar Rzayeva",
+        "role": "Brend Direktoru",
+        "initials": "NR"
+      },
+      {
+        "company": "BakuSoft",
+        "quote": "\"Komanda bizim auditoriyamızı bizdən daha yaxşı anladı. Analiz mərhələsinin özü məhsul strategiyamızı dəyişdirdi. Dərhal geri qaytarılan bir investisiya.\"",
+        "name": "Tural Qasımov",
+        "role": "Məhsul Meneceri",
+        "initials": "TQ"
+      },
+      {
+        "company": "Meridian Holdings",
+        "quote": "\"İlk görüşdən son təhvildə qədər proses tamamilə şəffaf idi. Gizli xərclər yox, buraxılmış son tarixlər yox. Sadəcə əla iş, əla ünsiyyət.\"",
+        "name": "Aysel Babayeva",
+        "role": "Əməliyyat Direktoru",
+        "initials": "AB"
+      }
+    ]
+  },
+  "Leadership": {
+    "label": "Tanıyın",
+    "title": "Rəhbərlik",
+    "bio": "Rauf, Azərbaycan və Cənubi Qafqaz regionunda on ildən artıq müddət ərzində strateji konsaltinq və biznes idarəetməsi sahəsində təcrübəyə malikdir. Maliyyə, enerji və texnologiya sektorlarında aparıcı beynəlxalq şirkətlərlə əldə etdiyi dərin sektoral biliyə əsaslanaraq ADHOC-u sürət, dəqiqlik və dürüstlük prinsipləri üzərində idarə edir."
+  },
+  "Team": {
+    "label": "Komanda",
+    "title": "Mütəxəssislərimiz",
+    "joinBtn": "Komandaya qoşul",
+    "desc": "Müxtəlif sektorlarda dərin təcrübəyə malik mütəxəssislərdən ibarət komandamız analitik düşüncə tərzi və praktik yanaşmanın vəhdəti ilə hər bir çətinliyə uyğun həll tapır. Hər layihəni özünəməxsusluğu ilə qəbul edir, müştərimizin uğurunu öz uğurumuz sayırıq.",
+    "hiring": "İş yeri var!",
+    "members": [
+      { "name": "Rauf",    "role": "Qurucu & İcraçı Direktor"  },
+      { "name": "Aysel",   "role": "Strateji Direktor"          },
+      { "name": "Murad",   "role": "Baş Analitik"               },
+      { "name": "Leyla",   "role": "Biznes Məsləhətçisi"        },
+      { "name": "Kamran",  "role": "Maliyyə Analitiki"          },
+      { "name": "Nigar",   "role": "Layihə Meneceri"            },
+      { "name": "Elvin",   "role": "Risk Analitiki"             },
+      { "name": "Sevinc",  "role": "Əməliyyat Meneceri"         },
+      { "name": "Tural",   "role": "Texnologiya Məsləhətçisi"   },
+      { "name": "Günay",   "role": "İnsan Resursları"           },
+      { "name": "Anar",    "role": "Marketinq Direktoru"        },
+      { "name": "Xədicə",  "role": "Müştəri Əlaqələri"         }
+    ]
+  },
+  "PostSidebar": {
+    "share": "Paylaş:",
+    "shareFacebook": "Facebook-da paylaş",
+    "shareX": "X-də paylaş",
+    "shareLinkedIn": "LinkedIn-də paylaş",
+    "postedBy": "Müəllif",
+    "relatedReading": "Oxşar məqalələr"
+  },
+  "TableOfContents": {
+    "heading": "Mündəricat"
+  }
+}
