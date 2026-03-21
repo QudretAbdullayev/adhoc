@@ -1,0 +1,208 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── RICH TEXT ────────────────────────────────────────────────────────────────
+
+.root {
+  color: $text-2;
+  font-size: 16rem;
+  line-height: 28rem;
+  max-width: 896rem;
+}
+
+// ── Headings ──────────────────────────────────────────────────────────────────
+
+.h1 {
+  font-family: '37Extrabold';
+  font-size: 30rem;
+  line-height: 36rem;
+  font-weight: 500;
+  color: $text-1;
+  margin: 0 0 24rem;
+  letter-spacing: -0.5rem;
+}
+
+.h2 {
+  font-family: '37Extrabold';
+  font-size: 24rem;
+  line-height: 32rem;
+  font-weight: 500;
+  color: $text-1;
+  margin: 32rem 0 16rem;
+  letter-spacing: -0.3rem;
+}
+
+.h3 {
+  font-family: '75Medium';
+  font-size: 20rem;
+  line-height: 28rem;
+  font-weight: 600;
+  color: $text-1;
+  margin: 28rem 0 12rem;
+  letter-spacing: -0.2rem;
+}
+
+// ── Paragraph ─────────────────────────────────────────────────────────────────
+
+.p {
+  font-family: '73Book';
+  font-size: 16rem;
+  line-height: 32rem;
+  color: $text-2;
+  margin: 0 0 16rem;
+  letter-spacing: -0.1rem;
+
+  strong {
+    color: $text-1;
+    font-weight: 600;
+  }
+
+  a {
+    color: $teal;
+    text-decoration: underline;
+    text-underline-offset: 3rem;
+    transition: opacity 0.15s;
+
+    &:hover { opacity: 0.75; }
+  }
+}
+
+// ── Blockquote ────────────────────────────────────────────────────────────────
+
+.blockquote {
+  border-left: 4rem solid $teal;
+  margin: 24rem 0;
+  padding: 12rem 20rem;
+  background: $teal-bg;
+  border-radius: 0 8rem 8rem 0;
+
+  p {
+    font-family: '73Book';
+    font-size: 16rem;
+    line-height: 32rem;
+    color: $text-2;
+    font-style: italic;
+    margin: 0;
+
+    strong {
+      color: $text-1;
+      font-weight: 600;
+      font-style: normal;
+    }
+  }
+}
+
+// ── Horizontal rule ───────────────────────────────────────────────────────────
+
+.hr {
+  border: none;
+  border-top: 1rem solid $border-s;
+  margin: 48rem 0;
+}
+
+// ── Lists ─────────────────────────────────────────────────────────────────────
+
+.ul {
+  list-style: disc;
+  margin: 20rem 0 24rem;
+  padding-left: 26rem;
+}
+
+.ol {
+  list-style: decimal;
+  margin: 20rem 0 24rem;
+  padding-left: 26rem;
+}
+
+.li {
+  font-family: '73Book';
+  font-size: 16rem;
+  line-height: 26rem;
+  color: $text-2;
+  margin: 8rem 0;
+  padding-left: 6rem;
+
+  strong {
+    color: $text-1;
+    font-weight: 600;
+  }
+
+  a {
+    color: $teal;
+    text-decoration: underline;
+  }
+}
+
+// ── Table ─────────────────────────────────────────────────────────────────────
+
+.tableWrap {
+  overflow-x: auto;
+  margin: 28rem 0;
+}
+
+.table {
+  width: 100%;
+  table-layout: auto;
+  text-align: left;
+  font-size: 14rem;
+  line-height: 24rem;
+  border-collapse: collapse;
+}
+
+.thead {
+  border-bottom: 1rem solid $border;
+}
+
+.th {
+  font-family: '75Medium';
+  font-weight: 500;
+  color: $text-1;
+  padding: 0 8rem 8rem 0;
+  vertical-align: bottom;
+
+  &:first-child { padding-left: 0; }
+  &:last-child  { padding-right: 0; }
+}
+
+.tr {
+  border-bottom: 1rem solid $border-s;
+
+  &:last-child { border-bottom: none; }
+}
+
+.td {
+  font-family: '73Book';
+  color: $text-2;
+  padding: 10rem 8rem;
+  vertical-align: baseline;
+
+  &:first-child { padding-left: 0; }
+  &:last-child  { padding-right: 0; }
+
+  strong {
+    color: $text-1;
+    font-weight: 600;
+  }
+}
+
+// ── Figure ────────────────────────────────────────────────────────────────────
+
+.figure {
+  margin: 32rem 0;
+}
+
+.figureImg {
+  width: 100%;
+  height: auto;
+  border-radius: 16rem;
+  display: block;
+  border: 1rem solid $border-s;
+}
+
+.figcaption {
+  font-family: '73Book';
+  font-size: 13rem;
+  line-height: 20rem;
+  color: $text-3;
+  text-align: center;
+  margin-top: 10rem;
+}

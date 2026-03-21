@@ -1,0 +1,109 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── POST HEADER ──────────────────────────────────────────────────────────────
+
+.header {
+  text-align: center;
+  padding-top: 48rem;
+  padding-bottom: 48rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+// ── Meta — category tag + date ────────────────────────────────────────────────
+
+.meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24rem;
+  margin-bottom: 24rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 700;
+  line-height: 20rem;
+  padding: 4rem 12rem;
+  border: 1rem solid $teal-border;
+  border-radius: 9999rem;
+  background: $teal-bg;
+  color: $teal;
+  transition: background 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: rgba(#0F766E, 0.12);
+    border-color: rgba(#0F766E, 0.3);
+  }
+}
+
+.date {
+  font-family: '73Book';
+  font-size: 14rem;
+  line-height: 20rem;
+  color: $text-3;
+}
+
+// ── Title block ───────────────────────────────────────────────────────────────
+
+.titleWrap {
+  max-width: 768rem;
+  margin: 0 auto 48rem;
+}
+
+.title {
+  font-family: '37Extrabold';
+  font-size: 56rem;
+  line-height: 56rem;
+  font-weight: 400;
+  letter-spacing: -1.5rem;
+  color: $text-1;
+  margin: 0 0 24rem;
+}
+
+.lead {
+  font-family: '73Book';
+  font-size: 16rem;
+  line-height: 26rem;
+  color: $text-2;
+  max-width: 672rem;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+// ── Cover image ───────────────────────────────────────────────────────────────
+
+.cover {
+  width: 100%;
+  position: relative;
+  height: 480rem;
+  border-radius: 24rem;
+  overflow: hidden;
+  outline: 1rem solid rgba(#000, 0.06);
+  outline-offset: 6rem;
+}
+
+.coverImg {
+  object-fit: cover;
+}
+
+// Placeholder when no real image
+.coverPlaceholder {
+  width: 100%;
+  height: 480rem;
+  border-radius: 24rem;
+  background: linear-gradient(145deg, $bg-elevated 0%, $border 100%);
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 700px) {
+  .title { font-size: 36rem; line-height: 40rem; letter-spacing: -1rem; }
+  .cover, .coverPlaceholder { height: 240rem; border-radius: 16rem; }
+}

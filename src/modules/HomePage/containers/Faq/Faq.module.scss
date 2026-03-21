@@ -1,0 +1,155 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── FAQ ───────────────────────────────────────────────────────────────────────
+
+.section {
+  background: $bg-base;
+  border-top: 1rem solid $border-s;
+  padding-bottom: 120rem;
+}
+
+.inner {
+  max-width: 888rem;
+  margin: 0 auto;
+}
+
+// ── Head ──────────────────────────────────────────────────────────────────────
+
+.head {
+  padding-top: 100rem;
+  padding-bottom: 64rem;
+}
+
+.titleWrap {
+  overflow: hidden;
+  line-height: 1;
+}
+
+.title {
+  display: block;
+  font-family: '37Extrabold';
+  font-size: 80rem;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -2.5rem;
+  text-transform: uppercase;
+  color: $text-1;
+  margin: 0;
+  transform: translateY(105%);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 0.1s + 0.05s);
+
+  &.titleVisible {
+    transform: translateY(0);
+  }
+}
+
+// ── Accordion list ────────────────────────────────────────────────────────────
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1rem solid $border-s;
+}
+
+.item {
+  border-bottom: 1rem solid $border-s;
+}
+
+// ── Trigger ───────────────────────────────────────────────────────────────────
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rem;
+  padding: 28rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s;
+
+  &:hover .triggerText {
+    color: $text-1;
+  }
+
+  &.triggerOpen .triggerText {
+    color: $text-1;
+  }
+}
+
+.triggerText {
+  font-family: '46Bold';
+  font-size: 20rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.3rem;
+  color: $text-2;
+  transition: color 0.25s;
+}
+
+// ── Chevron ───────────────────────────────────────────────────────────────────
+
+.chevron {
+  flex-shrink: 0;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  border: 1rem solid $border;
+  background: $bg-surface;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-2;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+  svg {
+    flex-shrink: 0;
+    transition: inherit;
+  }
+
+  &.chevronOpen {
+    background: $teal-bg;
+    border-color: $teal-border;
+    color: $teal;
+    transform: rotate(180deg);
+  }
+}
+
+// ── Body — smooth height via grid ─────────────────────────────────────────────
+
+.body {
+  display: grid;
+  grid-template-rows: calc(var(--open, 0) * 1fr);
+  overflow: hidden;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bodyInner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.answer {
+  font-family: '73Book';
+  font-size: 17rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: $text-2;
+  margin: 0;
+  padding-bottom: 28rem;
+  max-width: 680rem;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 700px) {
+  .section { padding-bottom: 80rem; }
+  .head { padding-top: 72rem; padding-bottom: 48rem; }
+  .title { font-size: 52rem; letter-spacing: -1.5rem; }
+  .triggerText { font-size: 17rem; }
+  .trigger { padding: 22rem 0; }
+  .answer { font-size: 15rem; }
+}

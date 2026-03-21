@@ -1,0 +1,7 @@
+@use '@/assets/styles/abstracts/' as *;
+
+.section {
+  position: relative;
+  background: $bg-base;
+  overflow: hidden;
+}

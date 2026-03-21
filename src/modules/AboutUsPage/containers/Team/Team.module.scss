@@ -1,0 +1,203 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── TEAM SECTION ─────────────────────────────────────────────────────────────
+
+.root {
+  position: sticky;
+  top: 560rem;
+  z-index: 2;
+  background: $bg-base;
+  border-top: 1rem solid $border;
+}
+
+.inner {
+  max-width: 1344rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48rem;
+  padding-bottom: 80rem;
+}
+
+// ── Top row ───────────────────────────────────────────────────────────────────
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 32rem;
+}
+
+.headingCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 36rem;
+  max-width: 630rem;
+}
+
+.headingGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+}
+
+.eyebrow {
+  font-family: '37Extrabold';
+  font-size: 24rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.48rem;
+  color: $text-2;
+}
+
+.heading {
+  font-family: '37Extrabold';
+  font-size: 88rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.76rem;
+  color: $text-1;
+  margin: 0;
+}
+
+// ── Join button ───────────────────────────────────────────────────────────────
+
+.joinBtn {
+  display: inline-flex;
+  align-items: center;
+  height: 48rem;
+  padding: 0 32rem;
+  font-family: '75Medium';
+  font-size: 16rem;
+  font-weight: 500;
+  line-height: 1;
+  color: $bg-base;
+  background: $text-1;
+  border-radius: 200rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+
+  &:hover { opacity: 0.75; }
+}
+
+// ── Description column ───────────────────────────────────────────────────────
+
+.descCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 24rem;
+  max-width: 544rem;
+}
+
+.desc {
+  font-family: '73Book';
+  font-size: 18rem;
+  line-height: 27rem;
+  font-weight: 400;
+  letter-spacing: -0.36rem;
+  color: $text-2;
+  margin: 0;
+}
+
+.hiringBadge {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+}
+
+.hiringDot {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: $teal;
+}
+
+.hiringText {
+  font-family: '73Book';
+  font-size: 16rem;
+  line-height: 1;
+  color: $text-2;
+}
+
+// ── Team grid ─────────────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24rem;
+  padding-top: 64rem;
+}
+
+.card {
+  border: 1rem solid $border;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardPhoto {
+  aspect-ratio: 1 / 1;
+  background: $bg-elevated;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.cardInitials {
+  font-family: '37Extrabold';
+  font-size: 28rem;
+  font-weight: 700;
+  color: $text-3;
+  letter-spacing: -0.5rem;
+}
+
+.cardInfo {
+  padding: 16rem;
+  border-top: 1rem solid $border;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.cardName {
+  font-family: '75Medium';
+  font-size: 18rem;
+  font-weight: 500;
+  color: $text-1;
+  line-height: 1;
+}
+
+.cardRole {
+  font-family: '73Book';
+  font-size: 14rem;
+  line-height: 22rem;
+  color: $text-2;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+  .heading { font-size: 64rem; letter-spacing: -1.28rem; }
+}
+
+@media screen and (max-width: 900px) {
+  .root { position: relative; top: auto; }
+  .inner { padding: 32rem 24rem; padding-bottom: 64rem; }
+  .topRow { flex-direction: column; gap: 32rem; }
+  .headingCol, .descCol { max-width: 100%; }
+  .heading { font-size: 56rem; letter-spacing: -1.12rem; }
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 16rem; padding-top: 40rem; }
+}
+
+@media screen and (max-width: 560px) {
+  .heading { font-size: 40rem; letter-spacing: -0.8rem; }
+  .inner { padding: 24rem 16rem; padding-bottom: 48rem; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}

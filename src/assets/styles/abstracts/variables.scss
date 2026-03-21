@@ -1,36 +1,58 @@
-// ─── BASE ─────────────────────────────────────────────────────────────────────
-$white:    #FFFFFF;
-$black:    #000000;
+// ─── SEMANTIC COLOR SYSTEM — LIGHT THEME ──────────────────────────────────────
+//
+//  Background  ·  Surface  ·  Border  ·  Text  ·  Accent
+//  Each token has a role — never use raw rgba() in components.
 
-// ─── BRAND DARKS ──────────────────────────────────────────────────────────────
-$carbon:   #191919;
-$graphite: #232323;
-$ash:      #363636;
+// ── Primitive literals (avoid using directly in components) ───────────────────
+$white:   #FFFFFF;
+$black:   #000000;
+$carbon:  #191919;
 
-// ─── NAVY SCALE (new primary palette) ─────────────────────────────────────────
-$navy:     #07101E;   // darkest bg
-$navy-2:   #0C1828;   // section bg
-$navy-3:   #122036;   // card / elevated bg
-$navy-4:   #1A2E48;   // hover state
+// ── Background scale ──────────────────────────────────────────────────────────
+//   base      — page canvas, section backgrounds (warm off-white)
+//   surface   — cards, panels (pure white)
+//   elevated  — hover states, nested elements (warm tint)
+$bg-base:     #F4F3EF;   // warm off-white — quality paper feel
+$bg-surface:  #FFFFFF;   // card / panel — clean white
+$bg-elevated: #ECEAE4;   // hover / pressed — warm tint
 
-// ─── ACCENT ───────────────────────────────────────────────────────────────────
-$teal:     #0BC8D8;   // primary accent — replaces honey
-$azure:    #1A7AF0;   // secondary accent
-$lime:     #8AEF00;   // tertiary accent
-$honey:    #FFCC66;   // kept for legacy/tables
+// ── Border scale ──────────────────────────────────────────────────────────────
+//   default   — card outlines, dividers between named elements
+//   subtle    — between same-surface elements, internal section rules
+$border:      #DEDAD2;   // default border — warm mid-gray, visible
+$border-s:    #E9E7E1;   // subtle border — barely there
 
-// ─── NEUTRALS ─────────────────────────────────────────────────────────────────
+// ── Text scale ────────────────────────────────────────────────────────────────
+//   primary   — headings, important labels
+//   secondary — body copy, descriptions
+//   tertiary  — eyebrow labels, dates, captions, placeholders
+$text-1:  #111118;   // primary   — near-black, slight blue hint
+$text-2:  #6B7280;   // secondary — cool neutral gray
+$text-3:  #A1A8B5;   // tertiary  — muted, for labels & metadata
+
+// ── Accent ────────────────────────────────────────────────────────────────────
+$teal:          #0F766E;   // deep teal — contrast-safe on white bg
+$teal-bg:       rgba(#0F766E, 0.07);   // tinted button/tag bg
+$teal-border:   rgba(#0F766E, 0.18);   // tinted border
+$teal-glow:     rgba(#0F766E, 0.15);   // box-shadow glow
+
+// Secondary/legacy (keep for table styles, rich text)
+$honey:    #FFCC66;
 $snow:     #F5F5F5;
 $fog:      #E4E4E4;
-$ocean:    #108299;
 $lavender: #EDE9FE;
 $violet:   #7C3AED;
+$ocean:    #108299;
 
-// ─── GLASS PALETTE ────────────────────────────────────────────────────────────
-// Usage:  background: $glass-bg;  border: 1rem solid $glass-border;
-//         backdrop-filter: blur(24rem);
-$glass-bg:       rgba(#FFFFFF, 0.06);
-$glass-bg-hover: rgba(#FFFFFF, 0.10);
-$glass-border:   rgba(#FFFFFF, 0.11);
-$glass-border-s: rgba(#FFFFFF, 0.07);  // subtle
-$glass-shine:    rgba(#FFFFFF, 0.04);  // top-edge highlight
+// ── Legacy navy scale (kept for backwards compat, do not use in new code) ─────
+$navy:     $bg-base;
+$navy-2:   $bg-surface;
+$navy-3:   $bg-elevated;
+$navy-4:   #D4D0C8;
+
+// ── Glass tokens (for floating elements like nav pill that sit over content) ───
+$glass-bg:       rgba($white, 0.82);
+$glass-bg-hover: rgba($white, 0.95);
+$glass-border:   $border;
+$glass-border-s: $border-s;
+$glass-shine:    rgba($white, 0.6);

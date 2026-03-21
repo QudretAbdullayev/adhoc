@@ -1,0 +1,51 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── BLOG DETAIL PAGE ─────────────────────────────────────────────────────────
+
+.section {
+  background: $bg-base;
+  padding-top: 32rem;
+  position: relative;
+  z-index: 10;
+}
+
+.article {
+  max-width: 1280rem;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 16rem;
+  padding-right: 16rem;
+  position: relative;
+}
+
+// ── Body — TOC (left) | content (center) | sidebar (right) ──────────────────
+
+.body {
+  display: flex;
+  flex-direction: row;
+  gap: 48rem;
+  padding-bottom: 120rem;
+}
+
+// ── Main content — center column ──────────────────────────────────────────────
+
+.main {
+  flex: 1 1 0%;
+  min-width: 0;
+  order: 2;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 1100px) {
+  // right sidebar hidden via its own media query
+}
+
+@media screen and (max-width: 900px) {
+  .body { flex-direction: column; gap: 32rem; }
+  .main { order: 1; }
+}
+
+@media screen and (max-width: 560px) {
+  .body { padding-bottom: 80rem; }
+}

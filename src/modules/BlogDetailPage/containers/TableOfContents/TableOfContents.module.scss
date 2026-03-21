@@ -1,0 +1,68 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── TABLE OF CONTENTS ────────────────────────────────────────────────────────
+
+.aside {
+  flex-shrink: 0;
+  width: 256rem;
+  position: sticky;
+  top: 32rem;
+  align-self: flex-start;
+  order: 1;
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.heading {
+  font-family: '75Medium';
+  font-size: 18rem;
+  font-weight: 600;
+  line-height: 28rem;
+  color: $text-1;
+  margin: 0 0 16rem;
+}
+
+// ── List ──────────────────────────────────────────────────────────────────────
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  border-left: 1rem solid $border-s;
+  padding-left: 20rem;
+  transition: border-color 0.3s;
+
+  &.itemActive {
+    border-left-color: $teal;
+  }
+}
+
+// ── Links ─────────────────────────────────────────────────────────────────────
+
+.link {
+  display: block;
+  font-family: '73Book';
+  font-size: 14rem;
+  line-height: 22.75rem;
+  color: $text-3;
+  text-decoration: none;
+  padding: 4rem 0;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $text-2;
+  }
+
+  &.linkActive {
+    font-family: '75Medium';
+    font-weight: 600;
+    font-size: 16rem;
+    line-height: 26rem;
+    color: $teal;
+  }
+}

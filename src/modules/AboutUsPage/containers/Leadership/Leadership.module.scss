@@ -1,0 +1,149 @@
+@use '@/assets/styles/abstracts/' as *;
+
+// ─── LEADERSHIP SECTION ───────────────────────────────────────────────────────
+
+.root {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 560rem;
+  background: $bg-base;
+}
+
+.inner {
+  max-width: 1344rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48rem;
+}
+
+// ── Top row ───────────────────────────────────────────────────────────────────
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 32rem;
+}
+
+.headingCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+  max-width: 630rem;
+}
+
+.eyebrow {
+  font-family: '37Extrabold';
+  font-size: 24rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.48rem;
+  color: $text-2;
+}
+
+.heading {
+  font-family: '37Extrabold';
+  font-size: 88rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.76rem;
+  color: $text-1;
+  margin: 0;
+}
+
+// ── Body row ──────────────────────────────────────────────────────────────────
+
+.bodyRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 32rem;
+  padding-top: 64rem;
+}
+
+// ── Photo ─────────────────────────────────────────────────────────────────────
+
+.photoWrap {
+  flex-shrink: 0;
+  width: 432rem;
+}
+
+.photoPlaceholder {
+  width: 432rem;
+  height: 432rem;
+  background: $bg-elevated;
+  border-radius: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoInitials {
+  font-family: '37Extrabold';
+  font-size: 72rem;
+  font-weight: 700;
+  color: $text-3;
+  letter-spacing: -1.5rem;
+}
+
+// ── Bio column ────────────────────────────────────────────────────────────────
+
+.bioCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 544rem;
+}
+
+.bio {
+  font-family: '73Book';
+  font-size: 18rem;
+  line-height: 27rem;
+  font-weight: 400;
+  letter-spacing: -0.36rem;
+  color: $text-2;
+  margin: 0;
+}
+
+// ── Logo row ─────────────────────────────────────────────────────────────────
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 32rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: '75Medium';
+  font-size: 14rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  color: $text-3;
+  text-transform: uppercase;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 1100px) {
+  .photoWrap { width: 360rem; }
+  .photoPlaceholder { width: 360rem; height: 360rem; }
+}
+
+@media screen and (max-width: 900px) {
+  .root { margin-bottom: 0; position: relative; }
+  .inner { padding: 32rem 24rem; }
+  .heading { font-size: 56rem; letter-spacing: -1.12rem; }
+  .bodyRow { flex-direction: column; gap: 32rem; }
+  .photoWrap { width: 100%; }
+  .photoPlaceholder { width: 100%; height: 240rem; }
+  .bioCol { max-width: 100%; }
+}
+
+@media screen and (max-width: 560px) {
+  .heading { font-size: 40rem; letter-spacing: -0.8rem; }
+  .inner { padding: 24rem 16rem; }
+}
