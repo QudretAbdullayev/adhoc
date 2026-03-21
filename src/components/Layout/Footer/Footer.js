@@ -5,32 +5,24 @@ import Link from "next/link";
 import styles from "./Footer.module.scss";
 
 const NAV_COMPANY = [
-  { label: "Haqqımızda", href: "/haqqimizda" },
-  { label: "İşlər",      href: "/isler"       },
-  { label: "Bloq",       href: "/bloq"         },
-  { label: "Əlaqə",      href: "/elaqe"        },
+  { label: "Haqqımızda", href: "/about-us" },
+  { label: "Bloq",       href: "/blog"         },
+  { label: "Əlaqə",      href: "/contact"        },
+  { label: "Karyera",    href: "/careers"        },
 ];
 
 const NAV_SERVICES = [
-  { label: "Strateji Konsaltinq",   href: "/xidmetler/strategiya"  },
-  { label: "Biznes Analizi",        href: "/xidmetler/analiz"      },
-  { label: "İdarəetmə Məsləhəti",   href: "/xidmetler/idaeetme"    },
-  { label: "Maliyyə Planlaması",    href: "/xidmetler/maliyye"     },
-  { label: "Risk İdarəetməsi",      href: "/xidmetler/risk"        },
+  { label: "Hüquqi Konsaltinq",   href: "/services/legal"  },
+  { label: "İnsan Resursları",        href: "/services/human-resources"      },
+  { label: "Mühasibatlıq",   href: "/services/accounting"    },
 ];
 
 const NAV_MORE = [
-  { label: "Prosesimiz", href: "/proses"   },
-  { label: "Qiymətlər",  href: "/qiymetler"},
-  { label: "Karyera",    href: "/karyera"  },
+  { label: "Məxfilik Siyasəti", href: "/privacy"   },
+  { label: "Şərtlər",  href: "/terms"},
   { label: "FAQ",        href: "/faq"      },
 ];
 
-const LEGAL_LINKS = [
-  { label: "Gizlilik Siyasəti", href: "/gizlilik" },
-  { label: "İmtina",            href: "/imtina"    },
-  { label: "Cookies",           href: "/cookies"   },
-];
 
 function IconPhone() {
   return (
@@ -182,12 +174,7 @@ export default function Footer() {
           © {new Date().getFullYear()} ADHOC. Bütün hüquqlar qorunur.
         </span>
         <nav className={styles.legal}>
-          {LEGAL_LINKS.map((l, i) => (
-            <Fragment key={l.href}>
-              {i > 0 && <span className={styles.legalSep} />}
-              <Link href={l.href} className={styles.legalLink}>{l.label}</Link>
-            </Fragment>
-          ))}
+          Designed by <a href="https://venera.az" target="_blank" rel="noopener noreferrer" className={styles.legalLink}>Venera.az</a>
           <span className={styles.legalSep} />
           <span className={styles.lang}>
             <span className={styles.langItem}>AZ</span>
