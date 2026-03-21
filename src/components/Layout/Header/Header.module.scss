@@ -3,14 +3,20 @@
 // ─── HEADER ──────────────────────────────────────────────────────────────────
 
 .header {
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   padding: 36rem 0;
+  background: transparent;
+  pointer-events: none;
 }
 
 .inner {
   display: flex;
   align-items: center;
+  pointer-events: auto;
 }
 
 .logo {
