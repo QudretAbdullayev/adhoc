@@ -48,7 +48,7 @@ export default function WhyUs() {
             className={`${styles.row} ${activeIndex === i ? styles.rowActive : ""}`}
             onMouseEnter={() => setActiveIndex(i)}
           >
-            <div className={styles.rowInner}>
+            <div className={`${styles.rowInner} g-container`}>
               <h3 className={styles.rowTitle}>{item.title}</h3>
             </div>
           </div>

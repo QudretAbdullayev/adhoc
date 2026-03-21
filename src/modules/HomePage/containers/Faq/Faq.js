@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import styles from "./Faq.module.scss";
-import useInView from "@/hooks/useInView";
-import ComponentTitle from "@/components/ComponentTitle/ComponentTitle";
 
 const ITEMS = [
   {
@@ -34,23 +32,16 @@ const ITEMS = [
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
-  const [sideRef, sideVisible] = useInView(0.1);
 
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <section className={styles.section}>
-      <div className={`${styles.layout} g-container`}>
-
-        {/* ── Left sticky col ── */}
-        <div
-          className={`${styles.sideCol} ${sideVisible ? styles.sideVisible : ""}`}
-          ref={sideRef}
-        >
-          <ComponentTitle label="FAQ" title="Tez-tez soruşulan suallar." />
+      <div className="g-container">
+        <div className={styles.bottomBar}>
+          <h2 className={styles.bottomTitle}>Tez-tez soruşulan suallar.</h2>
         </div>
 
-        {/* ── Accordion ── */}
         <ul className={styles.list}>
           {ITEMS.map((item, i) => {
             const isOpen = openIndex === i;
@@ -68,7 +59,7 @@ export default function Faq() {
                     </svg>
                   </span>
                 </button>
-                <div className={styles.body} style={{ "--open": isOpen ? 1 : 0 }}>
+                <div className={`${styles.body} ${isOpen ? styles.bodyOpen : ""}`}>
                   <div className={styles.bodyInner}>
                     <p className={styles.answer}>{item.a}</p>
                   </div>
@@ -77,7 +68,6 @@ export default function Faq() {
             );
           })}
         </ul>
-
       </div>
     </section>
   );

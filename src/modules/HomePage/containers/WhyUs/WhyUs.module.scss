@@ -70,11 +70,10 @@
 }
 
 .rowInner {
-  max-width: 1344rem;
-  width: 100%;
-  margin: 0 auto;
-  padding: 24rem 48rem;
-  padding-right: 530rem; // leave room for visual
+  // g-container provides: max-width, centering, 64rem horizontal padding
+  padding-top: 24rem;
+  padding-bottom: 24rem;
+  padding-right: 530rem; // overrides g-container right padding — leaves room for visual
 }
 
 // Title — large, full-width
@@ -104,7 +103,7 @@
 .visual {
   position: absolute;
   top: 0;
-  right: 48rem;
+  right: 64rem; // matches g-container's horizontal padding
   width: 432rem;
   height: 416rem;
   overflow: hidden;
@@ -127,7 +126,7 @@
   .visual {
     width: 360rem;
     height: 416rem;
-    right: 24rem;
+    right: 64rem;
   }
   .rowInner { padding-right: 420rem; }
   .rowTitle { font-size: 48rem; line-height: 48rem; }
@@ -136,7 +135,7 @@
 @media screen and (max-width: 900px) {
   .topLabel { font-size: 28rem; }
   .visual { display: none; }
-  .rowInner { padding-right: 48rem; }
+  .rowInner { padding-right: 64rem; } // revert to g-container standard
   .rowTitle {
     font-size: 40rem;
     line-height: 40rem;
@@ -150,6 +149,6 @@
   .topBar { padding-top: 28rem; padding-bottom: 28rem; }
   .topLabel { font-size: 22rem; line-height: 30rem; }
   .topBtn { font-size: 12rem; height: 36rem; padding: 0 16rem; }
-  .rowInner { padding: 20rem 20rem; }
+  .rowInner { padding-top: 20rem; padding-bottom: 20rem; }
   .rowTitle { font-size: 32rem; line-height: 32rem; letter-spacing: -0.8rem; }
 }

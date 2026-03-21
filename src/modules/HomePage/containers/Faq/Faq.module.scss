@@ -5,34 +5,7 @@
 .section {
   background: $bg-base;
   border-top: 1rem solid $border-s;
-  padding: 100rem 0 120rem;
-}
-
-// ── Two-column layout ──────────────────────────────────────────────────────────
-
-.layout {
-  display: grid;
-  grid-template-columns: 360rem 1fr;
-  gap: 80rem;
-  align-items: start;
-}
-
-// ── Left sticky col ───────────────────────────────────────────────────────────
-
-.sideCol {
-  position: sticky;
-  top: 112rem;
-  display: flex;
-  flex-direction: column;
-  gap: 20rem;
-  opacity: 0;
-  transform: translateY(24rem);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-
-  &.sideVisible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding-top: 80rem;
 }
 
 // ── Accordion list ────────────────────────────────────────────────────────────
@@ -102,9 +75,13 @@
 
 .body {
   display: grid;
-  grid-template-rows: calc(var(--open, 0) * 1fr);
+  grid-template-rows: 0fr;
   overflow: hidden;
   transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bodyOpen {
+  grid-template-rows: 1fr;
 }
 
 .bodyInner {
@@ -121,23 +98,42 @@
   padding-bottom: 28rem;
 }
 
-// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+// ── Bottom title bar ──────────────────────────────────────────────────────────
 
-@media screen and (max-width: 1000px) {
-  .layout {
-    grid-template-columns: 280rem 1fr;
-    gap: 56rem;
-  }
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32rem;
+  padding-bottom: 64rem;
 }
 
+.bottomLabel {
+  font-size: 11rem;
+  font-weight: 500;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+  color: $teal;
+  flex-shrink: 0;
+}
+
+.bottomTitle {
+  font-size: 40rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1rem;
+  color: $text-1;
+  margin: 0;
+  white-space: nowrap;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
 @media screen and (max-width: 760px) {
-  .section { padding: 72rem 0 80rem; }
-  .layout {
-    grid-template-columns: 1fr;
-    gap: 40rem;
-  }
-  .sideCol { position: static; }
+  .section { padding-top: 56rem; }
   .triggerText { font-size: 16rem; }
   .trigger { padding: 22rem 0; }
   .answer { font-size: 15rem; }
+  .bottomBar { padding-bottom: 48rem; }
+  .bottomTitle { font-size: 28rem; letter-spacing: -0.6rem; white-space: normal; }
 }
