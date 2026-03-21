@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 
@@ -198,12 +198,12 @@ export default function Footer() {
         </span>
         <nav className={styles.legal}>
           {LEGAL_LINKS.map((l, i) => (
-            <>
-              {i > 0 && <span key={`sep-${l.href}`} className={styles.legalSep} />}
-              <Link key={l.href} href={l.href} className={styles.legalLink}>
+            <Fragment key={l.href}>
+              {i > 0 && <span className={styles.legalSep} />}
+              <Link href={l.href} className={styles.legalLink}>
                 {l.label}
               </Link>
-            </>
+            </Fragment>
           ))}
           <span className={styles.legalSep} />
           <span className={styles.lang}>
