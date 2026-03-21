@@ -147,5 +147,30 @@
   },
   "TableOfContents": {
     "heading": "Mündəricat"
+  },
+  "BlogSlider": {
+    "heading": "Son məqalələr",
+    "viewAll": "Hamısına bax"
+  },
+  "ContactForm": {
+    "label": "Əlaqə",
+    "title": "Bizimlə əlaqə saxlayın",
+    "desc": "Layihəniz haqqında qısa məlumat göndərin — ən qısa zamanda sizinlə əlaqə saxlayacağıq.",
+    "namePlaceholder": "Adınız",
+    "companyPlaceholder": "Şirkətiniz (istəyə bağlı)",
+    "emailPlaceholder": "E-poçtunuz",
+    "messagePlaceholder": "Mesajınız",
+    "submit": "Göndər",
+    "trust1": "Pulsuz ilkin konsultasiya",
+    "trust2": "24 saat ərzində cavab",
+    "trust3": "Məxfi məlumatlar qorunur",
+    "successTitle": "Mesajınız göndərildi!",
+    "successDesc": "Ən qısa zamanda sizinlə əlaqə saxlayacağıq."
+  },
+  "BlogPage": {
+    "heading": "Bloq",
+    "desc": "Hüquq, insan resursları, mühasibatlıq və strateji idarəetmə üzrə ekspert məqalələri.",
+    "prev": "Əvvəlki",
+    "next": "Növbəti"
   }
 }

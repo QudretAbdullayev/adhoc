@@ -14,7 +14,9 @@
       "Bash(sed -i 's/border-radius: 20rem;/border-radius: $r-lg;/g' src/components/Layout/Footer/Footer.module.scss)",
       "Bash(sed -i 's/border-radius: 32rem;/border-radius: $r-xl;/g' src/components/Layout/Footer/Footer.module.scss)",
       "Bash(cat /c/Users/abdul/Desktop/adhoc.az/src/app/[locale]/blog/page.js)",
-      "Bash(grep -r \"router.replace\\\\|useRouter\\\\|usePathname\" c:/Users/abdul/Desktop/adhoc.az/src --include=*.js -l)"
+      "Bash(grep -r \"router.replace\\\\|useRouter\\\\|usePathname\" c:/Users/abdul/Desktop/adhoc.az/src --include=*.js -l)",
+      "Bash(find c:/Users/abdul/Desktop/adhoc.az/src/app -name *page.js -o -name *page.tsx)",
+      "Bash(find c:/Users/abdul/Desktop/adhoc.az/src/modules/HomePage/containers -name *.module.scss)"
     ]
   }
 }

@@ -1,0 +1,210 @@
+@use "@/assets/styles/abstracts/" as *;
+
+// ─── CONTACT FORM ─────────────────────────────────────────────────────────────
+
+.section {
+  background: $bg-base;
+  padding-bottom: 120rem;
+}
+
+// ── Layout ────────────────────────────────────────────────────────────────────
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80rem;
+  align-items: flex-start;
+  padding-top: 120rem;
+}
+
+// ── Left ──────────────────────────────────────────────────────────────────────
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 32rem;
+  position: sticky;
+  top: 120rem;
+}
+
+.desc {
+  font-size: 16rem;
+  line-height: 1.7;
+  color: $text-2;
+  margin: 0;
+  max-width: 420rem;
+}
+
+.trust {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+  font-size: 15rem;
+  font-weight: 400;
+  color: $text-2;
+  line-height: 1.4;
+}
+
+.trustIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 50%;
+  background: $accent-bg;
+  border: 1rem solid $accent-border;
+  color: $accent;
+  flex-shrink: 0;
+}
+
+// ── Right — form card ─────────────────────────────────────────────────────────
+
+.right {
+  background: $bg-surface;
+  border-radius: $r-xl;
+  border: 1rem solid $border-s;
+  padding: 48rem;
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────────
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rem;
+}
+
+.field {
+  width: 100%;
+  height: 52rem;
+  padding: 0 18rem;
+  font-size: 15rem;
+  line-height: 1;
+  color: $text-1;
+  background: $bg-elevated;
+  border: 1rem solid $border;
+  border-radius: $r-sm;
+  outline: none;
+  appearance: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+
+  &::placeholder { color: $text-3; }
+
+  &:focus {
+    border-color: $accent;
+    box-shadow: 0 0 0 3rem $accent-glow;
+  }
+}
+
+.textarea {
+  height: auto;
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+  resize: vertical;
+  line-height: 1.6;
+  min-height: 140rem;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  height: 52rem;
+  padding: 0 32rem;
+  font-size: 15rem;
+  font-weight: 600;
+  color: $white;
+  background: $accent;
+  border: none;
+  border-radius: $r-sm;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.25s, transform 0.2s;
+  align-self: flex-start;
+
+  &:hover {
+    background: darken(#4f7cff, 8%);
+    box-shadow: 0 0 24rem rgba(#4f7cff, 0.35);
+    transform: translateY(-2rem);
+  }
+}
+
+// ── Success state ─────────────────────────────────────────────────────────────
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16rem;
+  min-height: 280rem;
+  text-align: center;
+}
+
+.successIcon {
+  width: 56rem;
+  height: 56rem;
+  border-radius: 50%;
+  background: $accent-bg;
+  border: 1rem solid $accent-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $accent;
+}
+
+.successTitle {
+  font-size: 20rem;
+  font-weight: 600;
+  color: $text-1;
+  margin: 0;
+  letter-spacing: -0.3rem;
+}
+
+.successDesc {
+  font-size: 15rem;
+  color: $text-2;
+  margin: 0;
+  line-height: 1.6;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 1000px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48rem;
+  }
+
+  .left {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .section { padding-bottom: 72rem; }
+  .inner { padding-top: 72rem; }
+}
+
+@media screen and (max-width: 560px) {
+  .row { grid-template-columns: 1fr; }
+  .right { padding: 28rem; }
+  .submit { width: 100%; }
+}

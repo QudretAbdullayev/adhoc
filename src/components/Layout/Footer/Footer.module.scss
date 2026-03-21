@@ -216,6 +216,9 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 
   &::after {
     content: "";

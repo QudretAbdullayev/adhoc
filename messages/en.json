@@ -147,5 +147,30 @@
   },
   "TableOfContents": {
     "heading": "Table of Contents"
+  },
+  "BlogSlider": {
+    "heading": "Latest articles",
+    "viewAll": "View all"
+  },
+  "ContactForm": {
+    "label": "Contact",
+    "title": "Get in touch with us",
+    "desc": "Send us a brief overview of your project — we will get back to you as soon as possible.",
+    "namePlaceholder": "Your name",
+    "companyPlaceholder": "Your company (optional)",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Your message",
+    "submit": "Send",
+    "trust1": "Free initial consultation",
+    "trust2": "Response within 24 hours",
+    "trust3": "Confidential information protected",
+    "successTitle": "Message sent!",
+    "successDesc": "We will get back to you as soon as possible."
+  },
+  "BlogPage": {
+    "heading": "Blog",
+    "desc": "Expert articles on legal consulting, human resources, accounting, and strategic management.",
+    "prev": "Previous",
+    "next": "Next"
   }
 }

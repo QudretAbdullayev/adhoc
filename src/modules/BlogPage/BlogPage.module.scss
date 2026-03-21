@@ -1,0 +1,158 @@
+@use "@/assets/styles/abstracts/" as *;
+
+// ─── BLOG PAGE ────────────────────────────────────────────────────────────────
+
+.root {
+  background: $bg-base;
+  min-height: 100vh;
+}
+
+// ── Page Header ───────────────────────────────────────────────────────────────
+
+.pageHeader {
+  background: $bg-surface;
+  border-bottom: 1rem solid $border-s;
+}
+
+.pageHeaderInner {
+  padding-top: 80rem;
+  padding-bottom: 64rem;
+}
+
+.heading {
+  font-size: 64rem;
+  font-weight: 800;
+  letter-spacing: -2rem;
+  color: $text-1;
+  margin: 0 0 16rem;
+  line-height: 1;
+}
+
+.desc {
+  font-size: 17rem;
+  line-height: 1.65;
+  color: $text-2;
+  margin: 0;
+  max-width: 520rem;
+}
+
+// ── Grid ──────────────────────────────────────────────────────────────────────
+
+.gridWrap {
+  padding-top: 64rem;
+  padding-bottom: 80rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24rem;
+}
+
+// ── Pagination ────────────────────────────────────────────────────────────────
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  padding-top: 64rem;
+}
+
+.pageNums {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.pageNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40rem;
+  height: 40rem;
+  border-radius: $r-sm;
+  border: 1rem solid $border;
+  font-size: 14rem;
+  font-weight: 500;
+  color: $text-2;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: $border;
+    color: $text-1;
+    background: $bg-elevated;
+  }
+}
+
+.pageNumActive {
+  background: $accent;
+  border-color: $accent;
+  color: $white;
+
+  &:hover {
+    background: $accent;
+    border-color: $accent;
+    color: $white;
+  }
+}
+
+.pageArrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rem;
+  height: 40rem;
+  padding: 0 16rem;
+  border-radius: $r-sm;
+  border: 1rem solid $border;
+  font-size: 13rem;
+  font-weight: 500;
+  color: $text-2;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+
+  &:hover {
+    color: $text-1;
+    border-color: $border;
+    background: $bg-elevated;
+  }
+}
+
+.pageArrowDisabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 700px) {
+  .heading {
+    font-size: 44rem;
+    letter-spacing: -1.2rem;
+  }
+  .pageHeaderInner {
+    padding-top: 56rem;
+    padding-bottom: 48rem;
+  }
+  .gridWrap {
+    padding-top: 40rem;
+    padding-bottom: 64rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16rem;
+  }
+  .heading {
+    font-size: 36rem;
+    letter-spacing: -1rem;
+  }
+}

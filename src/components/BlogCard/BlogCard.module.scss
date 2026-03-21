@@ -1,0 +1,98 @@
+@use "@/assets/styles/abstracts/" as *;
+
+// ─── BLOG CARD ────────────────────────────────────────────────────────────────
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $bg-surface;
+  border-radius: $r-xl;
+  border: 1rem solid $border-s;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    border-color 0.25s,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    border-color: $border;
+    transform: translateY(-6rem);
+  }
+}
+
+// ── Cover ──────────────────────────────────────────────────────────────────────
+
+.cover {
+  position: relative;
+  height: 200rem;
+  flex-shrink: 0;
+}
+
+.category {
+  position: absolute;
+  top: 20rem;
+  left: 20rem;
+  font-size: 11rem;
+  font-weight: 500;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  padding: 4rem 10rem;
+  border-radius: $r-sm;
+  border: 1rem solid;
+  line-height: 1.4;
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+
+.content {
+  padding: 28rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+  flex: 1;
+}
+
+.date {
+  font-size: 12rem;
+  font-weight: 400;
+  color: $text-3;
+  line-height: 1;
+}
+
+.title {
+  font-size: 18rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: $text-1;
+  margin: 0;
+  letter-spacing: -0.25rem;
+}
+
+.excerpt {
+  font-size: 14rem;
+  line-height: 1.65;
+  color: $text-2;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ── Arrow ─────────────────────────────────────────────────────────────────────
+
+.arrow {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8rem;
+  color: $text-3;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+
+  .card:hover & {
+    color: $text-1;
+    transform: translateX(4rem);
+  }
+}
