@@ -6,7 +6,7 @@ import styles from "./WhyUs.module.scss";
 
 const ITEMS = [
   {
-    title: "Hüquqi Konsaltinq",
+    title: "Hüquq",
     gradient: "linear-gradient(160deg, #E8E3DC 0%, #CEC5B8 100%)",
   },
   {
@@ -26,9 +26,9 @@ export default function WhyUs() {
     <section className={styles.section}>
       {/* ── Top bar ── */}
       <div className={`${styles.topBar} g-container`}>
-        <h2 className={styles.topLabel}>Why ADHOC?</h2>
+        <h2 className={styles.topLabel}>Xidmətlərimiz</h2>
         <Link href="/contact" className={styles.topBtn}>
-          Get in touch
+         Əlaqə yarat
           <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
             <path d="M1 4H11M11 4L8.25 6.75M11 4L8.25 1.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>

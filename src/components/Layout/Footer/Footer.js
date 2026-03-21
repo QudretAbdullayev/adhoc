@@ -1,28 +1,33 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 
 const NAV_COMPANY = [
   { label: "Haqqımızda", href: "/about-us" },
-  { label: "Bloq",       href: "/blog"         },
-  { label: "Əlaqə",      href: "/contact"        },
-  { label: "Karyera",    href: "/careers"        },
+  { label: "Bloq",       href: "/blog"     },
+  { label: "Əlaqə",      href: "/contact"  },
+  { label: "Karyera",    href: "/careers"  },
 ];
 
 const NAV_SERVICES = [
-  { label: "Hüquqi Konsaltinq",   href: "/services/legal"  },
-  { label: "İnsan Resursları",        href: "/services/human-resources"      },
-  { label: "Mühasibatlıq",   href: "/services/accounting"    },
+  { label: "Hüquqi Konsaltinq", href: "/services/legal"           },
+  { label: "İnsan Resursları",  href: "/services/human-resources" },
+  { label: "Mühasibatlıq",      href: "/services/accounting"      },
 ];
 
 const NAV_MORE = [
-  { label: "Məxfilik Siyasəti", href: "/privacy"   },
-  { label: "Şərtlər",  href: "/terms"},
-  { label: "FAQ",        href: "/faq"      },
+  { label: "Məxfilik Siyasəti", href: "/privacy" },
+  { label: "Şərtlər",           href: "/terms"   },
+  { label: "FAQ",                href: "/faq"     },
 ];
 
+const LANGS = [
+  { code: "AZ", label: "Azərbaycan dili" },
+  { code: "EN", label: "English"         },
+  { code: "RU", label: "Русский"         },
+];
 
 function IconPhone() {
   return (
@@ -50,18 +55,58 @@ function IconLocation() {
   );
 }
 
+function Socials() {
+  return (
+    <div className={styles.socials}>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Facebook">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+    </div>
+  );
+}
+
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [activeLang, setActiveLang] = useState("AZ");
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (email) setSubscribed(true);
   };
 
+  useEffect(() => {
+    const handler = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
   return (
     <footer className={styles.footer}>
 
+      {/* ── Top bar ── */}
       <div className={`${styles.topBar} g-container`}>
         <Link href="/" className={styles.wordmark}>ADHOC.AZ</Link>
 
@@ -80,29 +125,36 @@ export default function Footer() {
           </span>
         </div>
 
-        <div className={styles.socials}>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+        {/* Language dropdown */}
+        <div className={styles.langSelector} ref={langRef}>
+          <button
+            className={`${styles.langTrigger} ${langOpen ? styles.langTriggerOpen : ""}`}
+            onClick={() => setLangOpen((v) => !v)}
+          >
+            {activeLang}
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-          </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Facebook">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
-          </a>
+          </button>
+
+          {langOpen && (
+            <ul className={styles.langDropdown}>
+              {LANGS.map((l) => (
+                <li key={l.code}>
+                  <button
+                    className={`${styles.langOption} ${activeLang === l.code ? styles.langOptionActive : ""}`}
+                    onClick={() => { setActiveLang(l.code); setLangOpen(false); }}
+                  >
+                    {l.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
+      {/* ── Body ── */}
       <div className={`${styles.body} g-container`}>
         <div className={styles.cardNav}>
           <div className={styles.navCol}>
@@ -137,6 +189,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Newsletter card with socials inside */}
         <div className={styles.cardNewsletter}>
           {subscribed ? (
             <div className={styles.successState}>
@@ -145,9 +198,7 @@ export default function Footer() {
             </div>
           ) : (
             <>
-              <h3 className={styles.newsHeading}>
-                Bütün yeniliklərdən xəbərdar olun
-              </h3>
+              <h3 className={styles.newsHeading}>Bütün yeniliklərdən xəbərdar olun</h3>
               <form className={styles.newsForm} onSubmit={handleSubscribe}>
                 <input
                   type="email"
@@ -157,31 +208,28 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <button type="submit" className={styles.newsBtn}>
-                  Abunə ol
-                </button>
+                <button type="submit" className={styles.newsBtn}>Abunə ol</button>
               </form>
               <p className={styles.newsNote}>
                 Abunə olmaqla Gizlilik Siyasətimizə razılıq verirsiniz.
               </p>
             </>
           )}
+          <Socials />
         </div>
       </div>
 
+      {/* ── Bottom bar ── */}
       <div className={`${styles.bottomBar} g-container`}>
         <span className={styles.copy}>
           © {new Date().getFullYear()} ADHOC. Bütün hüquqlar qorunur.
         </span>
-        <nav className={styles.legal}>
-          Designed by <a href="https://venera.az" target="_blank" rel="noopener noreferrer" className={styles.legalLink}>Venera.az</a>
-          <span className={styles.legalSep} />
-          <span className={styles.lang}>
-            <span className={styles.langItem}>AZ</span>
-            <span className={styles.langSep}>/</span>
-            <span className={styles.langItem}>EN</span>
-          </span>
-        </nav>
+        <span className={styles.credit}>
+          Designed by{" "}
+          <a href="https://venera.az" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>
+            Venera.az
+          </a>
+        </span>
       </div>
 
     </footer>
